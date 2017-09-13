@@ -4,8 +4,6 @@
  * and open the template in the editor.
  */
 package View;
-
-import Model.clsRedimensionarImagem;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
