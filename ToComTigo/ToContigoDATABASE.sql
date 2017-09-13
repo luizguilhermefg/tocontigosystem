@@ -10,13 +10,12 @@ Criação das tabelas para o sistema ToContigo
 CREATE TABLE IF NOT EXISTS `Cliente` (
   `id_cliente` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `nome` varchar(150) DEFAULT NULL,
-  `cpf` char(14) NOT NULL,
-  `cnpj` char(18) NOT NULL,
+  `cpf` char(14) NULL,
+  `cnpj` char(18) NULL,
   `rg` char(8) NOT NULL,
   `rua` varchar(200) DEFAULT NULL,
   `cep` varchar(9) DEFAULT NULL,
   `cidade` varchar(100) DEFAULT NULL,
-  `ddd` varchar(2) DEFAULT NULL,
   `telefone` varchar(50) DEFAULT NULL,
   `telefone_comercial` varchar(50) DEFAULT NULL,
   `celular` varchar(50) DEFAULT NULL,
@@ -24,9 +23,8 @@ CREATE TABLE IF NOT EXISTS `Cliente` (
   `pais` varchar(250) DEFAULT NULL,
   `bairro` varchar(200) DEFAULT NULL,
   `complemento` varchar(200) DEFAULT NULL,
-  `numero` varchar(10) DEFAULT NULL,
   `data_nascimento` datetime NOT NULL,
-  `limite` float NOT NULL DEFAULT 0.0,
+  `limite` double NOT NULL DEFAULT 0.0,
   PRIMARY KEY (`id_cliente`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
