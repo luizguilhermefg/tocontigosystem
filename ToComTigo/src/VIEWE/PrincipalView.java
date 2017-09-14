@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package View;
+package VIEWE;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
@@ -211,7 +211,7 @@ public class PrincipalView extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(211, 211, 211));
 
         jPanel4.setBackground(new java.awt.Color(211, 211, 211));
-        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(175, 49, 49)), "Buscar", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Shruti", 1, 18), new java.awt.Color(17, 17, 17))); // NOI18N
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(175, 49, 49)), "Buscar", 2, 0, new java.awt.Font("Shruti", 1, 18), new java.awt.Color(17, 17, 17))); // NOI18N
 
         jTextField1.setBackground(new java.awt.Color(223, 231, 239));
         jTextField1.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
@@ -296,7 +296,7 @@ public class PrincipalView extends javax.swing.JFrame {
         jLabel3.setText("Novo Cliente");
 
         jPanel5.setBackground(new java.awt.Color(211, 211, 211));
-        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 52, 52)), "Dados Pessoais", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Shruti", 0, 14))); // NOI18N
+        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 52, 52)), "Dados Pessoais", 0, 0, new java.awt.Font("Shruti", 0, 14))); // NOI18N
 
         txtCNPJ.setBackground(new java.awt.Color(231, 233, 237));
         txtCNPJ.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
@@ -402,7 +402,7 @@ public class PrincipalView extends javax.swing.JFrame {
         );
 
         jPanel6.setBackground(new java.awt.Color(211, 211, 211));
-        jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 52, 52)), "Endereço", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Shruti", 0, 14))); // NOI18N
+        jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 52, 52)), "Endereço", 0, 0, new java.awt.Font("Shruti", 0, 14))); // NOI18N
 
         txtRua.setBackground(new java.awt.Color(231, 233, 237));
         txtRua.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
@@ -547,7 +547,7 @@ public class PrincipalView extends javax.swing.JFrame {
         );
 
         jPanel7.setBackground(new java.awt.Color(211, 211, 211));
-        jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 52, 52)), "Contato", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Shruti", 0, 14))); // NOI18N
+        jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 52, 52)), "Contato", 0, 0, new java.awt.Font("Shruti", 0, 14))); // NOI18N
 
         txtTel.setBackground(new java.awt.Color(231, 233, 237));
         txtTel.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
@@ -757,7 +757,6 @@ public class PrincipalView extends javax.swing.JFrame {
         );
 
         funcionarios.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        funcionarios.setPreferredSize(new java.awt.Dimension(948, 642));
         funcionarios.setResizable(false);
 
         jPanel8.setBackground(new java.awt.Color(137, 137, 137));
@@ -790,7 +789,7 @@ public class PrincipalView extends javax.swing.JFrame {
         jPanel9.setBackground(new java.awt.Color(211, 211, 211));
 
         jPanel10.setBackground(new java.awt.Color(211, 211, 211));
-        jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(175, 49, 49)), "Buscar", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Shruti", 1, 18), new java.awt.Color(17, 17, 17))); // NOI18N
+        jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(175, 49, 49)), "Buscar", 2, 0, new java.awt.Font("Shruti", 1, 18), new java.awt.Color(17, 17, 17))); // NOI18N
 
         jTextField2.setBackground(new java.awt.Color(223, 231, 239));
         jTextField2.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
@@ -875,7 +874,7 @@ public class PrincipalView extends javax.swing.JFrame {
         jLabel20.setText("Novo Funcionário");
 
         jPanel12.setBackground(new java.awt.Color(211, 211, 211));
-        jPanel12.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 52, 52)), "Dados Pessoais", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Shruti", 0, 14))); // NOI18N
+        jPanel12.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 52, 52)), "Dados Pessoais", 0, 0, new java.awt.Font("Shruti", 0, 14))); // NOI18N
 
         jLabel22.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
         jLabel22.setForeground(new java.awt.Color(26, 26, 26));
@@ -966,7 +965,7 @@ public class PrincipalView extends javax.swing.JFrame {
         );
 
         jPanel13.setBackground(new java.awt.Color(211, 211, 211));
-        jPanel13.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 52, 52)), "Login", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Shruti", 0, 14))); // NOI18N
+        jPanel13.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 52, 52)), "Login", 0, 0, new java.awt.Font("Shruti", 0, 14))); // NOI18N
 
         jLabel26.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
         jLabel26.setForeground(new java.awt.Color(26, 26, 26));
@@ -1019,7 +1018,7 @@ public class PrincipalView extends javax.swing.JFrame {
         );
 
         jPanel14.setBackground(new java.awt.Color(211, 211, 211));
-        jPanel14.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 52, 52)), "Contato", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Shruti", 0, 14))); // NOI18N
+        jPanel14.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 52, 52)), "Contato", 0, 0, new java.awt.Font("Shruti", 0, 14))); // NOI18N
 
         txtTel1.setBackground(new java.awt.Color(231, 233, 237));
         txtTel1.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
@@ -1218,7 +1217,7 @@ public class PrincipalView extends javax.swing.JFrame {
         jPanel16.setBackground(new java.awt.Color(211, 211, 211));
 
         jPanel17.setBackground(new java.awt.Color(211, 211, 211));
-        jPanel17.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(175, 49, 49)), "Buscar", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Shruti", 1, 18), new java.awt.Color(17, 17, 17))); // NOI18N
+        jPanel17.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(175, 49, 49)), "Buscar", 2, 0, new java.awt.Font("Shruti", 1, 18), new java.awt.Color(17, 17, 17))); // NOI18N
 
         jTextField3.setBackground(new java.awt.Color(223, 231, 239));
         jTextField3.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
@@ -1303,7 +1302,7 @@ public class PrincipalView extends javax.swing.JFrame {
         jLabel28.setText("Novo Produto");
 
         jPanel19.setBackground(new java.awt.Color(211, 211, 211));
-        jPanel19.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 52, 52)), "Dados do Produto", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Shruti", 0, 14))); // NOI18N
+        jPanel19.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 52, 52)), "Dados do Produto", 0, 0, new java.awt.Font("Shruti", 0, 14))); // NOI18N
 
         txtUnidade.setBackground(new java.awt.Color(231, 233, 237));
         txtUnidade.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
@@ -1667,7 +1666,7 @@ public class PrincipalView extends javax.swing.JFrame {
         lblUsuario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblUsuario.setText("Leonardo");
 
-        imgPerfil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/imagens/user-icon-2098873_640.png"))); // NOI18N
+        imgPerfil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VIEWE/imagens/user-icon-2098873_640.png"))); // NOI18N
 
         javax.swing.GroupLayout pnlMenuLayout = new javax.swing.GroupLayout(pnlMenu);
         pnlMenu.setLayout(pnlMenuLayout);
@@ -1703,7 +1702,7 @@ public class PrincipalView extends javax.swing.JFrame {
 
         getContentPane().add(pnlMenu);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/imagens/ToContigo (fundo).png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VIEWE/imagens/ToContigo (fundo).png"))); // NOI18N
         getContentPane().add(jLabel1);
 
         pack();
