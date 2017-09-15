@@ -7,7 +7,7 @@ package DAO;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import MODEL.ClienteM;
+import Model.Cliente;
 
 /**
  *
@@ -15,7 +15,7 @@ import MODEL.ClienteM;
  */
 public class ClienteDAO {
     
-    public void salvar (ClienteM cliente) throws SQLException{
+    public void salvar (Cliente cliente) throws SQLException{
         PreparedStatement pst;
         String sql;
         sql = "insert into Cliente values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
@@ -43,7 +43,7 @@ public class ClienteDAO {
         pst.close();
     }
     
-    static public void excluir(ClienteM cliente) throws SQLException{
+    static public void excluir(Cliente cliente) throws SQLException{
         PreparedStatement pst;
         String sql;
         sql = "delete from Cliente where id = ?";

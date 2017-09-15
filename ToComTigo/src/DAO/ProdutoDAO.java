@@ -5,7 +5,7 @@
  */
 package DAO;
 
-import MODEL.ProdutoM;
+import Model.Produto;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
@@ -15,7 +15,7 @@ import java.sql.SQLException;
  */
 public class ProdutoDAO {
     
-    static public void salvar (ProdutoM produto) throws SQLException{
+    static public void salvar (Produto produto) throws SQLException{
         PreparedStatement pst;
         String sql;
         sql = "insert into Produto values (?,?,?,?,?,?,?)";
@@ -32,7 +32,7 @@ public class ProdutoDAO {
         pst.close();
     }
     
-    static public void excluir(ProdutoM produto) throws SQLException{
+    static public void excluir(Produto produto) throws SQLException{
         PreparedStatement pst;
         String sql;
         sql = "delete from Produto where id = ?";

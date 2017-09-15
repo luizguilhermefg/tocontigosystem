@@ -5,7 +5,7 @@
  */
 package DAO;
 
-import MODEL.FuncionarioM;
+import Model.Funcionario;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
@@ -15,7 +15,7 @@ import java.sql.SQLException;
  */
 public class FuncionarioDAO {
     
-    public void salvar (FuncionarioM funcionario) throws SQLException{
+    public void salvar (Funcionario funcionario) throws SQLException{
         PreparedStatement pst;
         String sql;
         sql = "insert into Funcionario values (?,?,?,?,?,?,?,?)";
@@ -33,7 +33,7 @@ public class FuncionarioDAO {
         pst.close();
     }
     
-    static public void excluir(FuncionarioM funcionario) throws SQLException{
+    static public void excluir(Funcionario funcionario) throws SQLException{
         PreparedStatement pst;
         String sql;
         sql = "delete from Funcionario where id = ?";

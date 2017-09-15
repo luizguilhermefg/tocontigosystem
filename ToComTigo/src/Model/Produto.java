@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package MODEL;
+package Model;
 
 /**
  *
  * @author Leandro
  */
-public class ProdutoM {
+public class Produto {
   private int id_produto;
   private String nome;
   private String marca;
@@ -18,10 +18,10 @@ public class ProdutoM {
   private double kilo;
   private int quantidade;
 
-    public ProdutoM() {
+    public Produto() {
     }
 
-    public ProdutoM(int id_produto, String nome, String marca, String grupo, int unidade, double kilo, int quantidade) {
+    public Produto(int id_produto, String nome, String marca, String grupo, int unidade, double kilo, int quantidade) {
         this.id_produto = id_produto;
         this.nome = nome;
         this.marca = marca;

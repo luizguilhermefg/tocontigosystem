@@ -3,30 +3,32 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package MODEL;
+package Model;
 
 /**
  *
  * @author Leandro
  */
-public class FuncionarioM {
+public class Funcionario {
     private int id_funcionario;
     private String nome;
     private String cpf;
     private String rg;
+    private String nasc;
     private String telefone;      
     private String login;
     private String senha;
     private String funcao;      
 
-    public FuncionarioM() {
+    public Funcionario() {
     }
 
-    public FuncionarioM(int id_funcionario, String nome, String cpf, String rg, String telefone, String login, String senha, String funcao) {
+    public Funcionario(int id_funcionario, String nome, String cpf, String rg, String nasc, String telefone, String login, String senha, String funcao) {
         this.id_funcionario = id_funcionario;
         this.nome = nome;
         this.cpf = cpf;
         this.rg = rg;
+        this.nasc = nasc;
         this.telefone = telefone;
         this.login = login;
         this.senha = senha;
@@ -65,6 +67,14 @@ public class FuncionarioM {
         this.rg = rg;
     }
 
+    public String getNasc() {
+        return nasc;
+    }
+
+    public void setNasc(String nasc) {
+        this.nasc = nasc;
+    }
+
     public String getTelefone() {
         return telefone;
     }
@@ -96,6 +106,6 @@ public class FuncionarioM {
     public void setFuncao(String funcao) {
         this.funcao = funcao;
     }
-    
+
     
 }

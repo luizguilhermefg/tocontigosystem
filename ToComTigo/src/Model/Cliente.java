@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package MODEL;
+package Model;
 
 /**
  *
  * @author Leandro
  */
-public class ClienteM {
+public class Cliente {
     private int id_cliente;
     private String nome;
     private String cpf;
@@ -29,10 +29,10 @@ public class ClienteM {
     private String nasc;
     private double limite;
 
-    public ClienteM() {
+    public Cliente() {
     }
 
-    public ClienteM(int id_cliente, String nome, String cpf, String cnpj, String rg, String rua, String cep, String cidade, String tel, String telCom, String cel, String estado, String pais, String bairro, String complemento, String numero, String nasc, double limite) {
+    public Cliente(int id_cliente, String nome, String cpf, String cnpj, String rg, String rua, String cep, String cidade, String tel, String telCom, String cel, String estado, String pais, String bairro, String complemento, String numero, String nasc, double limite) {
         this.id_cliente = id_cliente;
         this.nome = nome;
         this.cpf = cpf;
