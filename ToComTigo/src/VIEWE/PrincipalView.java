@@ -8,7 +8,7 @@ import java.awt.Color;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UIManager.LookAndFeelInfo;
-
+import MODEL.*;
 /**
  *
  * @author Leandro
@@ -18,6 +18,7 @@ public class PrincipalView extends javax.swing.JFrame {
     /**
      * Creates new form PrincipalView
      */
+    ClienteM cliente = new ClienteM();
     public PrincipalView() {
         initComponents();
         
@@ -99,6 +100,7 @@ public class PrincipalView extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         btnCancelar = new javax.swing.JToggleButton();
         btnSalvar = new javax.swing.JToggleButton();
+        txtIDCliente = new javax.swing.JTextField();
         funcionarios = new javax.swing.JFrame();
         jPanel8 = new javax.swing.JPanel();
         lblVoltar1 = new javax.swing.JLabel();
@@ -211,7 +213,7 @@ public class PrincipalView extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(211, 211, 211));
 
         jPanel4.setBackground(new java.awt.Color(211, 211, 211));
-        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(175, 49, 49)), "Buscar", 2, 0, new java.awt.Font("Shruti", 1, 18), new java.awt.Color(17, 17, 17))); // NOI18N
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(175, 49, 49)), "Buscar", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Shruti", 1, 18), new java.awt.Color(17, 17, 17))); // NOI18N
 
         jTextField1.setBackground(new java.awt.Color(223, 231, 239));
         jTextField1.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
@@ -296,7 +298,7 @@ public class PrincipalView extends javax.swing.JFrame {
         jLabel3.setText("Novo Cliente");
 
         jPanel5.setBackground(new java.awt.Color(211, 211, 211));
-        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 52, 52)), "Dados Pessoais", 0, 0, new java.awt.Font("Shruti", 0, 14))); // NOI18N
+        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 52, 52)), "Dados Pessoais", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Shruti", 0, 14))); // NOI18N
 
         txtCNPJ.setBackground(new java.awt.Color(231, 233, 237));
         txtCNPJ.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
@@ -402,7 +404,7 @@ public class PrincipalView extends javax.swing.JFrame {
         );
 
         jPanel6.setBackground(new java.awt.Color(211, 211, 211));
-        jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 52, 52)), "Endereço", 0, 0, new java.awt.Font("Shruti", 0, 14))); // NOI18N
+        jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 52, 52)), "Endereço", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Shruti", 0, 14))); // NOI18N
 
         txtRua.setBackground(new java.awt.Color(231, 233, 237));
         txtRua.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
@@ -547,7 +549,7 @@ public class PrincipalView extends javax.swing.JFrame {
         );
 
         jPanel7.setBackground(new java.awt.Color(211, 211, 211));
-        jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 52, 52)), "Contato", 0, 0, new java.awt.Font("Shruti", 0, 14))); // NOI18N
+        jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 52, 52)), "Contato", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Shruti", 0, 14))); // NOI18N
 
         txtTel.setBackground(new java.awt.Color(231, 233, 237));
         txtTel.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
@@ -647,6 +649,11 @@ public class PrincipalView extends javax.swing.JFrame {
         btnSalvar.setForeground(new java.awt.Color(33, 68, 33));
         btnSalvar.setText("Salvar");
         btnSalvar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(66, 160, 66), 2));
+        btnSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalvarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -655,15 +662,18 @@ public class PrincipalView extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(txtIDCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jPanel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -680,7 +690,9 @@ public class PrincipalView extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel3)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(txtIDCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -789,7 +801,7 @@ public class PrincipalView extends javax.swing.JFrame {
         jPanel9.setBackground(new java.awt.Color(211, 211, 211));
 
         jPanel10.setBackground(new java.awt.Color(211, 211, 211));
-        jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(175, 49, 49)), "Buscar", 2, 0, new java.awt.Font("Shruti", 1, 18), new java.awt.Color(17, 17, 17))); // NOI18N
+        jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(175, 49, 49)), "Buscar", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Shruti", 1, 18), new java.awt.Color(17, 17, 17))); // NOI18N
 
         jTextField2.setBackground(new java.awt.Color(223, 231, 239));
         jTextField2.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
@@ -874,7 +886,7 @@ public class PrincipalView extends javax.swing.JFrame {
         jLabel20.setText("Novo Funcionário");
 
         jPanel12.setBackground(new java.awt.Color(211, 211, 211));
-        jPanel12.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 52, 52)), "Dados Pessoais", 0, 0, new java.awt.Font("Shruti", 0, 14))); // NOI18N
+        jPanel12.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 52, 52)), "Dados Pessoais", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Shruti", 0, 14))); // NOI18N
 
         jLabel22.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
         jLabel22.setForeground(new java.awt.Color(26, 26, 26));
@@ -965,7 +977,7 @@ public class PrincipalView extends javax.swing.JFrame {
         );
 
         jPanel13.setBackground(new java.awt.Color(211, 211, 211));
-        jPanel13.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 52, 52)), "Login", 0, 0, new java.awt.Font("Shruti", 0, 14))); // NOI18N
+        jPanel13.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 52, 52)), "Login", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Shruti", 0, 14))); // NOI18N
 
         jLabel26.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
         jLabel26.setForeground(new java.awt.Color(26, 26, 26));
@@ -1018,7 +1030,7 @@ public class PrincipalView extends javax.swing.JFrame {
         );
 
         jPanel14.setBackground(new java.awt.Color(211, 211, 211));
-        jPanel14.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 52, 52)), "Contato", 0, 0, new java.awt.Font("Shruti", 0, 14))); // NOI18N
+        jPanel14.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 52, 52)), "Contato", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Shruti", 0, 14))); // NOI18N
 
         txtTel1.setBackground(new java.awt.Color(231, 233, 237));
         txtTel1.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
@@ -1217,7 +1229,7 @@ public class PrincipalView extends javax.swing.JFrame {
         jPanel16.setBackground(new java.awt.Color(211, 211, 211));
 
         jPanel17.setBackground(new java.awt.Color(211, 211, 211));
-        jPanel17.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(175, 49, 49)), "Buscar", 2, 0, new java.awt.Font("Shruti", 1, 18), new java.awt.Color(17, 17, 17))); // NOI18N
+        jPanel17.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(175, 49, 49)), "Buscar", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Shruti", 1, 18), new java.awt.Color(17, 17, 17))); // NOI18N
 
         jTextField3.setBackground(new java.awt.Color(223, 231, 239));
         jTextField3.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
@@ -1302,7 +1314,7 @@ public class PrincipalView extends javax.swing.JFrame {
         jLabel28.setText("Novo Produto");
 
         jPanel19.setBackground(new java.awt.Color(211, 211, 211));
-        jPanel19.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 52, 52)), "Dados do Produto", 0, 0, new java.awt.Font("Shruti", 0, 14))); // NOI18N
+        jPanel19.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 52, 52)), "Dados do Produto", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Shruti", 0, 14))); // NOI18N
 
         txtUnidade.setBackground(new java.awt.Color(231, 233, 237));
         txtUnidade.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
@@ -1890,6 +1902,22 @@ public class PrincipalView extends javax.swing.JFrame {
     private void sldQuantidadeStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_sldQuantidadeStateChanged
         lblQuantidade.setText(Integer.toString(sldQuantidade.getValue()));
     }//GEN-LAST:event_sldQuantidadeStateChanged
+
+    private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
+        cliente = new ClienteM();
+        if(txtNome.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Complete os campos obrigatorios.");
+            
+        }else if(txtIDCliente.getText().isEmpty()){
+            cliente.setNome(txtNome.getText());
+            cliente.setCpf(txtCPF.getText());
+            cliente.setRg(txtRG.getText());
+            cliente.setCnpj(txtCNPJ.getText());
+            cliente.setNasc(txtNasc.getText());
+            cliente.setTel(txtTel.getText());
+            cliente.setTelCom(txtTelCom.getText());
+        }
+    }//GEN-LAST:event_btnSalvarActionPerformed
     
     
     
@@ -2005,6 +2033,7 @@ public class PrincipalView extends javax.swing.JFrame {
     private javax.swing.JTextField txtEstado;
     private javax.swing.JTextField txtFuncao;
     private javax.swing.JTextField txtGrupo;
+    private javax.swing.JTextField txtIDCliente;
     private javax.swing.JTextField txtKilo;
     private javax.swing.JTextField txtLimite;
     private javax.swing.JTextField txtMarca;
