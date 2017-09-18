@@ -43,6 +43,35 @@ public class ClienteDAO {
         pst.close();
     }
     
+    //ClienteDao Alterar
+    //By "G"
+    public void Alterar (Cliente cliente) throws SQLException{
+        PreparedStatement pst;
+        String sql;
+        sql = "update Cliente set nome = ?, cpf = ?, cnpj = ?, rg = ?, rua = ?, cep = ?, cidade = ?, telefone = ?, telefone_comercial = ?, celular = ?, estado = ?, pais = ?, bairro = ?, complemento = ?, data_nascimento = ?, limite = ?, where id = ?" ;
+        pst = Conexao.getInstance().prepareStatement(sql);
+        pst.setString(1, cliente.getNome());
+        pst.setString(2, cliente.getCpf());
+        pst.setString(3, cliente.getCnpj());
+        pst.setString(4, cliente.getRg()); 
+        pst.setString(5, cliente.getRua());
+        pst.setString(6, cliente.getCep());
+        pst.setString(7, cliente.getCidade());
+        pst.setString(8, cliente.getTel());
+        pst.setString(9, cliente.getTelCom());
+        pst.setString(10, cliente.getCel());
+        pst.setString(11, cliente.getEstado());
+        pst.setString(12, cliente.getPais());
+        pst.setString(13, cliente.getBairro());
+        pst.setString(14, cliente.getComplemento());
+        pst.setString(15, cliente.getNasc());
+        pst.setDouble(16, cliente.getLimite());
+        pst.setInt(17, cliente.getId_cliente());
+         
+        pst.execute();
+        pst.close();
+    }
+    
     static public void excluir(Cliente cliente) throws SQLException{
         PreparedStatement pst;
         String sql;
