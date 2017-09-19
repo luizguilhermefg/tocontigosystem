@@ -11,8 +11,13 @@ import javax.swing.UIManager.LookAndFeelInfo;
 import Model.*;
 import DAO.*;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.SwingConstants;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -28,6 +33,10 @@ public class PrincipalView extends javax.swing.JFrame {
     ClienteDAO clientedao = new ClienteDAO();
     FuncionarioDAO funcionariodao = new FuncionarioDAO();
     ProdutoDAO produtodao = new ProdutoDAO();
+    // Inicializando Listas
+    List<Cliente> listaCliente;
+    List<Funcionario> listaFuncionario;
+    List<Produto> listaProduto;
     public PrincipalView() {
         initComponents();
         
@@ -41,6 +50,10 @@ public class PrincipalView extends javax.swing.JFrame {
         funcionarios.setLocationRelativeTo(null);
         
         lblQuantidade.setText("500");
+        
+        listaCliente = new ArrayList<>();
+        listaFuncionario = new ArrayList<>();
+        listaProduto = new ArrayList<>();
         
         for ( LookAndFeelInfo info : UIManager.getInstalledLookAndFeels() ) {
             System.out.println( info.getName() );
@@ -929,12 +942,22 @@ public class PrincipalView extends javax.swing.JFrame {
         btnExcluir1.setForeground(new java.awt.Color(122, 45, 45));
         btnExcluir1.setText("Excluir");
         btnExcluir1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(154, 69, 69), 2));
+        btnExcluir1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcluir1ActionPerformed(evt);
+            }
+        });
 
         btnAlterar1.setBackground(new java.awt.Color(111, 189, 111));
         btnAlterar1.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
         btnAlterar1.setForeground(new java.awt.Color(33, 68, 33));
         btnAlterar1.setText("Alterar");
         btnAlterar1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(66, 160, 66), 2));
+        btnAlterar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAlterar1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
@@ -1168,18 +1191,33 @@ public class PrincipalView extends javax.swing.JFrame {
         btnCancelar1.setForeground(new java.awt.Color(122, 45, 45));
         btnCancelar1.setText("Cancelar");
         btnCancelar1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(154, 69, 69), 2));
+        btnCancelar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelar1ActionPerformed(evt);
+            }
+        });
 
         btnSalvar1.setBackground(new java.awt.Color(111, 189, 111));
         btnSalvar1.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
         btnSalvar1.setForeground(new java.awt.Color(33, 68, 33));
         btnSalvar1.setText("Salvar");
         btnSalvar1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(66, 160, 66), 2));
+        btnSalvar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalvar1ActionPerformed(evt);
+            }
+        });
 
         btnNovo1.setBackground(new java.awt.Color(111, 189, 111));
         btnNovo1.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
         btnNovo1.setForeground(new java.awt.Color(33, 68, 33));
         btnNovo1.setText("Novo");
         btnNovo1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(66, 160, 66), 2));
+        btnNovo1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNovo1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
@@ -1390,12 +1428,22 @@ public class PrincipalView extends javax.swing.JFrame {
         btnExcluir2.setForeground(new java.awt.Color(122, 45, 45));
         btnExcluir2.setText("Excluir");
         btnExcluir2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(154, 69, 69), 2));
+        btnExcluir2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcluir2ActionPerformed(evt);
+            }
+        });
 
         btnAlterar2.setBackground(new java.awt.Color(111, 189, 111));
         btnAlterar2.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
         btnAlterar2.setForeground(new java.awt.Color(33, 68, 33));
         btnAlterar2.setText("Alterar");
         btnAlterar2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(66, 160, 66), 2));
+        btnAlterar2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAlterar2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
         jPanel16.setLayout(jPanel16Layout);
@@ -1598,18 +1646,33 @@ public class PrincipalView extends javax.swing.JFrame {
         btnCancelar2.setForeground(new java.awt.Color(122, 45, 45));
         btnCancelar2.setText("Cancelar");
         btnCancelar2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(154, 69, 69), 2));
+        btnCancelar2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelar2ActionPerformed(evt);
+            }
+        });
 
         btnSalvar2.setBackground(new java.awt.Color(111, 189, 111));
         btnSalvar2.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
         btnSalvar2.setForeground(new java.awt.Color(33, 68, 33));
         btnSalvar2.setText("Salvar");
         btnSalvar2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(66, 160, 66), 2));
+        btnSalvar2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalvar2ActionPerformed(evt);
+            }
+        });
 
         btnNovo2.setBackground(new java.awt.Color(111, 189, 111));
         btnNovo2.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
         btnNovo2.setForeground(new java.awt.Color(33, 68, 33));
         btnNovo2.setText("Novo");
         btnNovo2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(66, 160, 66), 2));
+        btnNovo2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNovo2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel18Layout = new javax.swing.GroupLayout(jPanel18);
         jPanel18.setLayout(jPanel18Layout);
@@ -1848,6 +1911,133 @@ public class PrincipalView extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
     
+    public void atualizaTabelaCliente(){
+        cliente = new Cliente();
+        /*try {
+        listaCliente = clientedao.listaTodos();
+        } catch (SQLException ex) {
+        JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage(), "erro", JOptionPane.WARNING_MESSAGE);
+        }*/        
+        String dados[][] = new String[listaFuncionario.size()][6];
+            int i = 0;
+            for (Cliente cliente : listaCliente) {
+                dados[i][0] = String.valueOf(cliente.getId_cliente());
+                dados[i][1] = cliente.getNome();
+                dados[i][2] = cliente.getTel();
+                dados[i][3] = cliente.getRua();
+                dados[i][4] = cliente.getBairro();
+                dados[i][5] = cliente.getCidade();
+                i++;
+            }
+            String tituloColuna[] = {"ID", "Nome", "Telefone","Rua", "Bairro", "Cidade"};
+            DefaultTableModel tabelacliente = new DefaultTableModel();
+            tabelacliente.setDataVector(dados, tituloColuna);
+            tblCliente.setModel(new DefaultTableModel(dados, tituloColuna) {
+                boolean[] canEdit = new boolean[]{
+                    false, false, false, false, false, false,
+                };
+
+                public boolean isCellEditable(int rowIndex, int columnIndex) {
+                    return canEdit[columnIndex];
+                }
+            });
+
+            tblCliente.getColumnModel().getColumn(0).setPreferredWidth(10);
+            tblCliente.getColumnModel().getColumn(1).setPreferredWidth(200);
+            tblCliente.getColumnModel().getColumn(2).setPreferredWidth(100);
+            
+            DefaultTableCellRenderer centralizado = new DefaultTableCellRenderer();
+            centralizado.setHorizontalAlignment(SwingConstants.CENTER);
+            tblCliente.getColumnModel().getColumn(0).setCellRenderer(centralizado);
+            tblCliente.setRowHeight(25);
+            tblCliente.updateUI();
+    }
+    
+    public void atualizaTabelaFuncionario(){
+        funcionario = new Funcionario();
+        /*try {
+        listaFuncionario = funcionariodao.listaTodos();
+        } catch (SQLException ex) {
+        JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage(), "erro", JOptionPane.WARNING_MESSAGE);
+        }*/        
+        String dados[][] = new String[listaFuncionario.size()][6];
+            int i = 0;
+            for (Funcionario funcionario : listaFuncionario) {
+                dados[i][0] = String.valueOf(funcionario.getId_funcionario());
+                dados[i][1] = funcionario.getNome();
+                dados[i][2] = funcionario.getCpf();
+                dados[i][3] = funcionario.getRg();
+                dados[i][4] = funcionario.getFuncao();
+                dados[i][5] = funcionario.getLogin();
+                i++;
+            }
+            String tituloColuna[] = {"ID", "Nome", "Cpf","Rg", "Função", "Login"};
+            DefaultTableModel tabelafuncionario = new DefaultTableModel();
+            tabelafuncionario.setDataVector(dados, tituloColuna);
+            tblCliente1.setModel(new DefaultTableModel(dados, tituloColuna) {
+                boolean[] canEdit = new boolean[]{
+                    false, false, false, false, false, false,
+                };
+
+                public boolean isCellEditable(int rowIndex, int columnIndex) {
+                    return canEdit[columnIndex];
+                }
+            });
+
+            tblCliente1.getColumnModel().getColumn(0).setPreferredWidth(10);
+            tblCliente1.getColumnModel().getColumn(1).setPreferredWidth(200);
+            tblCliente1.getColumnModel().getColumn(2).setPreferredWidth(100);
+            
+            DefaultTableCellRenderer centralizado = new DefaultTableCellRenderer();
+            centralizado.setHorizontalAlignment(SwingConstants.CENTER);
+            tblCliente1.getColumnModel().getColumn(0).setCellRenderer(centralizado);
+            tblCliente1.setRowHeight(25);
+            tblCliente1.updateUI();
+    }
+    
+    public void atualizaTabelaProduto(){
+        produto = new Produto();
+        /*try {
+        listaProduto = produtodao.listaTodos();
+        } catch (SQLException ex) {
+        JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage(), "erro", JOptionPane.WARNING_MESSAGE);
+        }*/        
+        String dados[][] = new String[listaFuncionario.size()][6];
+            int i = 0;
+            for (Produto produto : listaProduto) {
+                dados[i][0] = String.valueOf(produto.getId_produto());
+                dados[i][1] = produto.getNome();
+                dados[i][2] = produto.getMarca();
+                dados[i][3] = produto.getGrupo();
+                dados[i][4] = String.valueOf(produto.getUnidade());
+                dados[i][5] = String.valueOf(produto.getKilo());
+                i++;
+            }
+            String tituloColuna[] = {"ID", "Nome", "Marca","Grupo", "Unidade", "Kilo"};
+            DefaultTableModel tabelaProduto = new DefaultTableModel();
+            tabelaProduto.setDataVector(dados, tituloColuna);
+            tblCliente2.setModel(new DefaultTableModel(dados, tituloColuna) {
+                boolean[] canEdit = new boolean[]{
+                    false, false, false, false, false, false,
+                };
+
+                public boolean isCellEditable(int rowIndex, int columnIndex) {
+                    return canEdit[columnIndex];
+                }
+            });
+
+            tblCliente2.getColumnModel().getColumn(0).setPreferredWidth(10);
+            tblCliente2.getColumnModel().getColumn(1).setPreferredWidth(200);
+            tblCliente2.getColumnModel().getColumn(2).setPreferredWidth(100);
+            
+            DefaultTableCellRenderer centralizado = new DefaultTableCellRenderer();
+            centralizado.setHorizontalAlignment(SwingConstants.CENTER);
+            tblCliente2.getColumnModel().getColumn(0).setCellRenderer(centralizado);
+            tblCliente2.setRowHeight(25);
+            tblCliente2.updateUI();
+    }
+    
+    
     //                  BOTÕES SAIR
     
     private void lblSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSairMouseClicked
@@ -1996,6 +2186,7 @@ public class PrincipalView extends javax.swing.JFrame {
         if(txtNome.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Complete todos os campos", "Erro", JOptionPane.WARNING_MESSAGE);
         }else if(txtIDCliente.getText().isEmpty()){
+            
             cliente.setNome(txtNome.getText());
             cliente.setCpf(txtCPF.getText());
             cliente.setRg(txtRG.getText());
@@ -2047,26 +2238,232 @@ public class PrincipalView extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void btnNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoActionPerformed
-        // TODO add your handling code here:
+        LimparCamposCliente();
+        PreparaNovoCliente();
+        AtivaCamposCliente();
+        btnAlterar.setEnabled(false);
+        btnExcluir.setEnabled(false);
+        txtNome.requestFocusInWindow(); 
     }//GEN-LAST:event_btnNovoActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        // TODO add your handling code here:
+    LimparCamposCliente();
+    PreparaSalvareCancelarCliente();
+    DesativaCamposCliente();
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
-        // TODO add your handling code here:
+    PreparaAlterarCliente();
+    AtivaCamposCliente();
+    txtNome.requestFocusInWindow(); 
     }//GEN-LAST:event_btnAlterarActionPerformed
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
-        // TODO add your handling code here:
+        if(txtIDCliente.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Selecione um Cliente", "erro", JOptionPane.WARNING_MESSAGE);
+        }
+        else{
+            cliente.setId_cliente(Integer.parseInt(txtIDCliente.getText()));
+            int confirma = JOptionPane.showConfirmDialog(null, "Deseja excluir: "+ txtNome.getText());
+            if(confirma ==0){
+                try{
+                    clientedao.excluir(cliente);
+                    LimparCamposCliente();
+                    txtNome.requestFocusInWindow();
+                }catch(SQLException ex){
+                    JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage(), "erro", JOptionPane.WARNING_MESSAGE);
+                }
+                //atualizaTabelaFuncionario();
+                PreparaExcluirCliente();
+            }
+        }
     }//GEN-LAST:event_btnExcluirActionPerformed
+
+    private void btnSalvar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvar1ActionPerformed
+        funcionario = new Funcionario();
+        if(txtNome1.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Complete todos os campos", "Erro", JOptionPane.WARNING_MESSAGE);
+        }else if(txtIDFuncionario.getText().isEmpty()){
+            
+            funcionario.setNome(txtNome1.getText());
+            funcionario.setCpf(txtCPF1.getText());
+            funcionario.setRg(txtRG1.getText());
+            funcionario.setNasc(txtNasc1.getText());
+            funcionario.setTelefone(txtTel1.getText());
+            funcionario.setLogin(txtUsu.getText());
+            funcionario.setSenha(txtSenha.getText());
+            funcionario.setFuncao(txtFuncao.getText());
+            
+            try {
+                funcionariodao.salvar(funcionario);
+                JOptionPane.showMessageDialog(null, "Funcionario Salvo!", "Sucesso!!!", JOptionPane.INFORMATION_MESSAGE);
+            } catch (SQLException ex) {
+                Logger.getLogger(PrincipalView.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+        }else{
+            funcionario.setId_funcionario(Integer.parseInt(txtIDFuncionario.getText()));
+            funcionario.setNome(txtNome1.getText());
+            funcionario.setCpf(txtCPF1.getText());
+            funcionario.setRg(txtRG1.getText());
+            funcionario.setNasc(txtNasc1.getText());
+            funcionario.setTelefone(txtTel1.getText());
+            funcionario.setLogin(txtUsu.getText());
+            funcionario.setSenha(txtSenha.getText());
+            funcionario.setFuncao(txtFuncao.getText());
+            
+            try {
+                funcionariodao.salvar(funcionario);// MUDAR PARA ALTERAR DEPOIS DE CRIADO NO DAO
+                JOptionPane.showMessageDialog(null, "Funcionario Alterado!", "Sucesso!!!", JOptionPane.INFORMATION_MESSAGE);
+            } catch (SQLException ex) {
+                Logger.getLogger(PrincipalView.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_btnSalvar1ActionPerformed
+
+    private void btnNovo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovo1ActionPerformed
+        LimparCamposFuncionario();
+        PreparaNovoFuncionario();
+        AtivaCamposFuncionario();
+        btnAlterar1.setEnabled(false);
+        btnExcluir1.setEnabled(false);
+        txtNome1.requestFocusInWindow(); 
+    }//GEN-LAST:event_btnNovo1ActionPerformed
+
+    private void btnCancelar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelar1ActionPerformed
+    LimparCamposFuncionario();
+    PreparaSalvareCancelarFuncionario();
+    DesativaCamposFuncionario();
+    }//GEN-LAST:event_btnCancelar1ActionPerformed
+
+    private void btnAlterar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterar1ActionPerformed
+    PreparaAlterarFuncionario();
+    AtivaCamposFuncionario();
+    txtNome1.requestFocusInWindow(); 
+    }//GEN-LAST:event_btnAlterar1ActionPerformed
+
+    private void btnExcluir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluir1ActionPerformed
+        if(txtIDFuncionario.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Selecione um Funcionario", "erro", JOptionPane.WARNING_MESSAGE);
+        }
+        else{
+            funcionario.setId_funcionario(Integer.parseInt(txtIDFuncionario.getText()));
+            int confirma = JOptionPane.showConfirmDialog(null, "Deseja excluir: "+ txtNome1.getText());
+            if(confirma ==0){
+                try{
+                    funcionariodao.excluir(funcionario);
+                    LimparCamposFuncionario();
+                    txtNome1.requestFocusInWindow();
+                }catch(SQLException ex){
+                    JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage(), "erro", JOptionPane.WARNING_MESSAGE);
+                }
+                //atualizaTabelaFuncionario();
+                PreparaExcluirFuncionario();
+            }
+        }
+    }//GEN-LAST:event_btnExcluir1ActionPerformed
+
+    private void btnSalvar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvar2ActionPerformed
+        produto = new Produto();
+        if(txtNome2.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Complete todos os campos", "Erro", JOptionPane.WARNING_MESSAGE);
+        }else if(txtIDProduto.getText().isEmpty()){
+            
+            produto.setNome(txtNome2.getText());
+            produto.setMarca(txtMarca.getText());
+            produto.setGrupo(txtGrupo.getText());
+            produto.setUnidade(Integer.parseInt(txtUnidade.getText()));
+            produto.setKilo(Double.parseDouble(txtKilo.getText()));
+
+            try {
+                produtodao.salvar(produto);
+                JOptionPane.showMessageDialog(null, "Produto Salvo!", "Sucesso!!!", JOptionPane.INFORMATION_MESSAGE);
+            } catch (SQLException ex) {
+                Logger.getLogger(PrincipalView.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+        }else{
+            produto.setId_produto(Integer.parseInt(txtIDProduto.getText()));
+            produto.setNome(txtNome2.getText());
+            produto.setMarca(txtMarca.getText());
+            produto.setGrupo(txtGrupo.getText());
+            produto.setUnidade(Integer.parseInt(txtUnidade.getText()));
+            produto.setKilo(Double.parseDouble(txtKilo.getText()));
+            
+            try {
+                produtodao.salvar(produto);// MUDAR PARA ALTERAR DEPOIS DE CRIADO NO DAO
+                JOptionPane.showMessageDialog(null, "Produto Alterado!", "Sucesso!!!", JOptionPane.INFORMATION_MESSAGE);
+            } catch (SQLException ex) {
+                Logger.getLogger(PrincipalView.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_btnSalvar2ActionPerformed
+
+    private void btnNovo2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovo2ActionPerformed
+        LimparCamposProduto();
+        PreparaNovoProduto();
+        AtivaCamposProduto();
+        btnAlterar2.setEnabled(false);
+        btnExcluir2.setEnabled(false);
+        txtNome2.requestFocusInWindow(); 
+    }//GEN-LAST:event_btnNovo2ActionPerformed
+
+    private void btnCancelar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelar2ActionPerformed
+    LimparCamposProduto();
+    PreparaSalvareCancelarProduto();
+    DesativaCamposProduto();
+    }//GEN-LAST:event_btnCancelar2ActionPerformed
+
+    private void btnAlterar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterar2ActionPerformed
+    PreparaAlterarProduto();
+    AtivaCamposProduto();
+    txtNome2.requestFocusInWindow(); 
+    }//GEN-LAST:event_btnAlterar2ActionPerformed
+
+    private void btnExcluir2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluir2ActionPerformed
+        if(txtIDProduto.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Selecione um Produto", "erro", JOptionPane.WARNING_MESSAGE);
+        }
+        else{
+            produto.setId_produto(Integer.parseInt(txtIDProduto.getText()));
+            int confirma = JOptionPane.showConfirmDialog(null, "Deseja excluir: "+ txtNome2.getText());
+            if(confirma ==0){
+                try{
+                    produtodao.excluir(produto);
+                    LimparCamposProduto();
+                    txtNome2.requestFocusInWindow();
+                }catch(SQLException ex){
+                    JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage(), "erro", JOptionPane.WARNING_MESSAGE);
+                }
+                //atualizaTabelaFuncionario();
+                PreparaExcluirProduto();
+            }
+        }
+    }//GEN-LAST:event_btnExcluir2ActionPerformed
     
     /*
     *                           *
     *   METODOS CLIENTE         *
     *                           *
     */
+    public void LimparCamposCliente(){
+        txtNome.setText("");
+        txtCPF.setText("");
+        txtRG.setText("");
+        txtCNPJ.setText("");
+        txtNasc.setText("");
+        txtTel.setText("");
+        txtTelCom.setText("");
+        txtCel.setText("");
+        txtRua.setText("");
+        txtBairro.setText("");
+        txtComplemento.setText("");
+        txtCidade.setText("");
+        txtEstado.setText("");
+        txtPais.setText("");
+        txtLimite.setText("");
+    }
+    
     public void AtivaCamposCliente(){
         txtNome.setEnabled(true);
         txtCPF.setEnabled(true);
@@ -2144,6 +2541,17 @@ public class PrincipalView extends javax.swing.JFrame {
     *   METODOS FUNCIONARIO     *
     *                           *
     */
+    public void LimparCamposFuncionario(){
+        txtNome1.setText("");
+        txtCPF1.setText("");
+        txtRG1.setText("");
+        txtNasc1.setText("");
+        txtTel1.setText("");
+        txtUsu.setText("");
+        txtSenha.setText("");
+        txtFuncao.setText("");
+    }
+    
     public void AtivaCamposFuncionario(){
         txtNome1.setEnabled(true);
         txtCPF1.setEnabled(true);
@@ -2202,12 +2610,19 @@ public class PrincipalView extends javax.swing.JFrame {
         btnAlterar1.setEnabled(false);
     }
     
-    
     /*                          
     *                           *
     *   METODOS PRODUTO         *
     *                           *
-    */                          
+    */
+    public void LimparCamposProduto(){
+        txtNome2.setText("");
+        txtMarca.setText("");
+        txtGrupo.setText("");
+        txtUnidade.setText("");
+        txtKilo.setText("");
+    }
+    
     public void AtivaCamposProduto(){
         txtNome2.setEnabled(true);
         txtMarca.setEnabled(true);
@@ -2258,6 +2673,7 @@ public class PrincipalView extends javax.swing.JFrame {
         btnExcluir2.setEnabled(false);
         btnAlterar2.setEnabled(false);
     }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton btnAlterar;
     private javax.swing.JToggleButton btnAlterar1;
