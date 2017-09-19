@@ -20,12 +20,11 @@ import java.util.logging.Logger;
  */
 public class PrincipalView extends javax.swing.JFrame {
 
-    /**
-     * Creates new form PrincipalView
-     */
+    // Inicializando Objetos do modelo
     Cliente cliente = new Cliente();
     Funcionario funcionario = new Funcionario();
     Produto produto = new Produto();
+    // Inicializando Objeto do banco
     ClienteDAO clientedao = new ClienteDAO();
     FuncionarioDAO funcionariodao = new FuncionarioDAO();
     ProdutoDAO produtodao = new ProdutoDAO();
@@ -691,12 +690,22 @@ public class PrincipalView extends javax.swing.JFrame {
         btnCancelar.setForeground(new java.awt.Color(122, 45, 45));
         btnCancelar.setText("Cancelar");
         btnCancelar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(154, 69, 69), 2));
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
 
         btnSalvar.setBackground(new java.awt.Color(111, 189, 111));
         btnSalvar.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
         btnSalvar.setForeground(new java.awt.Color(33, 68, 33));
         btnSalvar.setText("Salvar");
         btnSalvar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(66, 160, 66), 2));
+        btnSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalvarActionPerformed(evt);
+            }
+        });
 
         btnNovo.setBackground(new java.awt.Color(111, 189, 111));
         btnNovo.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
@@ -920,22 +929,12 @@ public class PrincipalView extends javax.swing.JFrame {
         btnExcluir1.setForeground(new java.awt.Color(122, 45, 45));
         btnExcluir1.setText("Excluir");
         btnExcluir1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(154, 69, 69), 2));
-        btnExcluir1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnExcluir1ActionPerformed(evt);
-            }
-        });
 
         btnAlterar1.setBackground(new java.awt.Color(111, 189, 111));
         btnAlterar1.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
         btnAlterar1.setForeground(new java.awt.Color(33, 68, 33));
         btnAlterar1.setText("Alterar");
         btnAlterar1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(66, 160, 66), 2));
-        btnAlterar1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAlterar1ActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
@@ -1181,11 +1180,6 @@ public class PrincipalView extends javax.swing.JFrame {
         btnNovo1.setForeground(new java.awt.Color(33, 68, 33));
         btnNovo1.setText("Novo");
         btnNovo1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(66, 160, 66), 2));
-        btnNovo1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNovo1ActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
@@ -1396,22 +1390,12 @@ public class PrincipalView extends javax.swing.JFrame {
         btnExcluir2.setForeground(new java.awt.Color(122, 45, 45));
         btnExcluir2.setText("Excluir");
         btnExcluir2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(154, 69, 69), 2));
-        btnExcluir2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnExcluir2ActionPerformed(evt);
-            }
-        });
 
         btnAlterar2.setBackground(new java.awt.Color(111, 189, 111));
         btnAlterar2.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
         btnAlterar2.setForeground(new java.awt.Color(33, 68, 33));
         btnAlterar2.setText("Alterar");
         btnAlterar2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(66, 160, 66), 2));
-        btnAlterar2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAlterar2ActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
         jPanel16.setLayout(jPanel16Layout);
@@ -1626,11 +1610,6 @@ public class PrincipalView extends javax.swing.JFrame {
         btnNovo2.setForeground(new java.awt.Color(33, 68, 33));
         btnNovo2.setText("Novo");
         btnNovo2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(66, 160, 66), 2));
-        btnNovo2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNovo2ActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel18Layout = new javax.swing.GroupLayout(jPanel18);
         jPanel18.setLayout(jPanel18Layout);
@@ -2012,41 +1991,76 @@ public class PrincipalView extends javax.swing.JFrame {
         lblQuantidade.setText(Integer.toString(sldQuantidade.getValue()));
     }//GEN-LAST:event_sldQuantidadeStateChanged
 
-    private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnExcluirActionPerformed
-
-    private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnAlterarActionPerformed
+    private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
+        cliente = new Cliente();
+        if(txtNome.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Complete todos os campos", "Erro", JOptionPane.WARNING_MESSAGE);
+        }else if(txtIDCliente.getText().isEmpty()){
+            cliente.setNome(txtNome.getText());
+            cliente.setCpf(txtCPF.getText());
+            cliente.setRg(txtRG.getText());
+            cliente.setCnpj(txtCNPJ.getText());
+            cliente.setNasc(txtNasc.getText());
+            cliente.setTel(txtTel.getText());
+            cliente.setTelCom(txtTelCom.getText());
+            cliente.setCel(txtCel.getText());
+            cliente.setRua(txtRua.getText());
+            cliente.setBairro(txtBairro.getText());
+            cliente.setComplemento(txtComplemento.getText());
+            cliente.setCidade(txtCidade.getText());
+            cliente.setEstado(txtEstado.getText());
+            cliente.setPais(txtPais.getText());
+            cliente.setLimite(Double.parseDouble(txtLimite.getText()));
+            
+            try {
+                clientedao.salvar(cliente);
+                JOptionPane.showMessageDialog(null, "Cliente Salvo!", "Sucesso!!!", JOptionPane.INFORMATION_MESSAGE);
+            } catch (SQLException ex) {
+                Logger.getLogger(PrincipalView.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+        }else{
+            cliente.setId_cliente(Integer.parseInt(txtIDCliente.getText()));
+            cliente.setNome(txtNome.getText());
+            cliente.setCpf(txtCPF.getText());
+            cliente.setRg(txtRG.getText());
+            cliente.setCnpj(txtCNPJ.getText());
+            cliente.setNasc(txtNasc.getText());
+            cliente.setTel(txtTel.getText());
+            cliente.setTelCom(txtTelCom.getText());
+            cliente.setCel(txtCel.getText());
+            cliente.setRua(txtRua.getText());
+            cliente.setBairro(txtBairro.getText());
+            cliente.setComplemento(txtComplemento.getText());
+            cliente.setCidade(txtCidade.getText());
+            cliente.setEstado(txtEstado.getText());
+            cliente.setPais(txtPais.getText());
+            cliente.setLimite(Double.parseDouble(txtLimite.getText()));
+            
+            try {
+                clientedao.Alterar(cliente);
+                JOptionPane.showMessageDialog(null, "Cliente Alterado!", "Sucesso!!!", JOptionPane.INFORMATION_MESSAGE);
+            } catch (SQLException ex) {
+                Logger.getLogger(PrincipalView.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void btnNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnNovoActionPerformed
 
-    private void btnNovo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovo1ActionPerformed
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnNovo1ActionPerformed
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
-    private void btnNovo2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovo2ActionPerformed
+    private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnNovo2ActionPerformed
+    }//GEN-LAST:event_btnAlterarActionPerformed
 
-    private void btnExcluir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluir1ActionPerformed
+    private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnExcluir1ActionPerformed
-
-    private void btnAlterar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterar1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnAlterar1ActionPerformed
-
-    private void btnExcluir2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluir2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnExcluir2ActionPerformed
-
-    private void btnAlterar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterar2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnAlterar2ActionPerformed
+    }//GEN-LAST:event_btnExcluirActionPerformed
     
     /*
     *                           *

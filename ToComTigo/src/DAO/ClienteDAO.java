@@ -44,7 +44,7 @@ public class ClienteDAO {
     }
     
     //ClienteDao Alterar
-    //By "G"
+    //By "G de gordo"
     public void Alterar (Cliente cliente) throws SQLException{
         PreparedStatement pst;
         String sql;
