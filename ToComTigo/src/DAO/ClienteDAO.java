@@ -44,11 +44,11 @@ public class ClienteDAO {
     }
     
     //ClienteDao Alterar
-    //By "G de gordo"
-    public void Alterar (Cliente cliente) throws SQLException{
+    //Create By "G"
+    public void alterar (Cliente cliente) throws SQLException{
         PreparedStatement pst;
         String sql;
-        sql = "update Cliente set nome = ?, cpf = ?, cnpj = ?, rg = ?, rua = ?, cep = ?, cidade = ?, telefone = ?, telefone_comercial = ?, celular = ?, estado = ?, pais = ?, bairro = ?, complemento = ?, data_nascimento = ?, limite = ?, where id = ?" ;
+        sql = "UPDATE Cliente SET nome = ?, cpf = ?, cnpj = ?, rg = ?, rua = ?, cep = ?, cidade = ?, telefone = ?, telefone_comercial = ?, celular = ?, estado = ?, pais = ?, bairro = ?, complemento = ?, data_nascimento = ?, limite = ? WHERE id_cliente = ?" ;
         pst = Conexao.getInstance().prepareStatement(sql);
         pst.setString(1, cliente.getNome());
         pst.setString(2, cliente.getCpf());

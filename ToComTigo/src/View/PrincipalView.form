@@ -1315,9 +1315,6 @@
     <Container class="javax.swing.JFrame" name="funcionarios">
       <Properties>
         <Property name="defaultCloseOperation" type="int" value="3"/>
-        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[948, 642]"/>
-        </Property>
         <Property name="resizable" type="boolean" value="false"/>
       </Properties>
 

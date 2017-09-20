@@ -2229,7 +2229,7 @@ public class PrincipalView extends javax.swing.JFrame {
             cliente.setLimite(Double.parseDouble(txtLimite.getText()));
             
             try {
-                clientedao.Alterar(cliente);
+                clientedao.alterar(cliente);
                 JOptionPane.showMessageDialog(null, "Cliente Alterado!", "Sucesso!!!", JOptionPane.INFORMATION_MESSAGE);
             } catch (SQLException ex) {
                 Logger.getLogger(PrincipalView.class.getName()).log(Level.SEVERE, null, ex);
