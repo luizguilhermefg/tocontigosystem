@@ -1,10 +1,21 @@
 
 /*
+Script to Build DATABASE ToContigo System
+powered by : "G"
+........................................
+........................................
+............     Loading        ........
+........................................
+........................................
+
+Script Start!
 Criando Database
+
 */
 CREATE DATABASE ToContigo;
 USE ToContigo;
 /*
+Init Create Tables......................
 Criação das tabelas para o sistema ToContigo
 */
 CREATE TABLE IF NOT EXISTS `Cliente` (
@@ -33,7 +44,6 @@ CREATE TABLE IF NOT EXISTS `Funcionario` (
   `nome` varchar(150) DEFAULT NULL,
   `cpf` char(14) NOT NULL,
   `rg` char(8) NOT NULL,
-  `ddd` varchar(2) DEFAULT NULL,
   `telefone` varchar(50) DEFAULT NULL,
   `login` varchar(50) NOT NULL,
   `senha`varchar(64) NOT NULL,
@@ -68,6 +78,11 @@ CREATE TABLE IF NOT EXISTS `Funcionario` (
   PRIMARY KEY (`id_historico`)
  ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
  
+ /*******************************************************
+ ***************** End Create Tables ********************
+ ********************************************************
+ ********************************************************/
+ -- Init Create Constraints and Foreign Keys
  -- Chaves estrangeiras tabela Venda
  
 ALTER TABLE `Venda` ADD CONSTRAINT `fk_cliente` FOREIGN KEY ( `id_cliente` ) REFERENCES `Cliente` ( `id_cliente` ) ;
