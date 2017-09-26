@@ -45,6 +45,7 @@ CREATE TABLE IF NOT EXISTS `Funcionario` (
   `nome` varchar(150) DEFAULT NULL,
   `cpf` char(14) NOT NULL,
   `rg` char(8) NOT NULL,
+  `data_nascimento`  varchar(15) NOT NULL,
   `telefone` varchar(50) DEFAULT NULL,
   `login` varchar(50) NOT NULL,
   `senha`varchar(64) NOT NULL,
