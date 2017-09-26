@@ -58,7 +58,9 @@ public class PrincipalView extends javax.swing.JFrame {
         for ( LookAndFeelInfo info : UIManager.getInstalledLookAndFeels() ) {
             System.out.println( info.getName() );
         }
-        
+        atualizaTabelaCliente();
+        atualizaTabelaFuncionario();
+        atualizaTabelaProduto();        
     }
 
     
@@ -113,6 +115,8 @@ public class PrincipalView extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         txtPais = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
+        txtCep = new javax.swing.JTextField();
+        txtNumero = new javax.swing.JTextField();
         jPanel7 = new javax.swing.JPanel();
         txtTel = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
@@ -347,7 +351,7 @@ public class PrincipalView extends javax.swing.JFrame {
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -562,8 +566,6 @@ public class PrincipalView extends javax.swing.JFrame {
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5)
-                    .addComponent(txtRua, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -573,15 +575,27 @@ public class PrincipalView extends javax.swing.JFrame {
                             .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(17, 17, 17)
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtComplemento, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel13)))
-                    .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtPais, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtPais, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(32, 32, 32)
+                        .addComponent(txtCep))
+                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel6Layout.createSequentialGroup()
+                            .addComponent(txtRua, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel6Layout.createSequentialGroup()
+                            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel5)
+                                .addGroup(jPanel6Layout.createSequentialGroup()
+                                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(txtBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGap(17, 17, 17)
+                                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(txtComplemento, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel13)))
+                                .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(0, 0, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
@@ -589,7 +603,9 @@ public class PrincipalView extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtRua, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtRua, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -609,7 +625,9 @@ public class PrincipalView extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtPais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtPais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -849,7 +867,6 @@ public class PrincipalView extends javax.swing.JFrame {
         );
 
         funcionarios.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        funcionarios.setPreferredSize(new java.awt.Dimension(948, 642));
         funcionarios.setResizable(false);
 
         jPanel8.setBackground(new java.awt.Color(137, 137, 137));
@@ -2001,7 +2018,7 @@ public class PrincipalView extends javax.swing.JFrame {
         listaProduto = produtodao.listaTodos();
         } catch (SQLException ex) {
         JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage(), "erro", JOptionPane.WARNING_MESSAGE);
-        }*/        
+        } */      
         String dados[][] = new String[listaFuncionario.size()][6];
             int i = 0;
             for (Produto produto : listaProduto) {
@@ -2189,18 +2206,20 @@ public class PrincipalView extends javax.swing.JFrame {
             
             cliente.setNome(txtNome.getText());
             cliente.setCpf(txtCPF.getText());
-            cliente.setRg(txtRG.getText());
             cliente.setCnpj(txtCNPJ.getText());
-            cliente.setNasc(txtNasc.getText());
+            cliente.setRg(txtRG.getText());
+            cliente.setRua(txtRua.getText());
+            cliente.setCep(txtCep.getText());
+            cliente.setCidade(txtCidade.getText());
             cliente.setTel(txtTel.getText());
             cliente.setTelCom(txtTelCom.getText());
             cliente.setCel(txtCel.getText());
-            cliente.setRua(txtRua.getText());
-            cliente.setBairro(txtBairro.getText());
-            cliente.setComplemento(txtComplemento.getText());
-            cliente.setCidade(txtCidade.getText());
             cliente.setEstado(txtEstado.getText());
             cliente.setPais(txtPais.getText());
+            cliente.setBairro(txtBairro.getText());
+            cliente.setComplemento(txtComplemento.getText());
+            cliente.setNumero(txtNumero.getText());
+            cliente.setNasc(txtNasc.getText());
             cliente.setLimite(Double.parseDouble(txtLimite.getText()));
             
             try {
@@ -2214,18 +2233,20 @@ public class PrincipalView extends javax.swing.JFrame {
             cliente.setId_cliente(Integer.parseInt(txtIDCliente.getText()));
             cliente.setNome(txtNome.getText());
             cliente.setCpf(txtCPF.getText());
-            cliente.setRg(txtRG.getText());
             cliente.setCnpj(txtCNPJ.getText());
-            cliente.setNasc(txtNasc.getText());
+            cliente.setRg(txtRG.getText());
+            cliente.setRua(txtRua.getText());
+            cliente.setCep(txtCep.getText());
+            cliente.setCidade(txtCidade.getText());
             cliente.setTel(txtTel.getText());
             cliente.setTelCom(txtTelCom.getText());
             cliente.setCel(txtCel.getText());
-            cliente.setRua(txtRua.getText());
-            cliente.setBairro(txtBairro.getText());
-            cliente.setComplemento(txtComplemento.getText());
-            cliente.setCidade(txtCidade.getText());
             cliente.setEstado(txtEstado.getText());
             cliente.setPais(txtPais.getText());
+            cliente.setBairro(txtBairro.getText());
+            cliente.setComplemento(txtComplemento.getText());
+            cliente.setNumero(txtNumero.getText());
+            cliente.setNasc(txtNasc.getText());
             cliente.setLimite(Double.parseDouble(txtLimite.getText()));
             
             try {
@@ -2789,6 +2810,7 @@ public class PrincipalView extends javax.swing.JFrame {
     private javax.swing.JTextField txtCPF;
     private javax.swing.JTextField txtCPF1;
     private javax.swing.JTextField txtCel;
+    private javax.swing.JTextField txtCep;
     private javax.swing.JTextField txtCidade;
     private javax.swing.JTextField txtComplemento;
     private javax.swing.JTextField txtEstado;
@@ -2805,6 +2827,7 @@ public class PrincipalView extends javax.swing.JFrame {
     private javax.swing.JTextField txtNome;
     private javax.swing.JTextField txtNome1;
     private javax.swing.JTextField txtNome2;
+    private javax.swing.JTextField txtNumero;
     private javax.swing.JTextField txtPais;
     private javax.swing.JTextField txtRG;
     private javax.swing.JTextField txtRG1;

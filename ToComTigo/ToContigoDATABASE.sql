@@ -1,4 +1,4 @@
-
+drop schema tocontigo;
 /*
 Script to Build DATABASE ToContigo System
 powered by : "G"
@@ -34,7 +34,8 @@ CREATE TABLE IF NOT EXISTS `Cliente` (
   `pais` varchar(250) DEFAULT NULL,
   `bairro` varchar(200) DEFAULT NULL,
   `complemento` varchar(200) DEFAULT NULL,
-  `data_nascimento` datetime NOT NULL,
+  `numero` varchar(4) DEFAULT NULL,
+  `data_nascimento`  varchar(15) NOT NULL,
   `limite` double NOT NULL DEFAULT 0.0,
   PRIMARY KEY (`id_cliente`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
