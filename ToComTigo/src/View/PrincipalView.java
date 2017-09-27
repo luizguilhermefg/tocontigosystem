@@ -153,20 +153,20 @@ public class PrincipalView extends javax.swing.JFrame {
         jPanel12 = new javax.swing.JPanel();
         jLabel22 = new javax.swing.JLabel();
         txtNome1 = new javax.swing.JTextField();
-        txtCPF1 = new javax.swing.JTextField();
         jLabel23 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
-        txtRG1 = new javax.swing.JTextField();
-        txtNasc1 = new javax.swing.JTextField();
         jLabel25 = new javax.swing.JLabel();
+        txtCPF1 = new javax.swing.JFormattedTextField();
+        txtRG1 = new javax.swing.JFormattedTextField();
+        txtNasc1 = new javax.swing.JFormattedTextField();
         jPanel13 = new javax.swing.JPanel();
         jLabel26 = new javax.swing.JLabel();
         txtUsu = new javax.swing.JTextField();
         jLabel27 = new javax.swing.JLabel();
         txtSenha = new javax.swing.JPasswordField();
         jPanel14 = new javax.swing.JPanel();
-        txtTel1 = new javax.swing.JTextField();
         jLabel32 = new javax.swing.JLabel();
+        txtTel1 = new javax.swing.JFormattedTextField();
         txtFuncao = new javax.swing.JTextField();
         jLabel35 = new javax.swing.JLabel();
         btnCancelar1 = new javax.swing.JToggleButton();
@@ -1098,12 +1098,6 @@ public class PrincipalView extends javax.swing.JFrame {
         txtNome1.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
         txtNome1.setMargin(new java.awt.Insets(0, 0, 0, 0));
 
-        txtCPF1.setBackground(new java.awt.Color(231, 233, 237));
-        txtCPF1.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
-        txtCPF1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtCPF1.setText("000.000.000-00");
-        txtCPF1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(104, 129, 164)));
-
         jLabel23.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
         jLabel23.setForeground(new java.awt.Color(26, 26, 26));
         jLabel23.setText("CPF");
@@ -1112,21 +1106,42 @@ public class PrincipalView extends javax.swing.JFrame {
         jLabel24.setForeground(new java.awt.Color(26, 26, 26));
         jLabel24.setText("RG");
 
-        txtRG1.setBackground(new java.awt.Color(231, 233, 237));
-        txtRG1.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
-        txtRG1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtRG1.setText("00.000.000");
-        txtRG1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(104, 129, 164)));
-
-        txtNasc1.setBackground(new java.awt.Color(231, 233, 237));
-        txtNasc1.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
-        txtNasc1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtNasc1.setText("10/07/1997");
-        txtNasc1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(104, 129, 164)));
-
         jLabel25.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
         jLabel25.setForeground(new java.awt.Color(26, 26, 26));
         jLabel25.setText("Data de Nacimento");
+
+        txtCPF1.setBackground(new java.awt.Color(231, 233, 237));
+        txtCPF1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(104, 129, 164)));
+        try {
+            txtCPF1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        txtCPF1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtCPF1.setText("000.000.000-00");
+        txtCPF1.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
+
+        txtRG1.setBackground(new java.awt.Color(231, 233, 237));
+        txtRG1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(104, 129, 164)));
+        try {
+            txtRG1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###.###")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        txtRG1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtRG1.setText("00.000.000");
+        txtRG1.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
+
+        txtNasc1.setBackground(new java.awt.Color(231, 233, 237));
+        txtNasc1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(104, 129, 164)));
+        try {
+            txtNasc1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        txtNasc1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtNasc1.setText("00/00/0000");
+        txtNasc1.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
 
         javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
         jPanel12.setLayout(jPanel12Layout);
@@ -1134,21 +1149,20 @@ public class PrincipalView extends javax.swing.JFrame {
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel12Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel22)
-                    .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(txtNome1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel25, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel22)
+                            .addComponent(txtNome1, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtNasc1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanel12Layout.createSequentialGroup()
-                            .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel23)
-                                .addComponent(txtCPF1, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel23)
+                            .addGap(161, 161, 161)
                             .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel24)
-                                .addComponent(txtRG1, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLabel25)
-                        .addComponent(txtNasc1)))
+                                .addComponent(txtRG1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(txtCPF1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(31, Short.MAX_VALUE))
         );
         jPanel12Layout.setVerticalGroup(
@@ -1164,8 +1178,8 @@ public class PrincipalView extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtRG1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCPF1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(txtCPF1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(11, 11, 11)
                 .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtNasc1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1228,15 +1242,20 @@ public class PrincipalView extends javax.swing.JFrame {
         jPanel14.setBackground(new java.awt.Color(211, 211, 211));
         jPanel14.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 52, 52)), "Contato", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Shruti", 0, 14))); // NOI18N
 
-        txtTel1.setBackground(new java.awt.Color(231, 233, 237));
-        txtTel1.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
-        txtTel1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtTel1.setText("(34) 3421-9409");
-        txtTel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(104, 129, 164)));
-
         jLabel32.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
         jLabel32.setForeground(new java.awt.Color(26, 26, 26));
         jLabel32.setText("Telefone");
+
+        txtTel1.setBackground(new java.awt.Color(231, 233, 237));
+        txtTel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(104, 129, 164)));
+        try {
+            txtTel1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##) ####-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        txtTel1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtTel1.setText("(34) 0000-0000");
+        txtTel1.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
 
         javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
         jPanel14.setLayout(jPanel14Layout);
@@ -1246,7 +1265,7 @@ public class PrincipalView extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel32)
-                    .addComponent(txtTel1, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtTel1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel14Layout.setVerticalGroup(
@@ -1254,7 +1273,7 @@ public class PrincipalView extends javax.swing.JFrame {
             .addGroup(jPanel14Layout.createSequentialGroup()
                 .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtTel1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtTel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -1347,7 +1366,7 @@ public class PrincipalView extends javax.swing.JFrame {
                             .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel11Layout.createSequentialGroup()
                                 .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(43, 43, 43)
+                                .addGap(65, 65, 65)
                                 .addComponent(jLabel35, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtFuncao, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -2876,7 +2895,7 @@ public class PrincipalView extends javax.swing.JFrame {
     private javax.swing.JTextField txtBairro;
     private javax.swing.JFormattedTextField txtCNPJ;
     private javax.swing.JFormattedTextField txtCPF;
-    private javax.swing.JTextField txtCPF1;
+    private javax.swing.JFormattedTextField txtCPF1;
     private javax.swing.JFormattedTextField txtCel;
     private javax.swing.JTextField txtCep;
     private javax.swing.JTextField txtCidade;
@@ -2891,18 +2910,18 @@ public class PrincipalView extends javax.swing.JFrame {
     private javax.swing.JTextField txtLimite;
     private javax.swing.JTextField txtMarca;
     private javax.swing.JFormattedTextField txtNasc;
-    private javax.swing.JTextField txtNasc1;
+    private javax.swing.JFormattedTextField txtNasc1;
     private javax.swing.JTextField txtNome;
     private javax.swing.JTextField txtNome1;
     private javax.swing.JTextField txtNome2;
     private javax.swing.JTextField txtNumero;
     private javax.swing.JTextField txtPais;
     private javax.swing.JFormattedTextField txtRG;
-    private javax.swing.JTextField txtRG1;
+    private javax.swing.JFormattedTextField txtRG1;
     private javax.swing.JTextField txtRua;
     private javax.swing.JPasswordField txtSenha;
     private javax.swing.JFormattedTextField txtTel;
-    private javax.swing.JTextField txtTel1;
+    private javax.swing.JFormattedTextField txtTel1;
     private javax.swing.JFormattedTextField txtTelCom;
     private javax.swing.JTextField txtUnidade;
     private javax.swing.JTextField txtUsu;
