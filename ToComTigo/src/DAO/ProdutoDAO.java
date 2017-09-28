@@ -2,7 +2,10 @@ package DAO;
 
 import Model.Produto;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class ProdutoDAO {
@@ -42,13 +45,69 @@ public class ProdutoDAO {
         pst.close();
     }
     
+    
+    
+    // Produto List DAO Method Created By : "G"
+    
+    static public List<Produto> listaTodos() throws SQLException{
+       PreparedStatement pst;
+       String sql;
+       List<Produto> listaProd = new ArrayList<Produto>();
+       sql = "SELECT * FROM Produto ORDER BY nome";
+       pst = Conexao.getInstance().prepareStatement(sql);
+        ResultSet rs = pst.executeQuery();
+        while(rs.next()){
+           listaProd.add(new Produto(rs.getInt("id_produto"),rs.getString("nome"),rs.getString("marca"), rs.getString("grupo"), rs.getInt("unidade"), rs.getDouble("kilo"), rs.getInt("quantidade") ));
+        }
+        pst.close();
+        return listaProd;
+    }
+    
+    //List Produto search by nome DAO Method
+    // Created By : "G"
+    static public List<Produto> buscaNomeLista(String Nome) throws SQLException{
+        PreparedStatement pst;
+        String sql;
+        List<Produto> listaProd = new ArrayList<Produto>();
+        String name = "%"+Nome+"%";
+        sql = "SELECT * FROM Produto WHERE nome LIKE ?";
+        pst = Conexao.getInstance().prepareStatement(sql);
+        pst.setString(1, name);
+        pst.execute();
+        ResultSet rs = pst.executeQuery();
+        while(rs.next()){
+           listaProd.add(new Produto(rs.getInt("id_produto"),rs.getString("nome"),rs.getString("marca"), rs.getString("grupo"), rs.getInt("unidade"), rs.getDouble("kilo"), rs.getInt("quantidade") ));
+        }
+        pst.close();
+        return listaProd;
+    }
+    
+    // Produto Search DAO Method Created By : "G"
+    
+    static public Produto busca(int id) throws SQLException{
+        PreparedStatement pst;
+        String sql;
+        sql = "SELECT * FROM Produto WHERE id_produto = ?";
+        pst = Conexao.getInstance().prepareStatement(sql);
+        pst.setInt(1, id);
+        Produto produto = null;
+        ResultSet rs = pst.executeQuery();
+        while(rs.next()){
+           produto = new Produto(rs.getInt("id_produto"),rs.getString("nome"),rs.getString("marca"), rs.getString("grupo"), rs.getInt("unidade"), rs.getDouble("kilo"), rs.getInt("quantidade"));
+        }
+        pst.close();
+        return produto;
+    }
+    
     static public void excluir(Produto produto) throws SQLException{
         PreparedStatement pst;
         String sql;
-        sql = "delete from Produto where id = ?";
+        sql = "delete from Produto where id_produto = ?";
         pst = Conexao.getInstance().prepareStatement(sql);
         pst.setInt(1, produto.getId_produto());
         pst.execute();
         pst.close();
     }
+    
+    
 }

@@ -2,7 +2,10 @@ package DAO;
 
 import Model.Funcionario;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class FuncionarioDAO {
@@ -28,7 +31,7 @@ public class FuncionarioDAO {
     // Alterar Funcionario DAO Method
     //Created By : "G"
     
-    public void Alterar (Funcionario funcionario) throws SQLException{
+    public void alterar (Funcionario funcionario) throws SQLException{
         PreparedStatement pst;
         String sql;
         sql = "UPDATE Funcionario SET nome = ?, cpf = ?,rg = ?,data_nascimento = ?,telefone = ?,login = ?,senha = ?,funcao = ? WHERE id_funcionario = ?";
@@ -47,10 +50,83 @@ public class FuncionarioDAO {
         pst.close();
     }
     
+    // List Funcionario DAO Method Created By : "G"
+    
+    static public List<Funcionario> listaTodos() throws SQLException{
+       PreparedStatement pst;
+       String sql;
+       List<Funcionario> listaFunc = new ArrayList<Funcionario>();
+       sql = "SELECT * FROM Funcionario ORDER BY nome";
+       pst = Conexao.getInstance().prepareStatement(sql);
+        ResultSet rs = pst.executeQuery();
+        while(rs.next()){
+           listaFunc.add(new Funcionario(rs.getInt("id_funcionario"),rs.getString("nome"), rs.getString("cpf"), rs.getString("rg"),rs.getString("data_nascimento"), rs.getString("telefone"), rs.getString("login"), rs.getString("senha"), rs.getString("funcao")));
+        }
+        pst.close();
+        return listaFunc;
+    }
+    
+    // List Funcionario DAO Order By Name Method
+    // Created By : "G"
+    static public List<Funcionario> buscaNomeLista(String Nome) throws SQLException{
+        PreparedStatement pst;
+        String sql;
+        List<Funcionario> listaFunc = new ArrayList<Funcionario>();
+        String name = "%"+Nome+"%";
+        sql = "SELECT * FROM Funcionario WHERE nome LIKE ?";
+        pst = Conexao.getInstance().prepareStatement(sql);
+        pst.setString(1, name);
+        pst.execute();
+        ResultSet rs = pst.executeQuery();
+        while(rs.next()){
+           listaFunc.add(new Funcionario(rs.getInt("id_funcionario"),rs.getString("nome"), rs.getString("cpf"), rs.getString("rg"),rs.getString("data_nascimento"), rs.getString("telefone"), rs.getString("login"), rs.getString("senha"), rs.getString("funcao")));
+        }
+        pst.close();
+        return listaFunc;
+    }
+    
+    // Search Funcionario by id DAO Method Created By : "G"
+    
+    public Funcionario busca(int id) throws SQLException{
+        PreparedStatement pst;
+        String sql;
+        sql = "SELECT * FROM Funcionario WHERE id_funcionario = ?";
+        pst = Conexao.getInstance().prepareStatement(sql);
+        pst.setInt(1, id);
+        Funcionario funcionario = null;
+        ResultSet rs = pst.executeQuery();
+        while(rs.next()){
+           funcionario = new Funcionario(rs.getInt("id_funcionario"),rs.getString("nome"), rs.getString("cpf"), rs.getString("rg"),rs.getString("data_nascimento"), rs.getString("telefone"), rs.getString("login"), rs.getString("senha"), rs.getString("funcao"));
+        }
+        pst.close();
+        return funcionario;
+    }
+    
+    // Search Funcionario by Name DAO Method
+    // Created By : "G"
+    
+    static public Funcionario buscaNome(String Nome) throws SQLException{
+        PreparedStatement pst;
+        String sql;
+        //String name = "%"+Nome+"";
+        sql = "select * from Entidade where nome = ?";
+        pst = Conexao.getInstance().prepareStatement(sql);
+        pst.setString(1, Nome);
+        Funcionario funcionario = null;
+        ResultSet rs = pst.executeQuery();
+        while(rs.next()){
+            funcionario = new Funcionario(rs.getInt("id_funcionario"),rs.getString("nome"), rs.getString("cpf"), rs.getString("rg"),rs.getString("data_nascimento"), rs.getString("telefone"), rs.getString("login"), rs.getString("senha"), rs.getString("funcao"));
+         }
+         pst.close();
+         return funcionario;
+     }
+    
+    
+    
     static public void excluir(Funcionario funcionario) throws SQLException{
         PreparedStatement pst;
         String sql;
-        sql = "delete from Funcionario where id = ?";
+        sql = "delete from Funcionario where id_funcionario = ?";
         pst = Conexao.getInstance().prepareStatement(sql);
         pst.setInt(1, funcionario.getId_funcionario());
         pst.execute();

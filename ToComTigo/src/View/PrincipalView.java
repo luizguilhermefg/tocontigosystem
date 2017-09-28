@@ -81,9 +81,9 @@ public class PrincipalView extends javax.swing.JFrame {
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
+        txtBuscaCliente = new javax.swing.JTextField();
         cbxTipo = new javax.swing.JComboBox<>();
-        btnBuscar = new javax.swing.JButton();
+        btnBuscaCliente = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblCliente = new javax.swing.JTable();
         btnExcluir = new javax.swing.JToggleButton();
@@ -140,9 +140,9 @@ public class PrincipalView extends javax.swing.JFrame {
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel9 = new javax.swing.JPanel();
         jPanel10 = new javax.swing.JPanel();
-        jTextField2 = new javax.swing.JTextField();
+        txtBuscaFuncionario = new javax.swing.JTextField();
         cbxTipo1 = new javax.swing.JComboBox<>();
-        btnBuscar1 = new javax.swing.JButton();
+        btnBuscarFuncionario = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblCliente1 = new javax.swing.JTable();
         btnExcluir1 = new javax.swing.JToggleButton();
@@ -181,9 +181,9 @@ public class PrincipalView extends javax.swing.JFrame {
         jTabbedPane3 = new javax.swing.JTabbedPane();
         jPanel16 = new javax.swing.JPanel();
         jPanel17 = new javax.swing.JPanel();
-        jTextField3 = new javax.swing.JTextField();
+        txtBuscaProduto = new javax.swing.JTextField();
         cbxTipo2 = new javax.swing.JComboBox<>();
-        btnBuscar2 = new javax.swing.JButton();
+        btnBuscarProduto = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         tblCliente2 = new javax.swing.JTable();
         btnExcluir2 = new javax.swing.JToggleButton();
@@ -254,20 +254,25 @@ public class PrincipalView extends javax.swing.JFrame {
         jPanel4.setBackground(new java.awt.Color(211, 211, 211));
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(175, 49, 49)), "Buscar", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Shruti", 1, 18), new java.awt.Color(17, 17, 17))); // NOI18N
 
-        jTextField1.setBackground(new java.awt.Color(223, 231, 239));
-        jTextField1.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
-        jTextField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(104, 129, 164)));
+        txtBuscaCliente.setBackground(new java.awt.Color(223, 231, 239));
+        txtBuscaCliente.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
+        txtBuscaCliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(104, 129, 164)));
 
         cbxTipo.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
         cbxTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tipo", "Nome", "Cidade", "Telefone" }));
         cbxTipo.setBorder(null);
         cbxTipo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        btnBuscar.setBackground(new java.awt.Color(181, 208, 221));
-        btnBuscar.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
-        btnBuscar.setText("Buscar");
-        btnBuscar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(121, 175, 190)));
-        btnBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnBuscaCliente.setBackground(new java.awt.Color(181, 208, 221));
+        btnBuscaCliente.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
+        btnBuscaCliente.setText("Buscar");
+        btnBuscaCliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(121, 175, 190)));
+        btnBuscaCliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnBuscaCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscaClienteActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -277,9 +282,9 @@ public class PrincipalView extends javax.swing.JFrame {
                 .addGap(115, 115, 115)
                 .addComponent(cbxTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(34, 34, 34)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtBuscaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnBuscaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(84, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
@@ -288,8 +293,8 @@ public class PrincipalView extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(cbxTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtBuscaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnBuscaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 21, Short.MAX_VALUE))
         );
 
@@ -305,6 +310,11 @@ public class PrincipalView extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tblCliente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblClienteMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tblCliente);
 
         btnExcluir.setBackground(new java.awt.Color(200, 120, 120));
@@ -833,12 +843,11 @@ public class PrincipalView extends javax.swing.JFrame {
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addGroup(jPanel3Layout.createSequentialGroup()
-                                                    .addComponent(txtLimite, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                    .addComponent(txtIDCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addComponent(jLabel17)))
+                                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                                .addComponent(txtLimite, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(txtIDCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(jLabel17))
                                         .addGap(0, 0, Short.MAX_VALUE))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                                         .addComponent(btnNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -967,20 +976,25 @@ public class PrincipalView extends javax.swing.JFrame {
         jPanel10.setBackground(new java.awt.Color(211, 211, 211));
         jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(175, 49, 49)), "Buscar", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Shruti", 1, 18), new java.awt.Color(17, 17, 17))); // NOI18N
 
-        jTextField2.setBackground(new java.awt.Color(223, 231, 239));
-        jTextField2.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
-        jTextField2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(104, 129, 164)));
+        txtBuscaFuncionario.setBackground(new java.awt.Color(223, 231, 239));
+        txtBuscaFuncionario.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
+        txtBuscaFuncionario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(104, 129, 164)));
 
         cbxTipo1.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
         cbxTipo1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tipo", "Nome", "Cidade", "Telefone" }));
         cbxTipo1.setBorder(null);
         cbxTipo1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        btnBuscar1.setBackground(new java.awt.Color(181, 208, 221));
-        btnBuscar1.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
-        btnBuscar1.setText("Buscar");
-        btnBuscar1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(121, 175, 190)));
-        btnBuscar1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnBuscarFuncionario.setBackground(new java.awt.Color(181, 208, 221));
+        btnBuscarFuncionario.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
+        btnBuscarFuncionario.setText("Buscar");
+        btnBuscarFuncionario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(121, 175, 190)));
+        btnBuscarFuncionario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnBuscarFuncionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarFuncionarioActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
@@ -990,9 +1004,9 @@ public class PrincipalView extends javax.swing.JFrame {
                 .addGap(115, 115, 115)
                 .addComponent(cbxTipo1, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(34, 34, 34)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtBuscaFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnBuscar1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnBuscarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(92, Short.MAX_VALUE))
         );
         jPanel10Layout.setVerticalGroup(
@@ -1001,8 +1015,8 @@ public class PrincipalView extends javax.swing.JFrame {
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(cbxTipo1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnBuscar1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtBuscaFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnBuscarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 21, Short.MAX_VALUE))
         );
 
@@ -1472,20 +1486,25 @@ public class PrincipalView extends javax.swing.JFrame {
         jPanel17.setBackground(new java.awt.Color(211, 211, 211));
         jPanel17.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(175, 49, 49)), "Buscar", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Shruti", 1, 18), new java.awt.Color(17, 17, 17))); // NOI18N
 
-        jTextField3.setBackground(new java.awt.Color(223, 231, 239));
-        jTextField3.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
-        jTextField3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(104, 129, 164)));
+        txtBuscaProduto.setBackground(new java.awt.Color(223, 231, 239));
+        txtBuscaProduto.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
+        txtBuscaProduto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(104, 129, 164)));
 
         cbxTipo2.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
         cbxTipo2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tipo", "Nome", "Marca", "Grupo" }));
         cbxTipo2.setBorder(null);
         cbxTipo2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        btnBuscar2.setBackground(new java.awt.Color(181, 208, 221));
-        btnBuscar2.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
-        btnBuscar2.setText("Buscar");
-        btnBuscar2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(121, 175, 190)));
-        btnBuscar2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnBuscarProduto.setBackground(new java.awt.Color(181, 208, 221));
+        btnBuscarProduto.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
+        btnBuscarProduto.setText("Buscar");
+        btnBuscarProduto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(121, 175, 190)));
+        btnBuscarProduto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnBuscarProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarProdutoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
         jPanel17.setLayout(jPanel17Layout);
@@ -1495,9 +1514,9 @@ public class PrincipalView extends javax.swing.JFrame {
                 .addGap(115, 115, 115)
                 .addComponent(cbxTipo2, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(34, 34, 34)
-                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtBuscaProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnBuscar2, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnBuscarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(78, Short.MAX_VALUE))
         );
         jPanel17Layout.setVerticalGroup(
@@ -1506,8 +1525,8 @@ public class PrincipalView extends javax.swing.JFrame {
                 .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(cbxTipo2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnBuscar2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtBuscaProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnBuscarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 21, Short.MAX_VALUE))
         );
 
@@ -1807,7 +1826,7 @@ public class PrincipalView extends javax.swing.JFrame {
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCancelar2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSalvar2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2055,6 +2074,54 @@ public class PrincipalView extends javax.swing.JFrame {
             tblCliente.updateUI();
     }
     
+    // Update Table Cliente from Search By name
+    // Created By : "G"
+    public void atualizaTabelaClienteBusca(){
+        cliente = new Cliente();
+        /*
+        try {
+        listaCliente = clientedao.buscaNomeLista(txtBuscaCliente.getText());
+        } catch (SQLException ex) {
+        JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage(), "erro", JOptionPane.WARNING_MESSAGE);
+        } 
+        */
+        String dados[][] = new String[listaFuncionario.size()][6];
+            int i = 0;
+            for (Cliente cliente : listaCliente) {
+                dados[i][0] = String.valueOf(cliente.getId_cliente());
+                dados[i][1] = cliente.getNome();
+                dados[i][2] = cliente.getTel();
+                dados[i][3] = cliente.getRua();
+                dados[i][4] = cliente.getBairro();
+                dados[i][5] = cliente.getCidade();
+                i++;
+            }
+            String tituloColuna[] = {"ID", "Nome", "Telefone","Rua", "Bairro", "Cidade"};
+            DefaultTableModel tabelacliente = new DefaultTableModel();
+            tabelacliente.setDataVector(dados, tituloColuna);
+            tblCliente.setModel(new DefaultTableModel(dados, tituloColuna) {
+                boolean[] canEdit = new boolean[]{
+                    false, false, false, false, false, false,
+                };
+
+                public boolean isCellEditable(int rowIndex, int columnIndex) {
+                    return canEdit[columnIndex];
+                }
+            });
+
+            tblCliente.getColumnModel().getColumn(0).setPreferredWidth(10);
+            tblCliente.getColumnModel().getColumn(1).setPreferredWidth(200);
+            tblCliente.getColumnModel().getColumn(2).setPreferredWidth(100);
+            
+            DefaultTableCellRenderer centralizado = new DefaultTableCellRenderer();
+            centralizado.setHorizontalAlignment(SwingConstants.CENTER);
+            tblCliente.getColumnModel().getColumn(0).setCellRenderer(centralizado);
+            tblCliente.setRowHeight(25);
+            tblCliente.updateUI();
+    }
+    
+    
+    
     public void atualizaTabelaFuncionario(){
         funcionario = new Funcionario();
         /*try {
@@ -2097,10 +2164,101 @@ public class PrincipalView extends javax.swing.JFrame {
             tblCliente1.updateUI();
     }
     
+    //Update Table Funcionario from Search By Name
+    // Created By : "G"
+    
+    public void atualizaTabelaFuncionarioBusca(){
+        funcionario = new Funcionario();
+        /*
+        try {
+        listaFuncionario = funcionariodao.buscaNomeLista(txtBuscaFuncionario.getText());
+        } catch (SQLException ex) {
+        JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage(), "erro", JOptionPane.WARNING_MESSAGE);
+        }
+        */        
+        String dados[][] = new String[listaFuncionario.size()][6];
+            int i = 0;
+            for (Funcionario funcionario : listaFuncionario) {
+                dados[i][0] = String.valueOf(funcionario.getId_funcionario());
+                dados[i][1] = funcionario.getNome();
+                dados[i][2] = funcionario.getCpf();
+                dados[i][3] = funcionario.getRg();
+                dados[i][4] = funcionario.getFuncao();
+                dados[i][5] = funcionario.getLogin();
+                i++;
+            }
+            String tituloColuna[] = {"ID", "Nome", "Cpf","Rg", "Função", "Login"};
+            DefaultTableModel tabelafuncionario = new DefaultTableModel();
+            tabelafuncionario.setDataVector(dados, tituloColuna);
+            tblCliente1.setModel(new DefaultTableModel(dados, tituloColuna) {
+                boolean[] canEdit = new boolean[]{
+                    false, false, false, false, false, false,
+                };
+
+                public boolean isCellEditable(int rowIndex, int columnIndex) {
+                    return canEdit[columnIndex];
+                }
+            });
+
+            tblCliente1.getColumnModel().getColumn(0).setPreferredWidth(10);
+            tblCliente1.getColumnModel().getColumn(1).setPreferredWidth(200);
+            tblCliente1.getColumnModel().getColumn(2).setPreferredWidth(100);
+            
+            DefaultTableCellRenderer centralizado = new DefaultTableCellRenderer();
+            centralizado.setHorizontalAlignment(SwingConstants.CENTER);
+            tblCliente1.getColumnModel().getColumn(0).setCellRenderer(centralizado);
+            tblCliente1.setRowHeight(25);
+            tblCliente1.updateUI();
+    }
+    
     public void atualizaTabelaProduto(){
         produto = new Produto();
         /*try {
         listaProduto = produtodao.listaTodos();
+        } catch (SQLException ex) {
+        JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage(), "erro", JOptionPane.WARNING_MESSAGE);
+        } */      
+        String dados[][] = new String[listaFuncionario.size()][6];
+            int i = 0;
+            for (Produto produto : listaProduto) {
+                dados[i][0] = String.valueOf(produto.getId_produto());
+                dados[i][1] = produto.getNome();
+                dados[i][2] = produto.getMarca();
+                dados[i][3] = produto.getGrupo();
+                dados[i][4] = String.valueOf(produto.getUnidade());
+                dados[i][5] = String.valueOf(produto.getKilo());
+                i++;
+            }
+            String tituloColuna[] = {"ID", "Nome", "Marca","Grupo", "Unidade", "Kilo"};
+            DefaultTableModel tabelaProduto = new DefaultTableModel();
+            tabelaProduto.setDataVector(dados, tituloColuna);
+            tblCliente2.setModel(new DefaultTableModel(dados, tituloColuna) {
+                boolean[] canEdit = new boolean[]{
+                    false, false, false, false, false, false,
+                };
+
+                public boolean isCellEditable(int rowIndex, int columnIndex) {
+                    return canEdit[columnIndex];
+                }
+            });
+
+            tblCliente2.getColumnModel().getColumn(0).setPreferredWidth(10);
+            tblCliente2.getColumnModel().getColumn(1).setPreferredWidth(200);
+            tblCliente2.getColumnModel().getColumn(2).setPreferredWidth(100);
+            
+            DefaultTableCellRenderer centralizado = new DefaultTableCellRenderer();
+            centralizado.setHorizontalAlignment(SwingConstants.CENTER);
+            tblCliente2.getColumnModel().getColumn(0).setCellRenderer(centralizado);
+            tblCliente2.setRowHeight(25);
+            tblCliente2.updateUI();
+    }
+    
+    // Atualiza Tabela Busca Methods
+    // Created By : "G"
+    public void atualizaTabelaProdutoBusca(){
+        produto = new Produto();
+        /*try {
+        listaProduto = produtodao.buscaNomeLista(txtBuscaProduto);
         } catch (SQLException ex) {
         JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage(), "erro", JOptionPane.WARNING_MESSAGE);
         } */      
@@ -2419,7 +2577,7 @@ public class PrincipalView extends javax.swing.JFrame {
             funcionario.setFuncao(txtFuncao.getText());
             
             try {
-                funcionariodao.salvar(funcionario);// MUDAR PARA ALTERAR DEPOIS DE CRIADO NO DAO
+                funcionariodao.alterar(funcionario);// MUDAR PARA ALTERAR DEPOIS DE CRIADO NO DAO    
                 JOptionPane.showMessageDialog(null, "Funcionario Alterado!", "Sucesso!!!", JOptionPane.INFORMATION_MESSAGE);
             } catch (SQLException ex) {
                 Logger.getLogger(PrincipalView.class.getName()).log(Level.SEVERE, null, ex);
@@ -2497,7 +2655,7 @@ public class PrincipalView extends javax.swing.JFrame {
             produto.setKilo(Double.parseDouble(txtKilo.getText()));
             
             try {
-                produtodao.salvar(produto);// MUDAR PARA ALTERAR DEPOIS DE CRIADO NO DAO
+                produtodao.alterar(produto);// MUDAR PARA ALTERAR DEPOIS DE CRIADO NO DAO
                 JOptionPane.showMessageDialog(null, "Produto Alterado!", "Sucesso!!!", JOptionPane.INFORMATION_MESSAGE);
             } catch (SQLException ex) {
                 Logger.getLogger(PrincipalView.class.getName()).log(Level.SEVERE, null, ex);
@@ -2546,6 +2704,35 @@ public class PrincipalView extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_btnExcluir2ActionPerformed
+
+    private void btnBuscarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarProdutoActionPerformed
+        if (txtBuscaProduto.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Digite uma chave para a busca!");
+            
+        }else{
+            //atualizaTabelaProdutoBusca();
+        }
+    }//GEN-LAST:event_btnBuscarProdutoActionPerformed
+
+    private void tblClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblClienteMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tblClienteMouseClicked
+
+    private void btnBuscarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarFuncionarioActionPerformed
+        if(txtBuscaFuncionario.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Digite uma chave para a busca!");
+        }else{
+        //atualizaTabelaFuncionarioBusca();
+        }
+    }//GEN-LAST:event_btnBuscarFuncionarioActionPerformed
+
+    private void btnBuscaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscaClienteActionPerformed
+        if(txtBuscaCliente.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Digite uma chave para a busca!");
+        }else{
+        //atualizaTabelaClienteBusca();
+        }
+    }//GEN-LAST:event_btnBuscaClienteActionPerformed
     
     /*
     *                           *
@@ -2784,9 +2971,9 @@ public class PrincipalView extends javax.swing.JFrame {
     private javax.swing.JToggleButton btnAlterar;
     private javax.swing.JToggleButton btnAlterar1;
     private javax.swing.JToggleButton btnAlterar2;
-    private javax.swing.JButton btnBuscar;
-    private javax.swing.JButton btnBuscar1;
-    private javax.swing.JButton btnBuscar2;
+    private javax.swing.JButton btnBuscaCliente;
+    private javax.swing.JButton btnBuscarFuncionario;
+    private javax.swing.JButton btnBuscarProduto;
     private javax.swing.JToggleButton btnCancelar;
     private javax.swing.JToggleButton btnCancelar1;
     private javax.swing.JToggleButton btnCancelar2;
@@ -2871,9 +3058,6 @@ public class PrincipalView extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTabbedPane jTabbedPane3;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JLabel lblCliente;
     private javax.swing.JLabel lblFuncionario;
     private javax.swing.JLabel lblProduto;
@@ -2893,6 +3077,9 @@ public class PrincipalView extends javax.swing.JFrame {
     private javax.swing.JTable tblCliente1;
     private javax.swing.JTable tblCliente2;
     private javax.swing.JTextField txtBairro;
+    private javax.swing.JTextField txtBuscaCliente;
+    private javax.swing.JTextField txtBuscaFuncionario;
+    private javax.swing.JTextField txtBuscaProduto;
     private javax.swing.JFormattedTextField txtCNPJ;
     private javax.swing.JFormattedTextField txtCPF;
     private javax.swing.JFormattedTextField txtCPF1;

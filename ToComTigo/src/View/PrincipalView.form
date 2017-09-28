@@ -200,9 +200,9 @@
                                       <EmptySpace min="-2" pref="115" max="-2" attributes="0"/>
                                       <Component id="cbxTipo" min="-2" pref="83" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                                      <Component id="jTextField1" min="-2" pref="336" max="-2" attributes="0"/>
+                                      <Component id="txtBuscaCliente" min="-2" pref="336" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="btnBuscar" min="-2" pref="108" max="-2" attributes="0"/>
+                                      <Component id="btnBuscaCliente" min="-2" pref="108" max="-2" attributes="0"/>
                                       <EmptySpace pref="84" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
@@ -213,8 +213,8 @@
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="cbxTipo" min="-2" pref="31" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="3" attributes="0">
-                                              <Component id="jTextField1" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
-                                              <Component id="btnBuscar" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                                              <Component id="txtBuscaCliente" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                                              <Component id="btnBuscaCliente" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                       <EmptySpace min="0" pref="21" max="32767" attributes="0"/>
@@ -223,7 +223,7 @@
                             </DimensionLayout>
                           </Layout>
                           <SubComponents>
-                            <Component class="javax.swing.JTextField" name="jTextField1">
+                            <Component class="javax.swing.JTextField" name="txtBuscaCliente">
                               <Properties>
                                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                   <Color blue="ef" green="e7" red="df" type="rgb"/>
@@ -264,7 +264,7 @@
                                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                               </AuxValues>
                             </Component>
-                            <Component class="javax.swing.JButton" name="btnBuscar">
+                            <Component class="javax.swing.JButton" name="btnBuscaCliente">
                               <Properties>
                                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                   <Color blue="dd" green="d0" red="b5" type="rgb"/>
@@ -284,6 +284,9 @@
                                   <Color id="Cursor em Forma de M&#xe3;o"/>
                                 </Property>
                               </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBuscaClienteActionPerformed"/>
+                              </Events>
                             </Component>
                           </SubComponents>
                         </Container>
@@ -308,6 +311,9 @@
                                   </Table>
                                 </Property>
                               </Properties>
+                              <Events>
+                                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tblClienteMouseClicked"/>
+                              </Events>
                             </Component>
                           </SubComponents>
                         </Container>
@@ -395,14 +401,12 @@
                                                       <Group type="102" alignment="1" attributes="0">
                                                           <Group type="103" groupAlignment="0" attributes="0">
                                                               <Component id="jPanel6" min="-2" max="-2" attributes="0"/>
-                                                              <Group type="103" alignment="0" groupAlignment="0" attributes="0">
-                                                                  <Group type="102" alignment="0" attributes="0">
-                                                                      <Component id="txtLimite" min="-2" pref="182" max="-2" attributes="0"/>
-                                                                      <EmptySpace max="-2" attributes="0"/>
-                                                                      <Component id="txtIDCliente" min="-2" pref="69" max="-2" attributes="0"/>
-                                                                  </Group>
-                                                                  <Component id="jLabel17" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                              <Group type="102" alignment="0" attributes="0">
+                                                                  <Component id="txtLimite" min="-2" pref="182" max="-2" attributes="0"/>
+                                                                  <EmptySpace max="-2" attributes="0"/>
+                                                                  <Component id="txtIDCliente" min="-2" pref="69" max="-2" attributes="0"/>
                                                               </Group>
+                                                              <Component id="jLabel17" alignment="0" min="-2" max="-2" attributes="0"/>
                                                           </Group>
                                                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                                       </Group>
@@ -1625,9 +1629,9 @@
                                       <EmptySpace min="-2" pref="115" max="-2" attributes="0"/>
                                       <Component id="cbxTipo1" min="-2" pref="83" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                                      <Component id="jTextField2" min="-2" pref="336" max="-2" attributes="0"/>
+                                      <Component id="txtBuscaFuncionario" min="-2" pref="336" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="btnBuscar1" min="-2" pref="108" max="-2" attributes="0"/>
+                                      <Component id="btnBuscarFuncionario" min="-2" pref="108" max="-2" attributes="0"/>
                                       <EmptySpace pref="92" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
@@ -1638,8 +1642,8 @@
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="cbxTipo1" alignment="0" min="-2" pref="31" max="-2" attributes="0"/>
                                           <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                              <Component id="jTextField2" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
-                                              <Component id="btnBuscar1" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                                              <Component id="txtBuscaFuncionario" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                                              <Component id="btnBuscarFuncionario" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                       <EmptySpace min="0" pref="21" max="32767" attributes="0"/>
@@ -1648,7 +1652,7 @@
                             </DimensionLayout>
                           </Layout>
                           <SubComponents>
-                            <Component class="javax.swing.JTextField" name="jTextField2">
+                            <Component class="javax.swing.JTextField" name="txtBuscaFuncionario">
                               <Properties>
                                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                   <Color blue="ef" green="e7" red="df" type="rgb"/>
@@ -1689,7 +1693,7 @@
                                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                               </AuxValues>
                             </Component>
-                            <Component class="javax.swing.JButton" name="btnBuscar1">
+                            <Component class="javax.swing.JButton" name="btnBuscarFuncionario">
                               <Properties>
                                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                   <Color blue="dd" green="d0" red="b5" type="rgb"/>
@@ -1709,6 +1713,9 @@
                                   <Color id="Cursor em Forma de M&#xe3;o"/>
                                 </Property>
                               </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBuscarFuncionarioActionPerformed"/>
+                              </Events>
                             </Component>
                           </SubComponents>
                         </Container>
@@ -2614,9 +2621,9 @@
                                       <EmptySpace min="-2" pref="115" max="-2" attributes="0"/>
                                       <Component id="cbxTipo2" min="-2" pref="83" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                                      <Component id="jTextField3" min="-2" pref="336" max="-2" attributes="0"/>
+                                      <Component id="txtBuscaProduto" min="-2" pref="336" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="btnBuscar2" min="-2" pref="108" max="-2" attributes="0"/>
+                                      <Component id="btnBuscarProduto" min="-2" pref="108" max="-2" attributes="0"/>
                                       <EmptySpace pref="78" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
@@ -2627,8 +2634,8 @@
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="cbxTipo2" alignment="0" min="-2" pref="31" max="-2" attributes="0"/>
                                           <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                              <Component id="jTextField3" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
-                                              <Component id="btnBuscar2" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                                              <Component id="txtBuscaProduto" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                                              <Component id="btnBuscarProduto" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                       <EmptySpace min="0" pref="21" max="32767" attributes="0"/>
@@ -2637,7 +2644,7 @@
                             </DimensionLayout>
                           </Layout>
                           <SubComponents>
-                            <Component class="javax.swing.JTextField" name="jTextField3">
+                            <Component class="javax.swing.JTextField" name="txtBuscaProduto">
                               <Properties>
                                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                   <Color blue="ef" green="e7" red="df" type="rgb"/>
@@ -2678,7 +2685,7 @@
                                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                               </AuxValues>
                             </Component>
-                            <Component class="javax.swing.JButton" name="btnBuscar2">
+                            <Component class="javax.swing.JButton" name="btnBuscarProduto">
                               <Properties>
                                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                   <Color blue="dd" green="d0" red="b5" type="rgb"/>
@@ -2698,6 +2705,9 @@
                                   <Color id="Cursor em Forma de M&#xe3;o"/>
                                 </Property>
                               </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBuscarProdutoActionPerformed"/>
+                              </Events>
                             </Component>
                           </SubComponents>
                         </Container>
@@ -2825,7 +2835,7 @@
                                   <Component id="jSeparator3" min="-2" pref="10" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jPanel19" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace pref="36" max="32767" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="btnCancelar2" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                                       <Component id="btnSalvar2" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
