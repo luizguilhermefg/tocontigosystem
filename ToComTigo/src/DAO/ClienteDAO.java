@@ -70,7 +70,7 @@ public class ClienteDAO {
     
     // Search By Id Cliente DAO Method
     // Created By : "G"
-    static public Cliente busca(int id) throws SQLException{
+    public Cliente busca(int id) throws SQLException{
         PreparedStatement pst;
         String sql;
         sql = "SELECT * FROM Cliente WHERE id_cliente = ?";
@@ -87,7 +87,7 @@ public class ClienteDAO {
     
     //Search By Nome Cliente DAO Method
     // Created By : "G"
-    static public Cliente buscaNome(String nome) throws SQLException{
+    public Cliente buscaNome(String nome) throws SQLException{
         PreparedStatement pst;
         String sql;
         
@@ -106,7 +106,7 @@ public class ClienteDAO {
     // Lista Clientes DAO Method 
     // Created By : "G"
     
-    static public List<Cliente> listaTodos() throws SQLException{
+    public List<Cliente> listaTodos() throws SQLException{
        PreparedStatement pst;
        String sql;
        List<Cliente> listaCli = new ArrayList<Cliente>();
@@ -122,7 +122,7 @@ public class ClienteDAO {
     
     // Busca Lista Clientes DAO Method
     // Created By : "G"
-    static public List<Cliente> buscaNomeLista(String Nome) throws SQLException{
+    public List<Cliente> buscaNomeLista(String Nome) throws SQLException{
         List<Cliente> listaCli = new ArrayList<Cliente>();
         PreparedStatement pst;
         String sql;
@@ -139,7 +139,7 @@ public class ClienteDAO {
         return listaCli;
     }
     
-    static public void excluir(Cliente cliente) throws SQLException{
+    public void excluir(Cliente cliente) throws SQLException{
         PreparedStatement pst;
         String sql;
         sql = "delete from Cliente where id_cliente = ?";

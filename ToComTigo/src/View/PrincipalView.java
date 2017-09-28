@@ -58,9 +58,9 @@ public class PrincipalView extends javax.swing.JFrame {
         for ( LookAndFeelInfo info : UIManager.getInstalledLookAndFeels() ) {
             System.out.println( info.getName() );
         }
-        atualizaTabelaCliente();
-        atualizaTabelaFuncionario();
-        atualizaTabelaProduto();        
+        //atualizaTabelaCliente();
+        //atualizaTabelaFuncionario();
+        //atualizaTabelaProduto();        
     }
 
     
@@ -363,7 +363,7 @@ public class PrincipalView extends javax.swing.JFrame {
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 111, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -661,10 +661,10 @@ public class PrincipalView extends javax.swing.JFrame {
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel38))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtRua, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtRua)
                     .addComponent(txtNumero))
-                .addGap(18, 18, 18)
+                .addGap(11, 11, 11)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -680,7 +680,7 @@ public class PrincipalView extends javax.swing.JFrame {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(txtCep)
                     .addComponent(txtCidade))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                .addGap(11, 11, 11)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -838,7 +838,7 @@ public class PrincipalView extends javax.swing.JFrame {
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jPanel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -868,8 +868,8 @@ public class PrincipalView extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(18, 18, 18)
+                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(24, 24, 24)
                         .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1032,6 +1032,11 @@ public class PrincipalView extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tblCliente1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblCliente1MouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(tblCliente1);
 
         btnExcluir1.setBackground(new java.awt.Color(200, 120, 120));
@@ -1542,6 +1547,11 @@ public class PrincipalView extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tblCliente2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblCliente2MouseClicked(evt);
+            }
+        });
         jScrollPane3.setViewportView(tblCliente2);
 
         btnExcluir2.setBackground(new java.awt.Color(200, 120, 120));
@@ -2034,11 +2044,11 @@ public class PrincipalView extends javax.swing.JFrame {
     
     public void atualizaTabelaCliente(){
         cliente = new Cliente();
-        /*try {
+        try {
         listaCliente = clientedao.listaTodos();
         } catch (SQLException ex) {
         JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage(), "erro", JOptionPane.WARNING_MESSAGE);
-        }*/        
+        }        
         String dados[][] = new String[listaFuncionario.size()][6];
             int i = 0;
             for (Cliente cliente : listaCliente) {
@@ -2078,13 +2088,8 @@ public class PrincipalView extends javax.swing.JFrame {
     // Created By : "G"
     public void atualizaTabelaClienteBusca(){
         cliente = new Cliente();
-        /*
-        try {
-        listaCliente = clientedao.buscaNomeLista(txtBuscaCliente.getText());
-        } catch (SQLException ex) {
-        JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage(), "erro", JOptionPane.WARNING_MESSAGE);
-        } 
-        */
+        
+       
         String dados[][] = new String[listaFuncionario.size()][6];
             int i = 0;
             for (Cliente cliente : listaCliente) {
@@ -2124,11 +2129,11 @@ public class PrincipalView extends javax.swing.JFrame {
     
     public void atualizaTabelaFuncionario(){
         funcionario = new Funcionario();
-        /*try {
+        try {
         listaFuncionario = funcionariodao.listaTodos();
         } catch (SQLException ex) {
         JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage(), "erro", JOptionPane.WARNING_MESSAGE);
-        }*/        
+        }      
         String dados[][] = new String[listaFuncionario.size()][6];
             int i = 0;
             for (Funcionario funcionario : listaFuncionario) {
@@ -2165,17 +2170,11 @@ public class PrincipalView extends javax.swing.JFrame {
     }
     
     //Update Table Funcionario from Search By Name
-    // Created By : "G"
     
     public void atualizaTabelaFuncionarioBusca(){
         funcionario = new Funcionario();
-        /*
-        try {
-        listaFuncionario = funcionariodao.buscaNomeLista(txtBuscaFuncionario.getText());
-        } catch (SQLException ex) {
-        JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage(), "erro", JOptionPane.WARNING_MESSAGE);
-        }
-        */        
+        
+                
         String dados[][] = new String[listaFuncionario.size()][6];
             int i = 0;
             for (Funcionario funcionario : listaFuncionario) {
@@ -2213,11 +2212,11 @@ public class PrincipalView extends javax.swing.JFrame {
     
     public void atualizaTabelaProduto(){
         produto = new Produto();
-        /*try {
+        try {
         listaProduto = produtodao.listaTodos();
         } catch (SQLException ex) {
         JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage(), "erro", JOptionPane.WARNING_MESSAGE);
-        } */      
+        }       
         String dados[][] = new String[listaFuncionario.size()][6];
             int i = 0;
             for (Produto produto : listaProduto) {
@@ -2254,14 +2253,9 @@ public class PrincipalView extends javax.swing.JFrame {
     }
     
     // Atualiza Tabela Busca Methods
-    // Created By : "G"
     public void atualizaTabelaProdutoBusca(){
         produto = new Produto();
-        /*try {
-        listaProduto = produtodao.buscaNomeLista(txtBuscaProduto);
-        } catch (SQLException ex) {
-        JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage(), "erro", JOptionPane.WARNING_MESSAGE);
-        } */      
+   
         String dados[][] = new String[listaFuncionario.size()][6];
             int i = 0;
             for (Produto produto : listaProduto) {
@@ -2715,7 +2709,34 @@ public class PrincipalView extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBuscarProdutoActionPerformed
 
     private void tblClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblClienteMouseClicked
-        // TODO add your handling code here:
+        cliente = new Cliente();
+
+        try{
+            cliente = clientedao.busca(Integer.parseInt(tblCliente.getValueAt(tblCliente.getSelectedRow(),0).toString()));
+        }catch(SQLException ex){
+            JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage());
+        }
+        tblCliente.getTableHeader().setReorderingAllowed(false);
+
+        txtIDCliente.setText(Integer.toString(cliente.getId_cliente()));
+        txtNome.setText(cliente.getNome());
+        txtCPF.setText(cliente.getCpf());
+        txtCNPJ.setText(cliente.getCnpj());
+        txtRG.setText(cliente.getRg());
+        txtRua.setText(cliente.getRua());
+        txtCep.setText(cliente.getCep());
+        txtCidade.setText(cliente.getCidade());
+        txtTel.setText(cliente.getTel());
+        txtTelCom.setText(cliente.getTelCom());
+        txtCel.setText(cliente.getCel());
+        txtEstado.setText(cliente.getEstado());
+        txtPais.setText(cliente.getPais());
+        txtBairro.setText(cliente.getBairro());
+        txtComplemento.setText(cliente.getComplemento());
+        txtNumero.setText(cliente.getNumero());
+        txtNasc.setText(cliente.getNasc());
+        txtLimite.setText(String.valueOf(cliente.getLimite()));
+        PreparaSelecaoTabelaCliente();
     }//GEN-LAST:event_tblClienteMouseClicked
 
     private void btnBuscarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarFuncionarioActionPerformed
@@ -2733,6 +2754,50 @@ public class PrincipalView extends javax.swing.JFrame {
         //atualizaTabelaClienteBusca();
         }
     }//GEN-LAST:event_btnBuscaClienteActionPerformed
+
+    private void tblCliente1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblCliente1MouseClicked
+        funcionario = new Funcionario();
+
+        try{
+            funcionario = funcionariodao.busca(Integer.parseInt(tblCliente1.getValueAt(tblCliente1.getSelectedRow(),0).toString()));
+        }catch(SQLException ex){
+            JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage());
+        }
+        tblCliente1.getTableHeader().setReorderingAllowed(false);
+
+        txtIDFuncionario.setText(Integer.toString(funcionario.getId_funcionario()));
+        txtNome.setText(funcionario.getNome());
+        txtCPF1.setText(funcionario.getCpf());
+        txtRG1.setText(funcionario.getRg());
+        txtNasc1.setText(funcionario.getNasc());
+        txtTel1.setText(funcionario.getTelefone());
+        txtUsu.setText(funcionario.getLogin());
+        txtSenha.setText(funcionario.getSenha());
+        txtFuncao.setText(funcionario.getFuncao());
+        
+        PreparaSelecaoTabelaFuncionario();
+    }//GEN-LAST:event_tblCliente1MouseClicked
+
+    private void tblCliente2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblCliente2MouseClicked
+        produto = new Produto();
+
+        try{
+            produto = produtodao.busca(Integer.parseInt(tblCliente2.getValueAt(tblCliente2.getSelectedRow(),0).toString()));
+        }catch(SQLException ex){
+            JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage());
+        }
+        tblCliente2.getTableHeader().setReorderingAllowed(false);
+
+        txtIDProduto.setText(Integer.toString(funcionario.getId_funcionario()));
+        txtNome.setText(produto.getNome());
+        txtMarca.setText(produto.getMarca());
+        txtGrupo.setText(produto.getGrupo());
+        txtUnidade.setText(String.valueOf(produto.getUnidade()));
+        txtKilo.setText(String.valueOf(produto.getKilo()));
+        lblQuantidade.setText(String.valueOf(produto.getQuantidade()));
+        
+        PreparaSelecaoTabelaFuncionario();
+    }//GEN-LAST:event_tblCliente2MouseClicked
     
     /*
     *                           *

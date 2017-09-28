@@ -1,4 +1,3 @@
-drop schema tocontigo;
 /*
 Script to Build DATABASE ToContigo System
 powered by : "G"
