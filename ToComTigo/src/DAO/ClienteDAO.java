@@ -110,7 +110,7 @@ public class ClienteDAO {
        pst = Conexao.getInstance().prepareStatement(sql);
         ResultSet rs = pst.executeQuery();
         while(rs.next()){
-           listaCli.add(new Cliente(rs.getInt("id"),rs.getString("nome"),rs.getString("cpf"),rs.getString("cnpj"),rs.getString("rg"), rs.getString("rua"), rs.getString("cep"), rs.getString("cidade"), rs.getString("telefone"), rs.getString("telefone_comercial"), rs.getString("celular"), rs.getString("estado"), rs.getString("pais"), rs.getString("bairro"), rs.getString("complemento"), rs.getString("numero"), rs.getString("data_nascimento"), rs.getDouble("limite")));
+           listaCli.add(new Cliente(rs.getInt("id_cliente"),rs.getString("nome"),rs.getString("cpf"),rs.getString("cnpj"),rs.getString("rg"), rs.getString("rua"), rs.getString("cep"), rs.getString("cidade"), rs.getString("telefone"), rs.getString("telefone_comercial"), rs.getString("celular"), rs.getString("estado"), rs.getString("pais"), rs.getString("bairro"), rs.getString("complemento"), rs.getString("numero"), rs.getString("data_nascimento"), rs.getDouble("limite")));
         }
         pst.close();
         return listaCli;
