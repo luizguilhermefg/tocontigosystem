@@ -2717,7 +2717,7 @@ public class PrincipalView extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Digite uma chave para a busca!");
             
         }else{
-            //atualizaTabelaProdutoBusca();
+            atualizaTabelaProdutoBusca();
         }
     }//GEN-LAST:event_btnBuscarProdutoActionPerformed
 
@@ -2756,7 +2756,7 @@ public class PrincipalView extends javax.swing.JFrame {
         if(txtBuscaFuncionario.getText().equals("")){
             JOptionPane.showMessageDialog(null, "Digite uma chave para a busca!");
         }else{
-        //atualizaTabelaFuncionarioBusca();
+        atualizaTabelaFuncionarioBusca();
         }
     }//GEN-LAST:event_btnBuscarFuncionarioActionPerformed
 
@@ -2764,7 +2764,7 @@ public class PrincipalView extends javax.swing.JFrame {
         if(txtBuscaCliente.getText().equals("")){
             JOptionPane.showMessageDialog(null, "Digite uma chave para a busca!");
         }else{
-        //atualizaTabelaClienteBusca();
+        atualizaTabelaClienteBusca();
         }
     }//GEN-LAST:event_btnBuscaClienteActionPerformed
 
