@@ -58,9 +58,9 @@ public class PrincipalView extends javax.swing.JFrame {
         for ( LookAndFeelInfo info : UIManager.getInstalledLookAndFeels() ) {
             System.out.println( info.getName() );
         }
-        //atualizaTabelaCliente();
-        //atualizaTabelaFuncionario();
-        //atualizaTabelaProduto();        
+        atualizaTabelaCliente();
+        atualizaTabelaFuncionario();
+        atualizaTabelaProduto();        
     }
 
     
