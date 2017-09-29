@@ -16,11 +16,11 @@ public class Conexao implements Serializable {
 
     private Conexao() {
         // Altere o usuário e senha de acordo com o banco de dados instalado
-        usuario = "Geder";
-        senha = "22072207";
+        usuario = "root";
+        senha = "root";
         
         // Defina aqui o nome do seu banco de dados
-        url = "jdbc:mysql://192.168.1.111:3306/tocontigo";
+        url = "jdbc:mysql://localhost:3306/tocontigo";
 
         try {
             Class.forName("com.mysql.jdbc.Driver");

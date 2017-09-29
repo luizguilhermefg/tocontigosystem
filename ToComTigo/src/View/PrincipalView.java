@@ -60,7 +60,13 @@ public class PrincipalView extends javax.swing.JFrame {
         }
         atualizaTabelaCliente();
         atualizaTabelaFuncionario();
-        atualizaTabelaProduto();        
+        atualizaTabelaProduto();
+        txtIDCliente.setVisible(false);
+        txtIDFuncionario.setVisible(false);
+        txtIDProduto.setVisible(false);
+        PreparaSalvareCancelarCliente();
+        PreparaSalvareCancelarFuncionario();
+        PreparaSalvareCancelarProduto();
     }
 
     
@@ -513,7 +519,7 @@ public class PrincipalView extends javax.swing.JFrame {
         txtRua.setBackground(new java.awt.Color(231, 233, 237));
         txtRua.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
         txtRua.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        txtRua.setText("Rua Canavial de muita você sabe o quê, 554");
+        txtRua.setText("Rua Canavial de muita você sabe o quê");
         txtRua.setToolTipText("Nome completo do cliente");
         txtRua.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(104, 129, 164)));
         txtRua.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
@@ -582,6 +588,7 @@ public class PrincipalView extends javax.swing.JFrame {
 
         txtNumero.setBackground(new java.awt.Color(231, 233, 237));
         txtNumero.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
+        txtNumero.setText("554");
         txtNumero.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(104, 129, 164)));
 
         jLabel38.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
@@ -782,7 +789,7 @@ public class PrincipalView extends javax.swing.JFrame {
         txtLimite.setBackground(new java.awt.Color(231, 233, 237));
         txtLimite.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
         txtLimite.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtLimite.setText("R$ 1000,00");
+        txtLimite.setText("1000.00");
         txtLimite.setToolTipText("Limite em Reais para comprar fiado na loja.");
         txtLimite.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(104, 129, 164)));
 
@@ -1621,7 +1628,7 @@ public class PrincipalView extends javax.swing.JFrame {
         txtUnidade.setBackground(new java.awt.Color(231, 233, 237));
         txtUnidade.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
         txtUnidade.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtUnidade.setText("Kilos");
+        txtUnidade.setText("10");
         txtUnidade.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(104, 129, 164)));
 
         jLabel29.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
@@ -1663,7 +1670,7 @@ public class PrincipalView extends javax.swing.JFrame {
         txtKilo.setBackground(new java.awt.Color(231, 233, 237));
         txtKilo.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
         txtKilo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtKilo.setText("10/07/1997");
+        txtKilo.setText("20");
         txtKilo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(104, 129, 164)));
         txtKilo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2049,7 +2056,7 @@ public class PrincipalView extends javax.swing.JFrame {
         } catch (SQLException ex) {
         JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage(), "erro", JOptionPane.WARNING_MESSAGE);
         }        
-        String dados[][] = new String[listaFuncionario.size()][6];
+        String dados[][] = new String[listaCliente.size()][6];
             int i = 0;
             for (Cliente cliente : listaCliente) {
                 dados[i][0] = String.valueOf(cliente.getId_cliente());
@@ -2090,7 +2097,7 @@ public class PrincipalView extends javax.swing.JFrame {
         cliente = new Cliente();
         
        
-        String dados[][] = new String[listaFuncionario.size()][6];
+        String dados[][] = new String[listaCliente.size()][6];
             int i = 0;
             for (Cliente cliente : listaCliente) {
                 dados[i][0] = String.valueOf(cliente.getId_cliente());
@@ -2217,7 +2224,7 @@ public class PrincipalView extends javax.swing.JFrame {
         } catch (SQLException ex) {
         JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage(), "erro", JOptionPane.WARNING_MESSAGE);
         }       
-        String dados[][] = new String[listaFuncionario.size()][6];
+        String dados[][] = new String[listaProduto.size()][6];
             int i = 0;
             for (Produto produto : listaProduto) {
                 dados[i][0] = String.valueOf(produto.getId_produto());
@@ -2493,6 +2500,8 @@ public class PrincipalView extends javax.swing.JFrame {
                 Logger.getLogger(PrincipalView.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+        atualizaTabelaCliente();
+        LimparCamposCliente();
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void btnNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoActionPerformed
@@ -2577,6 +2586,8 @@ public class PrincipalView extends javax.swing.JFrame {
                 Logger.getLogger(PrincipalView.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+        atualizaTabelaFuncionario();
+        LimparCamposFuncionario();
     }//GEN-LAST:event_btnSalvar1ActionPerformed
 
     private void btnNovo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovo1ActionPerformed
@@ -2655,6 +2666,8 @@ public class PrincipalView extends javax.swing.JFrame {
                 Logger.getLogger(PrincipalView.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+        atualizaTabelaProduto();
+        LimparCamposProduto();
     }//GEN-LAST:event_btnSalvar2ActionPerformed
 
     private void btnNovo2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovo2ActionPerformed

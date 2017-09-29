@@ -874,7 +874,7 @@
                                   <Font name="Shruti" size="14" style="0"/>
                                 </Property>
                                 <Property name="horizontalAlignment" type="int" value="2"/>
-                                <Property name="text" type="java.lang.String" value="Rua Canavial de muita voc&#xea; sabe o qu&#xea;, 554"/>
+                                <Property name="text" type="java.lang.String" value="Rua Canavial de muita voc&#xea; sabe o qu&#xea;"/>
                                 <Property name="toolTipText" type="java.lang.String" value="Nome completo do cliente"/>
                                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                                   <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
@@ -1063,6 +1063,7 @@
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Shruti" size="14" style="0"/>
                                 </Property>
+                                <Property name="text" type="java.lang.String" value="554"/>
                                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                                   <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                                     <LineBorder>
@@ -1326,7 +1327,7 @@
                               <Font name="Shruti" size="14" style="0"/>
                             </Property>
                             <Property name="horizontalAlignment" type="int" value="0"/>
-                            <Property name="text" type="java.lang.String" value="R$ 1000,00"/>
+                            <Property name="text" type="java.lang.String" value="1000.00"/>
                             <Property name="toolTipText" type="java.lang.String" value="Limite em Reais para comprar fiado na loja."/>
                             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                               <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
@@ -2994,7 +2995,7 @@
                                   <Font name="Shruti" size="14" style="0"/>
                                 </Property>
                                 <Property name="horizontalAlignment" type="int" value="0"/>
-                                <Property name="text" type="java.lang.String" value="Kilos"/>
+                                <Property name="text" type="java.lang.String" value="10"/>
                                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                                   <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                                     <LineBorder>
@@ -3120,7 +3121,7 @@
                                   <Font name="Shruti" size="14" style="0"/>
                                 </Property>
                                 <Property name="horizontalAlignment" type="int" value="0"/>
-                                <Property name="text" type="java.lang.String" value="10/07/1997"/>
+                                <Property name="text" type="java.lang.String" value="20"/>
                                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                                   <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                                     <LineBorder>

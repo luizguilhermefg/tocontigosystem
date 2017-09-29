@@ -9,10 +9,10 @@ import java.util.List;
 
 
 public class ClienteDAO {
-    
-    public void salvar (Cliente cliente) throws SQLException{
-        PreparedStatement pst;
+    PreparedStatement pst;
         String sql;
+    public void salvar (Cliente cliente) throws SQLException{
+        
         sql = "insert into Cliente values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         pst = Conexao.getInstance().prepareStatement(sql);
         pst.setInt(1,0);
@@ -41,8 +41,7 @@ public class ClienteDAO {
     //ClienteDao Alterar
     //Create By "G"
     public void alterar (Cliente cliente) throws SQLException{
-        PreparedStatement pst;
-        String sql;
+
         sql = "UPDATE Cliente SET nome = ?, cpf = ?, cnpj = ?, rg = ?, rua = ?, cep = ?, cidade = ?, telefone = ?, telefone_comercial = ?, celular = ?, estado = ?, pais = ?, bairro = ?, complemento = ?, Numero = ?, data_nascimento = ?, limite = ? WHERE id_cliente = ?" ;
         pst = Conexao.getInstance().prepareStatement(sql);
         pst.setString(1, cliente.getNome());
@@ -71,8 +70,7 @@ public class ClienteDAO {
     // Search By Id Cliente DAO Method
     // Created By : "G"
     public Cliente busca(int id) throws SQLException{
-        PreparedStatement pst;
-        String sql;
+
         sql = "SELECT * FROM Cliente WHERE id_cliente = ?";
         pst = Conexao.getInstance().prepareStatement(sql);
         pst.setInt(1, id);
@@ -88,8 +86,7 @@ public class ClienteDAO {
     //Search By Nome Cliente DAO Method
     // Created By : "G"
     public Cliente buscaNome(String nome) throws SQLException{
-        PreparedStatement pst;
-        String sql;
+
         
         sql = "SELECT * FROM Cliente WHERE nome like ?";
         pst = Conexao.getInstance().prepareStatement(sql);
@@ -107,8 +104,7 @@ public class ClienteDAO {
     // Created By : "G"
     
     public List<Cliente> listaTodos() throws SQLException{
-       PreparedStatement pst;
-       String sql;
+
        List<Cliente> listaCli = new ArrayList<Cliente>();
        sql = "SELECT * FROM Cliente ORDER BY nome";
        pst = Conexao.getInstance().prepareStatement(sql);
@@ -124,8 +120,7 @@ public class ClienteDAO {
     // Created By : "G"
     public List<Cliente> buscaNomeLista(String Nome) throws SQLException{
         List<Cliente> listaCli = new ArrayList<Cliente>();
-        PreparedStatement pst;
-        String sql;
+
         String name = "%"+Nome+"%";
         sql = "SELECT * FROM Cliente WHERE nome LIKE ?";
         pst = Conexao.getInstance().prepareStatement(sql);
@@ -140,8 +135,7 @@ public class ClienteDAO {
     }
     
     public void excluir(Cliente cliente) throws SQLException{
-        PreparedStatement pst;
-        String sql;
+
         sql = "delete from Cliente where id_cliente = ?";
         pst = Conexao.getInstance().prepareStatement(sql);
         pst.setInt(1, cliente.getId_cliente());
