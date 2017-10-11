@@ -2512,7 +2512,7 @@ public class PrincipalView extends javax.swing.JFrame {
         }
         else{
             cliente.setId_cliente(Integer.parseInt(txtIDCliente.getText()));
-            int confirma = JOptionPane.showConfirmDialog(null, "Deseja excluir: "+ txtNome.getText());
+            int confirma = JOptionPane.showConfirmDialog(null, "Deseja excluir: "+ txtNome.getText(),"", JOptionPane.QUESTION_MESSAGE);
             if(confirma ==0){
                 try{
                     clientedao.excluir(cliente);
@@ -2598,7 +2598,7 @@ public class PrincipalView extends javax.swing.JFrame {
         }
         else{
             funcionario.setId_funcionario(Integer.parseInt(txtIDFuncionario.getText()));
-            int confirma = JOptionPane.showConfirmDialog(null, "Deseja excluir: "+ txtNome1.getText());
+            int confirma = JOptionPane.showConfirmDialog(null, "Deseja excluir: "+ txtNome1.getText(),"",JOptionPane.QUESTION_MESSAGE);
             if(confirma ==0){
                 try{
                     funcionariodao.excluir(funcionario);
@@ -2682,7 +2682,7 @@ public class PrincipalView extends javax.swing.JFrame {
         }
         else{
             produto.setId_produto(Integer.parseInt(txtIDProduto.getText()));
-            int confirma = JOptionPane.showConfirmDialog(null, "Deseja excluir: "+ txtNome2.getText());
+            int confirma = JOptionPane.showConfirmDialog(null, "Deseja excluir: "+ txtNome2.getText(),"",JOptionPane.QUESTION_MESSAGE);
             if(confirma ==0){
                 try{
                     produtodao.excluir(produto);
@@ -2727,7 +2727,7 @@ public class PrincipalView extends javax.swing.JFrame {
         try{
             cliente = clientedao.busca(Integer.parseInt(tblCliente.getValueAt(tblCliente.getSelectedRow(),0).toString()));
         }catch(SQLException ex){
-            JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage());
+            JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage(),"",JOptionPane.WARNING_MESSAGE);
         }
         tblCliente.getTableHeader().setReorderingAllowed(false);
 
@@ -2829,7 +2829,7 @@ public class PrincipalView extends javax.swing.JFrame {
         try{
             produto = produtodao.busca(Integer.parseInt(tblProduto.getValueAt(tblProduto.getSelectedRow(),0).toString()));
         }catch(SQLException ex){
-            JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage());
+            JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage(),"",JOptionPane.WARNING_MESSAGE);
         }
         tblProduto.getTableHeader().setReorderingAllowed(false);
 
