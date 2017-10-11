@@ -9,10 +9,11 @@ import java.util.List;
 
 
 public class ClienteDAO {
-    PreparedStatement pst;
-        String sql;
+    
+    
     public void salvar (Cliente cliente) throws SQLException{
-        
+        PreparedStatement pst;
+        String sql;
         sql = "insert into Cliente values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         pst = Conexao.getInstance().prepareStatement(sql);
         pst.setInt(1,0);
@@ -41,7 +42,8 @@ public class ClienteDAO {
     //ClienteDao Alterar
     //Create By "G"
     public void alterar (Cliente cliente) throws SQLException{
-
+        PreparedStatement pst;
+        String sql;
         sql = "UPDATE Cliente SET nome = ?, cpf = ?, cnpj = ?, rg = ?, rua = ?, cep = ?, cidade = ?, telefone = ?, telefone_comercial = ?, celular = ?, estado = ?, pais = ?, bairro = ?, complemento = ?, Numero = ?, data_nascimento = ?, limite = ? WHERE id_cliente = ?" ;
         pst = Conexao.getInstance().prepareStatement(sql);
         pst.setString(1, cliente.getNome());
@@ -70,14 +72,15 @@ public class ClienteDAO {
     // Search By Id Cliente DAO Method
     // Created By : "G"
     public Cliente busca(int id) throws SQLException{
-
+        PreparedStatement pst;
+        String sql;
         sql = "SELECT * FROM Cliente WHERE id_cliente = ?";
         pst = Conexao.getInstance().prepareStatement(sql);
         pst.setInt(1, id);
         Cliente cliente = null;
         ResultSet rs = pst.executeQuery();
         while(rs.next()){
-           cliente = new Cliente(rs.getInt("id"),rs.getString("nome"),rs.getString("cpf"),rs.getString("cnpj"),rs.getString("rg"), rs.getString("rua"), rs.getString("cep"), rs.getString("cidade"), rs.getString("telefone"), rs.getString("telefone_comercial"), rs.getString("celular"), rs.getString("estado"), rs.getString("pais"), rs.getString("bairro"), rs.getString("complemento"), rs.getString("numero"), rs.getString("data_nascimento"), rs.getDouble("limite"));
+           cliente = new Cliente(rs.getInt("id_cliente"),rs.getString("nome"),rs.getString("cpf"),rs.getString("cnpj"),rs.getString("rg"), rs.getString("rua"), rs.getString("cep"), rs.getString("cidade"), rs.getString("telefone"), rs.getString("telefone_comercial"), rs.getString("celular"), rs.getString("estado"), rs.getString("pais"), rs.getString("bairro"), rs.getString("complemento"), rs.getString("numero"), rs.getString("data_nascimento"), rs.getDouble("limite"));
         }
         pst.close();
         return cliente;
@@ -86,7 +89,8 @@ public class ClienteDAO {
     //Search By Nome Cliente DAO Method
     // Created By : "G"
     public Cliente buscaNome(String nome) throws SQLException{
-
+        PreparedStatement pst;
+        String sql;
         
         sql = "SELECT * FROM Cliente WHERE nome like ?";
         pst = Conexao.getInstance().prepareStatement(sql);
@@ -104,7 +108,8 @@ public class ClienteDAO {
     // Created By : "G"
     
     public List<Cliente> listaTodos() throws SQLException{
-
+        PreparedStatement pst;
+        String sql;
        List<Cliente> listaCli = new ArrayList<Cliente>();
        sql = "SELECT * FROM Cliente ORDER BY nome";
        pst = Conexao.getInstance().prepareStatement(sql);
@@ -119,8 +124,10 @@ public class ClienteDAO {
     // Busca Lista Clientes DAO Method
     // Created By : "G"
     public List<Cliente> buscaNomeLista(String Nome) throws SQLException{
+        PreparedStatement pst;
+        String sql;
         List<Cliente> listaCli = new ArrayList<Cliente>();
-
+        int cont = 0;
         String name = "%"+Nome+"%";
         sql = "SELECT * FROM Cliente WHERE nome LIKE ?";
         pst = Conexao.getInstance().prepareStatement(sql);
@@ -128,14 +135,21 @@ public class ClienteDAO {
         pst.execute();
         ResultSet rs = pst.executeQuery();
         while(rs.next()){
-           listaCli.add(new Cliente(rs.getInt("id"),rs.getString("nome"),rs.getString("cpf"),rs.getString("cnpj"),rs.getString("rg"), rs.getString("rua"), rs.getString("cep"), rs.getString("cidade"), rs.getString("telefone"), rs.getString("telefone_comercial"), rs.getString("celular"), rs.getString("estado"), rs.getString("pais"), rs.getString("bairro"), rs.getString("complemento"), rs.getString("numero"), rs.getString("data_nascimento"), rs.getDouble("limite")));
+           listaCli.add(new Cliente(rs.getInt("id_cliente"),rs.getString("nome"),rs.getString("cpf"),rs.getString("cnpj"),rs.getString("rg"), rs.getString("rua"), rs.getString("cep"), rs.getString("cidade"), rs.getString("telefone"), rs.getString("telefone_comercial"), rs.getString("celular"), rs.getString("estado"), rs.getString("pais"), rs.getString("bairro"), rs.getString("complemento"), rs.getString("numero"), rs.getString("data_nascimento"), rs.getDouble("limite")));
+        cont++;
         }
+        
+        if(cont == 0){
+            return null;
+        }
+        
         pst.close();
         return listaCli;
     }
     
     public void excluir(Cliente cliente) throws SQLException{
-
+        PreparedStatement pst;
+        String sql;
         sql = "delete from Cliente where id_cliente = ?";
         pst = Conexao.getInstance().prepareStatement(sql);
         pst.setInt(1, cliente.getId_cliente());

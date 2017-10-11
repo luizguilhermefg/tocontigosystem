@@ -71,6 +71,7 @@ public class FuncionarioDAO {
     static public List<Funcionario> buscaNomeLista(String Nome) throws SQLException{
         PreparedStatement pst;
         String sql;
+        int cont = 0;
         List<Funcionario> listaFunc = new ArrayList<Funcionario>();
         String name = "%"+Nome+"%";
         sql = "SELECT * FROM Funcionario WHERE nome LIKE ?";
@@ -80,7 +81,13 @@ public class FuncionarioDAO {
         ResultSet rs = pst.executeQuery();
         while(rs.next()){
            listaFunc.add(new Funcionario(rs.getInt("id_funcionario"),rs.getString("nome"), rs.getString("cpf"), rs.getString("rg"),rs.getString("data_nascimento"), rs.getString("telefone"), rs.getString("login"), rs.getString("senha"), rs.getString("funcao")));
+        cont++;
         }
+        
+        if(cont == 0){
+            return null;
+        }
+        
         pst.close();
         return listaFunc;
     }

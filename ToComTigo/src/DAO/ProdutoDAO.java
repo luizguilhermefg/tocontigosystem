@@ -68,6 +68,7 @@ public class ProdutoDAO {
     static public List<Produto> buscaNomeLista(String Nome) throws SQLException{
         PreparedStatement pst;
         String sql;
+        int cont = 0;
         List<Produto> listaProd = new ArrayList<Produto>();
         String name = "%"+Nome+"%";
         sql = "SELECT * FROM Produto WHERE nome LIKE ?";
@@ -77,7 +78,13 @@ public class ProdutoDAO {
         ResultSet rs = pst.executeQuery();
         while(rs.next()){
            listaProd.add(new Produto(rs.getInt("id_produto"),rs.getString("nome"),rs.getString("marca"), rs.getString("grupo"), rs.getInt("unidade"), rs.getDouble("kilo"), rs.getInt("quantidade") ));
+        cont++;
         }
+        
+        if(cont == 0){
+            return null;
+        }
+        
         pst.close();
         return listaProd;
     }
