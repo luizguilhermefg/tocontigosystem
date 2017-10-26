@@ -20,7 +20,9 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -3848,6 +3850,9 @@ public class PrincipalView extends javax.swing.JFrame {
     }//GEN-LAST:event_tblRelatorioProdutoMouseClicked
     
     public void gerarDocumentoCliente() throws IOException, DocumentException{
+        String data, hora;
+        data = new SimpleDateFormat("dd/MM/yyyy").format(new Date(System.currentTimeMillis()));
+        hora = new SimpleDateFormat("HH:mm").format(new Date(System.currentTimeMillis()));
         Font f10 = new Font(Font.FontFamily.HELVETICA, 10, Font.BOLD);
         Font f12 = new Font(Font.FontFamily.HELVETICA, 12, Font.BOLD);
         Font f15 = new Font(Font.FontFamily.HELVETICA, 15, Font.BOLD);
@@ -3868,8 +3873,15 @@ public class PrincipalView extends javax.swing.JFrame {
             nomeRelatorio.setAlignment(Element.ALIGN_CENTER);
             nomeRelatorio.setSpacingAfter(10);
             
+            
+            Paragraph nomeData = new Paragraph(data+"  "+hora ,f10);
+            nomeData.setAlignment(Element.ALIGN_CENTER);
+            nomeData.setSpacingAfter(10);
+
+            
             doc.add(nomeUniversidade);
             doc.add(nomeRelatorio);
+            doc.add(nomeData);
             
             PdfPTable tabela = new PdfPTable(5);
             tabela.setHorizontalAlignment(Element.ALIGN_CENTER);
@@ -3933,6 +3945,9 @@ public class PrincipalView extends javax.swing.JFrame {
     }
     
     public void gerarDocumentoFuncionario() throws IOException, DocumentException{
+        String data, hora;
+        data = new SimpleDateFormat("dd/MM/yyyy").format(new Date(System.currentTimeMillis()));
+        hora = new SimpleDateFormat("HH:mm").format(new Date(System.currentTimeMillis()));
         Font f10 = new Font(Font.FontFamily.HELVETICA, 10, Font.BOLD);
         Font f12 = new Font(Font.FontFamily.HELVETICA, 12, Font.BOLD);
         Font f15 = new Font(Font.FontFamily.HELVETICA, 15, Font.BOLD);
@@ -3953,8 +3968,13 @@ public class PrincipalView extends javax.swing.JFrame {
             nomeRelatorio.setAlignment(Element.ALIGN_CENTER);
             nomeRelatorio.setSpacingAfter(10);
             
+            Paragraph nomeData = new Paragraph(data+"  "+hora ,f10);
+            nomeData.setAlignment(Element.ALIGN_CENTER);
+            nomeData.setSpacingAfter(10);
+            
             doc.add(nomeUniversidade);
             doc.add(nomeRelatorio);
+            doc.add(nomeData);
             
             PdfPTable tabela = new PdfPTable(5);
             tabela.setHorizontalAlignment(Element.ALIGN_CENTER);
@@ -4018,6 +4038,10 @@ public class PrincipalView extends javax.swing.JFrame {
     }
     
     public void gerarDocumentoProduto() throws IOException, DocumentException{
+        String data, hora;
+        data = new SimpleDateFormat("dd/MM/yyyy").format(new Date(System.currentTimeMillis()));
+        hora = new SimpleDateFormat("HH:mm").format(new Date(System.currentTimeMillis()));
+
         Font f10 = new Font(Font.FontFamily.HELVETICA, 10, Font.BOLD);
         Font f12 = new Font(Font.FontFamily.HELVETICA, 12, Font.BOLD);
         Font f15 = new Font(Font.FontFamily.HELVETICA, 15, Font.BOLD);
@@ -4038,8 +4062,13 @@ public class PrincipalView extends javax.swing.JFrame {
             nomeRelatorio.setAlignment(Element.ALIGN_CENTER);
             nomeRelatorio.setSpacingAfter(10);
             
+            Paragraph nomeData = new Paragraph(data+"  "+hora ,f10);
+            nomeData.setAlignment(Element.ALIGN_CENTER);
+            nomeData.setSpacingAfter(10);
+            
             doc.add(nomeUniversidade);
             doc.add(nomeRelatorio);
+            doc.add(nomeData);
             
             PdfPTable tabela = new PdfPTable(5);
             tabela.setHorizontalAlignment(Element.ALIGN_CENTER);
