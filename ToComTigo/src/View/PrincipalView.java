@@ -248,9 +248,9 @@ public class PrincipalView extends javax.swing.JFrame {
         jPanel28 = new javax.swing.JPanel();
         txtRelatorioProduto = new javax.swing.JTextField();
         btnRelatorioProduto = new javax.swing.JButton();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        tblRelatorioProduto = new javax.swing.JTable();
         btnGerarProduto = new javax.swing.JToggleButton();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        tblRelatorioProduto = new javax.swing.JTable();
         jPanel29 = new javax.swing.JPanel();
         jPanel30 = new javax.swing.JPanel();
         jPanel31 = new javax.swing.JPanel();
@@ -2036,7 +2036,7 @@ public class PrincipalView extends javax.swing.JFrame {
         jPanel22Layout.setHorizontalGroup(
             jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel22Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(196, 196, 196)
                 .addComponent(txtRelatorioCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 388, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnRelatorioCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2092,12 +2092,10 @@ public class PrincipalView extends javax.swing.JFrame {
                         .addComponent(btnGerarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel21Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jScrollPane4)))
+                        .addGroup(jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 835, Short.MAX_VALUE)
+                            .addComponent(jPanel22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
-            .addGroup(jPanel21Layout.createSequentialGroup()
-                .addContainerGap(136, Short.MAX_VALUE)
-                .addComponent(jPanel22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(175, Short.MAX_VALUE))
         );
         jPanel21Layout.setVerticalGroup(
             jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2140,7 +2138,7 @@ public class PrincipalView extends javax.swing.JFrame {
         jPanel28Layout.setHorizontalGroup(
             jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel28Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(196, 196, 196)
                 .addComponent(txtRelatorioProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 388, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnRelatorioProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2154,6 +2152,17 @@ public class PrincipalView extends javax.swing.JFrame {
                     .addComponent(btnRelatorioProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 15, Short.MAX_VALUE))
         );
+
+        btnGerarProduto.setBackground(new java.awt.Color(111, 189, 111));
+        btnGerarProduto.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
+        btnGerarProduto.setForeground(new java.awt.Color(33, 68, 33));
+        btnGerarProduto.setText("Gerar Relatório");
+        btnGerarProduto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(66, 160, 66), 2));
+        btnGerarProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGerarProdutoActionPerformed(evt);
+            }
+        });
 
         tblRelatorioProduto.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
         tblRelatorioProduto.setModel(new javax.swing.table.DefaultTableModel(
@@ -2172,18 +2181,7 @@ public class PrincipalView extends javax.swing.JFrame {
                 tblRelatorioProdutoMouseClicked(evt);
             }
         });
-        jScrollPane5.setViewportView(tblRelatorioProduto);
-
-        btnGerarProduto.setBackground(new java.awt.Color(111, 189, 111));
-        btnGerarProduto.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
-        btnGerarProduto.setForeground(new java.awt.Color(33, 68, 33));
-        btnGerarProduto.setText("Gerar Relatório");
-        btnGerarProduto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(66, 160, 66), 2));
-        btnGerarProduto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGerarProdutoActionPerformed(evt);
-            }
-        });
+        jScrollPane7.setViewportView(tblRelatorioProduto);
 
         javax.swing.GroupLayout jPanel27Layout = new javax.swing.GroupLayout(jPanel27);
         jPanel27.setLayout(jPanel27Layout);
@@ -2192,14 +2190,11 @@ public class PrincipalView extends javax.swing.JFrame {
             .addGroup(jPanel27Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel27Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btnGerarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel27Layout.createSequentialGroup()
-                        .addGap(0, 132, Short.MAX_VALUE)
-                        .addComponent(jPanel28, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 159, Short.MAX_VALUE)))
+                    .addComponent(jPanel28, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 835, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel27Layout.setVerticalGroup(
@@ -2208,7 +2203,7 @@ public class PrincipalView extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jPanel28, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 341, Short.MAX_VALUE)
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 341, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(btnGerarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -2256,7 +2251,7 @@ public class PrincipalView extends javax.swing.JFrame {
         jPanel31Layout.setHorizontalGroup(
             jPanel31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel31Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(196, 196, 196)
                 .addComponent(txtRelatorioFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 388, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnRelatorioFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2308,15 +2303,12 @@ public class PrincipalView extends javax.swing.JFrame {
             .addGroup(jPanel30Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel30Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane6)
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 835, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel30Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnGerarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnGerarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel31, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
-            .addGroup(jPanel30Layout.createSequentialGroup()
-                .addContainerGap(141, Short.MAX_VALUE)
-                .addComponent(jPanel31, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(170, Short.MAX_VALUE))
         );
         jPanel30Layout.setVerticalGroup(
             jPanel30Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3032,9 +3024,10 @@ public class PrincipalView extends javax.swing.JFrame {
             
             DefaultTableCellRenderer centralizado = new DefaultTableCellRenderer();
             centralizado.setHorizontalAlignment(SwingConstants.CENTER);
-            tblProduto.getColumnModel().getColumn(0).setCellRenderer(centralizado);
-            tblProduto.setRowHeight(25);
-            tblProduto.updateUI();
+            tblRelatorioProduto.getColumnModel().getColumn(0).setCellRenderer(centralizado);
+            tblRelatorioProduto.setRowHeight(25);
+            tblRelatorioProduto.updateUI();
+            
     }
     
     // Atualiza Tabela Busca Methods
@@ -3752,10 +3745,6 @@ public class PrincipalView extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnRelatorioProdutoActionPerformed
 
-    private void tblRelatorioProdutoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblRelatorioProdutoMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tblRelatorioProdutoMouseClicked
-
     private void btnGerarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGerarProdutoActionPerformed
         String nomediretorio = null;
         String nomepasta = "RelatoriosToContigo"; // Informe o nome da pasta que armazenará o relatório
@@ -3818,8 +3807,8 @@ public class PrincipalView extends javax.swing.JFrame {
 
     private void jTabbedPane4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane4MouseClicked
         atualizaTabelaClienteRelatorio();
-        atualizaTabelaFuncionarioRelatorio();
         atualizaTabelaProdutoRelatorio();
+        atualizaTabelaFuncionarioRelatorio();
     }//GEN-LAST:event_jTabbedPane4MouseClicked
 
     private void TablePaneFuncionarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TablePaneFuncionarioMouseClicked
@@ -3853,6 +3842,10 @@ public class PrincipalView extends javax.swing.JFrame {
         txtCPF.setVisible(false);
         txtRG.setVisible(true);
     }//GEN-LAST:event_RadioRgMouseClicked
+
+    private void tblRelatorioProdutoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblRelatorioProdutoMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tblRelatorioProdutoMouseClicked
     
     public void gerarDocumentoCliente() throws IOException, DocumentException{
         Font f10 = new Font(Font.FontFamily.HELVETICA, 10, Font.BOLD);
@@ -4457,8 +4450,8 @@ public class PrincipalView extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
