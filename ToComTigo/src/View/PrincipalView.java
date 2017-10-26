@@ -3309,8 +3309,8 @@ public class PrincipalView extends javax.swing.JFrame {
         }
         else{
             cliente.setId_cliente(Integer.parseInt(txtIDCliente.getText()));
-            int confirma = JOptionPane.showConfirmDialog(null, "Deseja excluir: "+ txtNome.getText(),"", JOptionPane.QUESTION_MESSAGE);
-            if(confirma ==0){
+            int confirma = JOptionPane.showConfirmDialog(null, "Deseja excluir: "+ txtNome.getText(),"", JOptionPane.YES_NO_CANCEL_OPTION);
+            if(confirma == JOptionPane.YES_OPTION){
                 try{
                     clientedao.excluir(cliente);
                     LimparCamposCliente();
@@ -3318,7 +3318,7 @@ public class PrincipalView extends javax.swing.JFrame {
                 }catch(SQLException ex){
                     JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage(), "erro", JOptionPane.WARNING_MESSAGE);
                 }
-                //atualizaTabelaFuncionario();
+                atualizaTabelaCliente();
                 PreparaExcluirCliente();
             }
         }
@@ -3396,8 +3396,8 @@ public class PrincipalView extends javax.swing.JFrame {
         }
         else{
             funcionario.setId_funcionario(Integer.parseInt(txtIDFuncionario.getText()));
-            int confirma = JOptionPane.showConfirmDialog(null, "Deseja excluir: "+ txtNome1.getText(),"",JOptionPane.QUESTION_MESSAGE);
-            if(confirma ==0){
+            int confirma = JOptionPane.showConfirmDialog(null, "Deseja excluir: "+ txtNome1.getText(),"",JOptionPane.YES_NO_CANCEL_OPTION);
+            if(confirma ==JOptionPane.YES_OPTION){
                 try{
                     funcionariodao.excluir(funcionario);
                     LimparCamposFuncionario();
@@ -3405,7 +3405,7 @@ public class PrincipalView extends javax.swing.JFrame {
                 }catch(SQLException ex){
                     JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage(), "erro", JOptionPane.WARNING_MESSAGE);
                 }
-                //atualizaTabelaFuncionario();
+                atualizaTabelaFuncionario();
                 PreparaExcluirFuncionario();
             }
         }
@@ -3481,8 +3481,8 @@ public class PrincipalView extends javax.swing.JFrame {
         }
         else{
             produto.setId_produto(Integer.parseInt(txtIDProduto.getText()));
-            int confirma = JOptionPane.showConfirmDialog(null, "Deseja excluir: "+ txtNome2.getText(),"",JOptionPane.QUESTION_MESSAGE);
-            if(confirma ==0){
+            int confirma = JOptionPane.showConfirmDialog(null, "Deseja excluir: "+ txtNome2.getText(),"",JOptionPane.YES_NO_CANCEL_OPTION);
+            if(confirma == JOptionPane.YES_OPTION){
                 try{
                     produtodao.excluir(produto);
                     LimparCamposProduto();
@@ -3490,7 +3490,7 @@ public class PrincipalView extends javax.swing.JFrame {
                 }catch(SQLException ex){
                     JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage(), "erro", JOptionPane.WARNING_MESSAGE);
                 }
-                //atualizaTabelaFuncionario();
+                atualizaTabelaProduto();
                 PreparaExcluirProduto();
             }
         }
