@@ -3640,7 +3640,7 @@ public class PrincipalView extends javax.swing.JFrame {
         txtKilo.setText(String.valueOf(produto.getKilo()));
         lblQuantidade.setText(String.valueOf(produto.getQuantidade()));
         
-        PreparaSelecaoTabelaFuncionario();
+        PreparaSelecaoTabelaProduto();
     }//GEN-LAST:event_tblProdutoMouseClicked
 
     private void lblRelatoriosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRelatoriosMouseClicked
