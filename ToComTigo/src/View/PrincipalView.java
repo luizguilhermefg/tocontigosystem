@@ -84,6 +84,12 @@ public class PrincipalView extends javax.swing.JFrame {
         DesativaCamposCliente();
         DesativaCamposFuncionario();
         DesativaCamposProduto();
+        btnAlterar.setEnabled(false);
+        btnAlterar1.setEnabled(false);
+        btnAlterar2.setEnabled(false);
+        btnExcluir.setEnabled(false);
+        btnExcluir1.setEnabled(false);
+        btnExcluir2.setEnabled(false);
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

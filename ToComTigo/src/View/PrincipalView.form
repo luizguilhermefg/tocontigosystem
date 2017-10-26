@@ -3804,13 +3804,13 @@
                                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                               <Component id="btnGerarFuncionario" min="-2" pref="137" max="-2" attributes="0"/>
                                           </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace min="0" pref="131" max="32767" attributes="0"/>
+                                              <Component id="jPanel31" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="0" pref="160" max="32767" attributes="0"/>
+                                          </Group>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace pref="141" max="32767" attributes="0"/>
-                                      <Component id="jPanel31" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace pref="170" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
