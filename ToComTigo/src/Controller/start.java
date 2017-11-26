@@ -5,12 +5,12 @@
  */
 package Controller;
 
-import View.PrincipalView;
+import View.Login;
 
 public class start {
     public static void main(String [] args){
-        PrincipalView principal = new PrincipalView();
+        Login Login = new Login();
         
-        principal.setVisible(true);
+        Login.setVisible(true);
     }
 }
