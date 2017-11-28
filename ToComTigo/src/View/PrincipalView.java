@@ -310,6 +310,20 @@ public class PrincipalView extends javax.swing.JFrame {
         txtPrecoTotal = new javax.swing.JTextField();
         jScrollPane9 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
+        Cliente = new javax.swing.JDialog();
+        jPanel34 = new javax.swing.JPanel();
+        jLabel68 = new javax.swing.JLabel();
+        txtBuscaClienteDialog = new javax.swing.JTextField();
+        jSeparator5 = new javax.swing.JSeparator();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        tblClienteDialog = new javax.swing.JTable();
+        Produto = new javax.swing.JDialog();
+        jPanel35 = new javax.swing.JPanel();
+        jLabel69 = new javax.swing.JLabel();
+        txtBuscaProdutoDialog = new javax.swing.JTextField();
+        jSeparator6 = new javax.swing.JSeparator();
+        jScrollPane11 = new javax.swing.JScrollPane();
+        tblProdutoDialog = new javax.swing.JTable();
         pnlMenu = new javax.swing.JPanel();
         lblVenda = new javax.swing.JLabel();
         lblProduto = new javax.swing.JLabel();
@@ -1076,7 +1090,6 @@ public class PrincipalView extends javax.swing.JFrame {
 
         funcionarios.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         funcionarios.setMinimumSize(new java.awt.Dimension(949, 570));
-        funcionarios.setPreferredSize(new java.awt.Dimension(949, 570));
         funcionarios.setResizable(false);
 
         jPanel8.setBackground(new java.awt.Color(137, 137, 137));
@@ -2610,7 +2623,7 @@ public class PrincipalView extends javax.swing.JFrame {
         jLabel58.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
         jLabel58.setForeground(new java.awt.Color(26, 26, 26));
         jLabel58.setText("Qtde");
-        jPanel33.add(jLabel58, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, -1, 22));
+        jPanel33.add(jLabel58, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, -1, 30));
 
         btnCancelar3.setBackground(new java.awt.Color(200, 120, 120));
         btnCancelar3.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
@@ -2652,7 +2665,7 @@ public class PrincipalView extends javax.swing.JFrame {
         jLabel59.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
         jLabel59.setForeground(new java.awt.Color(26, 26, 26));
         jLabel59.setText("Vendedor");
-        jPanel33.add(jLabel59, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, 22));
+        jPanel33.add(jLabel59, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, 30));
 
         cbxVendedor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jPanel33.add(cbxVendedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 70, 274, 32));
@@ -2684,6 +2697,11 @@ public class PrincipalView extends javax.swing.JFrame {
         btnSelecionaCliente.setForeground(new java.awt.Color(38, 76, 87));
         btnSelecionaCliente.setText("Buscar");
         btnSelecionaCliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(62, 153, 139)));
+        btnSelecionaCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSelecionaClienteActionPerformed(evt);
+            }
+        });
 
         jLabel62.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
         jLabel62.setForeground(new java.awt.Color(26, 26, 26));
@@ -2754,6 +2772,11 @@ public class PrincipalView extends javax.swing.JFrame {
         btnSelecionaProduto.setForeground(new java.awt.Color(38, 76, 87));
         btnSelecionaProduto.setText("Buscar");
         btnSelecionaProduto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(62, 153, 139)));
+        btnSelecionaProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSelecionaProdutoActionPerformed(evt);
+            }
+        });
 
         jLabel65.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
         jLabel65.setForeground(new java.awt.Color(26, 26, 26));
@@ -2800,26 +2823,26 @@ public class PrincipalView extends javax.swing.JFrame {
         jLabel66.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
         jLabel66.setForeground(new java.awt.Color(26, 26, 26));
         jLabel66.setText("Preço Unit");
-        jPanel33.add(jLabel66, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 330, -1, 22));
+        jPanel33.add(jLabel66, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 330, -1, 30));
 
         txtPrecoUnit.setBackground(new java.awt.Color(231, 233, 237));
         txtPrecoUnit.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
         txtPrecoUnit.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtPrecoUnit.setToolTipText("Limite em Reais para comprar fiado na loja.");
         txtPrecoUnit.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(104, 129, 164)));
-        jPanel33.add(txtPrecoUnit, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 330, 154, -1));
+        jPanel33.add(txtPrecoUnit, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 330, 154, -1));
 
         jLabel67.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
         jLabel67.setForeground(new java.awt.Color(26, 26, 26));
         jLabel67.setText("Preço Total");
-        jPanel33.add(jLabel67, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 330, -1, 22));
+        jPanel33.add(jLabel67, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 330, -1, 30));
 
         txtPrecoTotal.setBackground(new java.awt.Color(231, 233, 237));
         txtPrecoTotal.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
         txtPrecoTotal.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtPrecoTotal.setToolTipText("Limite em Reais para comprar fiado na loja.");
         txtPrecoTotal.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(104, 129, 164)));
-        jPanel33.add(txtPrecoTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 330, 154, -1));
+        jPanel33.add(txtPrecoTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 330, 154, -1));
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -2884,12 +2907,97 @@ public class PrincipalView extends javax.swing.JFrame {
         vendas.getContentPane().setLayout(vendasLayout);
         vendasLayout.setHorizontalGroup(
             vendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel25, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(vendasLayout.createSequentialGroup()
+                .addComponent(jPanel25, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(20, Short.MAX_VALUE))
         );
         vendasLayout.setVerticalGroup(
             vendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel25, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
+
+        Cliente.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        Cliente.setMinimumSize(new java.awt.Dimension(300, 370));
+        Cliente.setPreferredSize(new java.awt.Dimension(300, 370));
+        Cliente.setResizable(false);
+        Cliente.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel34.setBackground(new java.awt.Color(249, 249, 249));
+        jPanel34.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel68.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
+        jLabel68.setForeground(new java.awt.Color(26, 26, 26));
+        jLabel68.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel68.setText("Buscar");
+        jPanel34.add(jLabel68, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 300, 22));
+
+        txtBuscaClienteDialog.setBackground(new java.awt.Color(253, 253, 254));
+        txtBuscaClienteDialog.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
+        txtBuscaClienteDialog.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtBuscaClienteDialog.setToolTipText("Limite em Reais para comprar fiado na loja.");
+        txtBuscaClienteDialog.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(104, 129, 164)));
+        jPanel34.add(txtBuscaClienteDialog, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 220, -1));
+
+        jSeparator5.setBackground(new java.awt.Color(249, 249, 249));
+        jSeparator5.setForeground(new java.awt.Color(104, 129, 164));
+        jPanel34.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 260, 10));
+
+        tblClienteDialog.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane8.setViewportView(tblClienteDialog);
+
+        jPanel34.add(jScrollPane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 280, 250));
+
+        Cliente.getContentPane().add(jPanel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 300, 370));
+
+        Produto.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        Produto.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel35.setBackground(new java.awt.Color(249, 249, 249));
+        jPanel35.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel69.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
+        jLabel69.setForeground(new java.awt.Color(26, 26, 26));
+        jLabel69.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel69.setText("Buscar");
+        jPanel35.add(jLabel69, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 300, 22));
+
+        txtBuscaProdutoDialog.setBackground(new java.awt.Color(253, 253, 254));
+        txtBuscaProdutoDialog.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
+        txtBuscaProdutoDialog.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtBuscaProdutoDialog.setToolTipText("Limite em Reais para comprar fiado na loja.");
+        txtBuscaProdutoDialog.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(104, 129, 164)));
+        jPanel35.add(txtBuscaProdutoDialog, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 220, -1));
+
+        jSeparator6.setBackground(new java.awt.Color(249, 249, 249));
+        jSeparator6.setForeground(new java.awt.Color(104, 129, 164));
+        jPanel35.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 260, 10));
+
+        tblProdutoDialog.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane11.setViewportView(tblProdutoDialog);
+
+        jPanel35.add(jScrollPane11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 280, 250));
+
+        Produto.getContentPane().add(jPanel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 300, 370));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("ToContigo");
@@ -3021,7 +3129,7 @@ public class PrincipalView extends javax.swing.JFrame {
         pnlMenu.add(lblRelatorios, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 370, 212, 49));
 
         jPanel24.setBackground(new java.awt.Color(42, 40, 40));
-        jPanel24.setLayout(new java.awt.GridLayout());
+        jPanel24.setLayout(new java.awt.GridLayout(1, 0));
 
         lblUsuario.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
         lblUsuario.setForeground(new java.awt.Color(228, 228, 228));
@@ -4414,6 +4522,14 @@ public class PrincipalView extends javax.swing.JFrame {
     private void lblCliente1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCliente1MouseReleased
         lblCliente1.setForeground(new Color(228, 228,228));
     }//GEN-LAST:event_lblCliente1MouseReleased
+
+    private void btnSelecionaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelecionaClienteActionPerformed
+       Cliente.setVisible(true);
+    }//GEN-LAST:event_btnSelecionaClienteActionPerformed
+
+    private void btnSelecionaProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelecionaProdutoActionPerformed
+        Produto.setVisible(true);
+    }//GEN-LAST:event_btnSelecionaProdutoActionPerformed
     
     public void gerarDocumentoCliente() throws IOException, DocumentException{
         String data, hora;
@@ -4941,6 +5057,8 @@ public class PrincipalView extends javax.swing.JFrame {
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JDialog Cliente;
+    private javax.swing.JDialog Produto;
     private javax.swing.JRadioButton RadioCpf;
     private javax.swing.JRadioButton RadioRg;
     private javax.swing.JTabbedPane TablePaneCliente;
@@ -5031,6 +5149,8 @@ public class PrincipalView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel65;
     private javax.swing.JLabel jLabel66;
     private javax.swing.JLabel jLabel67;
+    private javax.swing.JLabel jLabel68;
+    private javax.swing.JLabel jLabel69;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -5061,6 +5181,8 @@ public class PrincipalView extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel31;
     private javax.swing.JPanel jPanel32;
     private javax.swing.JPanel jPanel33;
+    private javax.swing.JPanel jPanel34;
+    private javax.swing.JPanel jPanel35;
     private javax.swing.JPanel jPanel37;
     private javax.swing.JPanel jPanel38;
     private javax.swing.JPanel jPanel4;
@@ -5071,17 +5193,21 @@ public class PrincipalView extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
+    private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JSeparator jSeparator6;
     private javax.swing.JTabbedPane jTabbedPane4;
     private javax.swing.JTable jTable2;
     private javax.swing.JLabel lblCliente1;
@@ -5108,16 +5234,20 @@ public class PrincipalView extends javax.swing.JFrame {
     private javax.swing.JSlider sldQuantidade;
     private javax.swing.JTable tblCliente;
     private javax.swing.JTable tblCliente1;
+    private javax.swing.JTable tblClienteDialog;
     private javax.swing.JTable tblFuncionario;
     private javax.swing.JTable tblProduto;
+    private javax.swing.JTable tblProdutoDialog;
     private javax.swing.JTable tblRelatorioCliente;
     private javax.swing.JTable tblRelatorioFuncionario;
     private javax.swing.JTable tblRelatorioProduto;
     private javax.swing.JTextField txtBairro;
     private javax.swing.JTextField txtBuscaCliente;
     private javax.swing.JTextField txtBuscaCliente1;
+    private javax.swing.JTextField txtBuscaClienteDialog;
     private javax.swing.JTextField txtBuscaFuncionario;
     private javax.swing.JTextField txtBuscaProduto;
+    private javax.swing.JTextField txtBuscaProdutoDialog;
     private javax.swing.JFormattedTextField txtCNPJ;
     private javax.swing.JFormattedTextField txtCPF;
     private javax.swing.JFormattedTextField txtCPF1;
