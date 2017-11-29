@@ -6,11 +6,12 @@
 package Controller;
 
 import View.Login;
+import View.PrincipalView;
 
 public class start {
     public static void main(String [] args){
-        Login Login = new Login();
-        
-        Login.setVisible(true);
+       Login Login = new Login();
+           
+       Login.setVisible(true);
     }
 }

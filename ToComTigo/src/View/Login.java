@@ -48,7 +48,6 @@ public class Login extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(550, 260));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(550, 260));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -58,7 +57,7 @@ public class Login extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(249, 249, 249));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(52, 66, 111), 4));
-        jPanel2.setLayout(new java.awt.GridLayout());
+        jPanel2.setLayout(new java.awt.GridLayout(1, 0));
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(52, 66, 111));
@@ -95,10 +94,15 @@ public class Login extends javax.swing.JFrame {
         jButton1.setForeground(new java.awt.Color(52, 174, 131));
         jButton1.setText("Entrar");
         jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(100, 223, 179), 2));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 195, 100, 35));
 
         jPanel3.setBackground(new java.awt.Color(249, 249, 249));
-        jPanel3.setLayout(new java.awt.GridLayout());
+        jPanel3.setLayout(new java.awt.GridLayout(1, 0));
 
         btnSair.setBackground(new java.awt.Color(249, 249, 249));
         btnSair.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
@@ -129,6 +133,14 @@ public class Login extends javax.swing.JFrame {
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnSairActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        
+        PrincipalView principal = new PrincipalView();
+         principal.setVisible(true);
+         this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
