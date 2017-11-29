@@ -63,12 +63,25 @@ CREATE TABLE IF NOT EXISTS `Funcionario` (
   `quantidade` int NOT NULL,
   PRIMARY KEY (`id_produto`)
  ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-   
+ 
+ -- Table Item Venda Created By "G"
+  CREATE TABLE IF NOT EXISTS `ItemVenda` (
+  `id_itemvenda` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `id_venda` bigint(20) unsigned NOT NULL,
+  `id_produto` bigint(20) unsigned NOT NULL,
+  `quantidade` float(5,0) unsigned NOT NULL,
+  `precoitem` float(7,2) unsigned NOT NULL,
+  `totalitem` float(7,2) unsigned NOT NULL,
+  PRIMARY KEY (`id_itemvenda`)
+ ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+ 
+ -- Edited By "G" Add Field "totalvenda" and Deleted "Id_Produto"
+ 
  CREATE TABLE IF NOT EXISTS `Venda` (
   `id_venda` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `id_cliente` bigint(20) unsigned NOT NULL,
-  `id_produto` bigint(20) unsigned NOT NULL,
   `id_vendedor` bigint(20) unsigned NOT NULL,
+  `totalvenda` float(7,2) unsigned NOT NULL,
   PRIMARY KEY (`id_venda`)
  ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
  
@@ -87,11 +100,18 @@ CREATE TABLE IF NOT EXISTS `Funcionario` (
  -- Chaves estrangeiras tabela Venda
  
 ALTER TABLE `Venda` ADD CONSTRAINT `fk_cliente` FOREIGN KEY ( `id_cliente` ) REFERENCES `Cliente` ( `id_cliente` ) ;
-ALTER TABLE `Venda` ADD CONSTRAINT `fk_produto` FOREIGN KEY ( `id_produto` ) REFERENCES `Produto` ( `id_produto` ) ;
+-- Edited By "G"
+--ALTER TABLE `Venda` ADD CONSTRAINT `fk_produto` FOREIGN KEY ( `id_produto` ) REFERENCES `Produto` ( `id_produto` ) ;
 ALTER TABLE `Venda` ADD CONSTRAINT `fk_vendedor` FOREIGN KEY ( `id_vendedor` ) REFERENCES `Funcionario` ( `id_funcionario` ) ;
+
+-- FK Table ItemVenda By "G"
+ALTER TABLE `ItemVenda` ADD CONSTRAINT `fk_venda` FOREIGN KEY ( `id_venda` ) REFERENCES `Venda` ( `id_venda` ) ;
+ALTER TABLE `ItemVenda` ADD CONSTRAINT `fk_produto` FOREIGN KEY ( `id_produto` ) REFERENCES `Produto` ( `id_produto` ) ;
+
 
 -- Chaves estrangeiras tabela Historico
 
  ALTER TABLE `Historico` ADD CONSTRAINT `fk_vendedor_historico` FOREIGN KEY ( `id_vendedor` ) REFERENCES `Funcionario` ( `id_funcionario` ) ;
 ALTER TABLE `Historico` ADD CONSTRAINT `fk_venda_historico` FOREIGN KEY ( `id_venda` ) REFERENCES `Venda` ( `id_venda` ) ;
- 
+
+
