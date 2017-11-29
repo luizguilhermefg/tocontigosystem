@@ -101,7 +101,7 @@ CREATE TABLE IF NOT EXISTS `Funcionario` (
  
 ALTER TABLE `Venda` ADD CONSTRAINT `fk_cliente` FOREIGN KEY ( `id_cliente` ) REFERENCES `Cliente` ( `id_cliente` ) ;
 -- Edited By "G"
---ALTER TABLE `Venda` ADD CONSTRAINT `fk_produto` FOREIGN KEY ( `id_produto` ) REFERENCES `Produto` ( `id_produto` ) ;
+-- ALTER TABLE `Venda` ADD CONSTRAINT `fk_produto` FOREIGN KEY ( `id_produto` ) REFERENCES `Produto` ( `id_produto` ) ;
 ALTER TABLE `Venda` ADD CONSTRAINT `fk_vendedor` FOREIGN KEY ( `id_vendedor` ) REFERENCES `Funcionario` ( `id_funcionario` ) ;
 
 -- FK Table ItemVenda By "G"
