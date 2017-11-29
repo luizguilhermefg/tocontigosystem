@@ -2454,7 +2454,6 @@ public class PrincipalView extends javax.swing.JFrame {
 
         vendas.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         vendas.setMinimumSize(new java.awt.Dimension(949, 570));
-        vendas.setPreferredSize(new java.awt.Dimension(949, 570));
 
         jPanel25.setBackground(new java.awt.Color(137, 137, 137));
 
@@ -2691,6 +2690,11 @@ public class PrincipalView extends javax.swing.JFrame {
         txtCliente.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtCliente.setToolTipText("Limite em Reais para comprar fiado na loja.");
         txtCliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(104, 129, 164)));
+        txtCliente.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                txtClienteCaretUpdate(evt);
+            }
+        });
 
         btnSelecionaCliente.setBackground(new java.awt.Color(128, 224, 210));
         btnSelecionaCliente.setFont(new java.awt.Font("Shruti", 0, 13)); // NOI18N
@@ -2909,7 +2913,7 @@ public class PrincipalView extends javax.swing.JFrame {
             vendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(vendasLayout.createSequentialGroup()
                 .addComponent(jPanel25, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
         vendasLayout.setVerticalGroup(
             vendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2918,7 +2922,6 @@ public class PrincipalView extends javax.swing.JFrame {
 
         Cliente.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         Cliente.setMinimumSize(new java.awt.Dimension(300, 370));
-        Cliente.setPreferredSize(new java.awt.Dimension(300, 370));
         Cliente.setResizable(false);
         Cliente.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -4530,6 +4533,10 @@ public class PrincipalView extends javax.swing.JFrame {
     private void btnSelecionaProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelecionaProdutoActionPerformed
         Produto.setVisible(true);
     }//GEN-LAST:event_btnSelecionaProdutoActionPerformed
+
+    private void txtClienteCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtClienteCaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtClienteCaretUpdate
     
     public void gerarDocumentoCliente() throws IOException, DocumentException{
         String data, hora;

@@ -3974,9 +3974,6 @@
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[949, 570]"/>
         </Property>
-        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[949, 570]"/>
-        </Property>
       </Properties>
 
       <Layout>
@@ -3984,7 +3981,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <Component id="jPanel25" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="20" max="32767" attributes="0"/>
+                  <EmptySpace pref="38" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -4649,6 +4646,9 @@
                                       </Border>
                                     </Property>
                                   </Properties>
+                                  <Events>
+                                    <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtClienteCaretUpdate"/>
+                                  </Events>
                                 </Component>
                                 <Component class="javax.swing.JButton" name="btnSelecionaCliente">
                                   <Properties>
@@ -4966,9 +4966,6 @@
       <Properties>
         <Property name="defaultCloseOperation" type="int" value="2"/>
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[300, 370]"/>
-        </Property>
-        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[300, 370]"/>
         </Property>
         <Property name="resizable" type="boolean" value="false"/>
