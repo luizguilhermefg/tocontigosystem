@@ -25,6 +25,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.SwingConstants;
@@ -46,6 +47,12 @@ public class PrincipalView extends javax.swing.JFrame {
     List<Cliente> listaCliente;
     List<Funcionario> listaFuncionario;
     List<Produto> listaProduto;
+    // Variaveis de Venda
+    ItensVenda itemVenda = new ItensVenda();
+    List<ItensVenda> listaItensVenda;
+    Venda venda = new Venda();
+    VendaDAO vendadao = new VendaDAO();
+    
     
     Document doc;
     public PrincipalView() {
@@ -309,7 +316,11 @@ public class PrincipalView extends javax.swing.JFrame {
         jLabel67 = new javax.swing.JLabel();
         txtPrecoTotal = new javax.swing.JTextField();
         jScrollPane9 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        TabelaItemVenda = new javax.swing.JTable();
+        btnAddItemVendas = new javax.swing.JButton();
+        btnExcluiItemVenda = new javax.swing.JButton();
+        jLabel42 = new javax.swing.JLabel();
+        lblTotalVenda = new javax.swing.JLabel();
         Cliente = new javax.swing.JDialog();
         jPanel34 = new javax.swing.JPanel();
         jLabel68 = new javax.swing.JLabel();
@@ -384,7 +395,7 @@ public class PrincipalView extends javax.swing.JFrame {
         btnBuscarCliente.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
         btnBuscarCliente.setText("Buscar");
         btnBuscarCliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(121, 175, 190)));
-        btnBuscarCliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnBuscarCliente.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnBuscarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBuscarClienteActionPerformed(evt);
@@ -508,7 +519,7 @@ public class PrincipalView extends javax.swing.JFrame {
         txtNome.setText("Pedrinho Nascimento de Pinto Rocha");
         txtNome.setToolTipText("Nome completo do cliente");
         txtNome.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(104, 129, 164)));
-        txtNome.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtNome.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         txtNome.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
         txtNome.setMargin(new java.awt.Insets(0, 0, 0, 0));
 
@@ -661,7 +672,7 @@ public class PrincipalView extends javax.swing.JFrame {
         txtRua.setText("Rua Canavial de muita você sabe o quê");
         txtRua.setToolTipText("Nome completo do cliente");
         txtRua.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(104, 129, 164)));
-        txtRua.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtRua.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         txtRua.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
         txtRua.setMargin(new java.awt.Insets(0, 0, 0, 0));
 
@@ -675,7 +686,7 @@ public class PrincipalView extends javax.swing.JFrame {
         txtBairro.setText("Auto Boa Vista");
         txtBairro.setToolTipText("Nome completo do cliente");
         txtBairro.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(104, 129, 164)));
-        txtBairro.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtBairro.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         txtBairro.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
         txtBairro.setMargin(new java.awt.Insets(0, 0, 0, 0));
 
@@ -689,7 +700,7 @@ public class PrincipalView extends javax.swing.JFrame {
         txtCidade.setText("São José do Rio Preto");
         txtCidade.setToolTipText("Nome completo do cliente");
         txtCidade.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(104, 129, 164)));
-        txtCidade.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtCidade.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         txtCidade.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
         txtCidade.setMargin(new java.awt.Insets(0, 0, 0, 0));
 
@@ -703,7 +714,7 @@ public class PrincipalView extends javax.swing.JFrame {
         txtComplemento.setText("Coisas aqui...");
         txtComplemento.setToolTipText("Nome completo do cliente");
         txtComplemento.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(104, 129, 164)));
-        txtComplemento.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtComplemento.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         txtComplemento.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
         txtComplemento.setMargin(new java.awt.Insets(0, 0, 0, 0));
 
@@ -717,7 +728,7 @@ public class PrincipalView extends javax.swing.JFrame {
         txtPais.setText("Brasil");
         txtPais.setToolTipText("Nome completo do cliente");
         txtPais.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(104, 129, 164)));
-        txtPais.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtPais.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         txtPais.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
         txtPais.setMargin(new java.awt.Insets(0, 0, 0, 0));
 
@@ -1137,7 +1148,7 @@ public class PrincipalView extends javax.swing.JFrame {
         btnBuscarFuncionario.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
         btnBuscarFuncionario.setText("Buscar");
         btnBuscarFuncionario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(121, 175, 190)));
-        btnBuscarFuncionario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnBuscarFuncionario.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnBuscarFuncionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBuscarFuncionarioActionPerformed(evt);
@@ -1257,7 +1268,7 @@ public class PrincipalView extends javax.swing.JFrame {
         txtNome1.setText("Pedrinho Nascimento de Pinto Rocha");
         txtNome1.setToolTipText("Nome completo do cliente");
         txtNome1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(104, 129, 164)));
-        txtNome1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtNome1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         txtNome1.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
         txtNome1.setMargin(new java.awt.Insets(0, 0, 0, 0));
 
@@ -1648,7 +1659,7 @@ public class PrincipalView extends javax.swing.JFrame {
         btnBuscarProduto.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
         btnBuscarProduto.setText("Buscar");
         btnBuscarProduto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(121, 175, 190)));
-        btnBuscarProduto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnBuscarProduto.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnBuscarProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBuscarProdutoActionPerformed(evt);
@@ -1778,7 +1789,7 @@ public class PrincipalView extends javax.swing.JFrame {
         txtNome2.setText("Estabilizador");
         txtNome2.setToolTipText("Nome completo do cliente");
         txtNome2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(104, 129, 164)));
-        txtNome2.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtNome2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         txtNome2.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
         txtNome2.setMargin(new java.awt.Insets(0, 0, 0, 0));
 
@@ -2086,7 +2097,7 @@ public class PrincipalView extends javax.swing.JFrame {
         btnRelatorioCliente.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
         btnRelatorioCliente.setText("Buscar");
         btnRelatorioCliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(121, 175, 190)));
-        btnRelatorioCliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnRelatorioCliente.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnRelatorioCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRelatorioClienteActionPerformed(evt);
@@ -2188,7 +2199,7 @@ public class PrincipalView extends javax.swing.JFrame {
         btnRelatorioProduto.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
         btnRelatorioProduto.setText("Buscar");
         btnRelatorioProduto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(121, 175, 190)));
-        btnRelatorioProduto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnRelatorioProduto.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnRelatorioProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRelatorioProdutoActionPerformed(evt);
@@ -2301,7 +2312,7 @@ public class PrincipalView extends javax.swing.JFrame {
         btnRelatorioFuncionario.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
         btnRelatorioFuncionario.setText("Buscar");
         btnRelatorioFuncionario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(121, 175, 190)));
-        btnRelatorioFuncionario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnRelatorioFuncionario.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnRelatorioFuncionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRelatorioFuncionarioActionPerformed(evt);
@@ -2500,7 +2511,7 @@ public class PrincipalView extends javax.swing.JFrame {
         btnBuscarCliente1.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
         btnBuscarCliente1.setText("Buscar");
         btnBuscarCliente1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(121, 175, 190)));
-        btnBuscarCliente1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnBuscarCliente1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnBuscarCliente1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBuscarCliente1ActionPerformed(evt);
@@ -2516,7 +2527,7 @@ public class PrincipalView extends javax.swing.JFrame {
                 .addComponent(txtBuscaCliente1, javax.swing.GroupLayout.PREFERRED_SIZE, 388, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnBuscarCliente1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(95, Short.MAX_VALUE))
+                .addContainerGap(119, Short.MAX_VALUE))
         );
         jPanel32Layout.setVerticalGroup(
             jPanel32Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2592,7 +2603,7 @@ public class PrincipalView extends javax.swing.JFrame {
                 .addComponent(jPanel32, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                 .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnExcluir3, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAlterar3, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -2617,6 +2628,11 @@ public class PrincipalView extends javax.swing.JFrame {
         txtQtde.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtQtde.setToolTipText("Limite em Reais para comprar fiado na loja.");
         txtQtde.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(104, 129, 164)));
+        txtQtde.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                txtQtdeCaretUpdate(evt);
+            }
+        });
         jPanel33.add(txtQtde, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 330, 95, -1));
 
         jLabel58.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
@@ -2634,7 +2650,7 @@ public class PrincipalView extends javax.swing.JFrame {
                 btnCancelar3ActionPerformed(evt);
             }
         });
-        jPanel33.add(btnCancelar3, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 500, 82, 32));
+        jPanel33.add(btnCancelar3, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 590, 82, 32));
 
         btnSalvar3.setBackground(new java.awt.Color(111, 189, 111));
         btnSalvar3.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
@@ -2646,7 +2662,7 @@ public class PrincipalView extends javax.swing.JFrame {
                 btnSalvar3ActionPerformed(evt);
             }
         });
-        jPanel33.add(btnSalvar3, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 500, 82, 32));
+        jPanel33.add(btnSalvar3, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 590, 82, 32));
         jPanel33.add(txtIDCliente1, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 80, 69, -1));
 
         btnNovo3.setBackground(new java.awt.Color(111, 189, 111));
@@ -2659,7 +2675,7 @@ public class PrincipalView extends javax.swing.JFrame {
                 btnNovo3ActionPerformed(evt);
             }
         });
-        jPanel33.add(btnNovo3, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 500, 82, 32));
+        jPanel33.add(btnNovo3, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 590, 82, 32));
 
         jLabel59.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
         jLabel59.setForeground(new java.awt.Color(26, 26, 26));
@@ -2848,7 +2864,7 @@ public class PrincipalView extends javax.swing.JFrame {
         txtPrecoTotal.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(104, 129, 164)));
         jPanel33.add(txtPrecoTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 330, 154, -1));
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        TabelaItemVenda.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -2859,9 +2875,29 @@ public class PrincipalView extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane9.setViewportView(jTable2);
+        jScrollPane9.setViewportView(TabelaItemVenda);
 
-        jPanel33.add(jScrollPane9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, 770, 112));
+        jPanel33.add(jScrollPane9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, 700, 140));
+
+        btnAddItemVendas.setText("+");
+        btnAddItemVendas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddItemVendasActionPerformed(evt);
+            }
+        });
+        jPanel33.add(btnAddItemVendas, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 320, 50, 30));
+
+        btnExcluiItemVenda.setText("-");
+        btnExcluiItemVenda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcluiItemVendaActionPerformed(evt);
+            }
+        });
+        jPanel33.add(btnExcluiItemVenda, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 350, 50, 30));
+
+        jLabel42.setText("Total Venda:");
+        jPanel33.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 530, 80, 30));
+        jPanel33.add(lblTotalVenda, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 524, 70, 40));
 
         jScrollPane10.setViewportView(jPanel33);
 
@@ -2873,15 +2909,14 @@ public class PrincipalView extends javax.swing.JFrame {
             pnlCliente4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlCliente4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(TablePaneCliente1, javax.swing.GroupLayout.PREFERRED_SIZE, 909, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(TablePaneCliente1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addContainerGap())
         );
         pnlCliente4Layout.setVerticalGroup(
             pnlCliente4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlCliente4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(TablePaneCliente1, javax.swing.GroupLayout.PREFERRED_SIZE, 463, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addComponent(TablePaneCliente1, javax.swing.GroupLayout.DEFAULT_SIZE, 481, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel25Layout = new javax.swing.GroupLayout(jPanel25);
@@ -2891,7 +2926,7 @@ public class PrincipalView extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel25Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel40, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 666, Short.MAX_VALUE)
                 .addComponent(lblVoltar4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(61, 61, 61))
             .addComponent(pnlCliente4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -2939,6 +2974,11 @@ public class PrincipalView extends javax.swing.JFrame {
         txtBuscaClienteDialog.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtBuscaClienteDialog.setToolTipText("Limite em Reais para comprar fiado na loja.");
         txtBuscaClienteDialog.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(104, 129, 164)));
+        txtBuscaClienteDialog.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                txtBuscaClienteDialogCaretUpdate(evt);
+            }
+        });
         jPanel34.add(txtBuscaClienteDialog, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 220, -1));
 
         jSeparator5.setBackground(new java.awt.Color(249, 249, 249));
@@ -2956,6 +2996,11 @@ public class PrincipalView extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tblClienteDialog.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblClienteDialogMouseClicked(evt);
+            }
+        });
         jScrollPane8.setViewportView(tblClienteDialog);
 
         jPanel34.add(jScrollPane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 280, 250));
@@ -2963,6 +3008,7 @@ public class PrincipalView extends javax.swing.JFrame {
         Cliente.getContentPane().add(jPanel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 300, 370));
 
         Produto.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        Produto.setMinimumSize(new java.awt.Dimension(310, 380));
         Produto.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel35.setBackground(new java.awt.Color(249, 249, 249));
@@ -2979,6 +3025,11 @@ public class PrincipalView extends javax.swing.JFrame {
         txtBuscaProdutoDialog.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtBuscaProdutoDialog.setToolTipText("Limite em Reais para comprar fiado na loja.");
         txtBuscaProdutoDialog.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(104, 129, 164)));
+        txtBuscaProdutoDialog.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                txtBuscaProdutoDialogCaretUpdate(evt);
+            }
+        });
         jPanel35.add(txtBuscaProdutoDialog, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 220, -1));
 
         jSeparator6.setBackground(new java.awt.Color(249, 249, 249));
@@ -2996,6 +3047,11 @@ public class PrincipalView extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tblProdutoDialog.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblProdutoDialogMouseClicked(evt);
+            }
+        });
         jScrollPane11.setViewportView(tblProdutoDialog);
 
         jPanel35.add(jScrollPane11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 280, 250));
@@ -3015,7 +3071,7 @@ public class PrincipalView extends javax.swing.JFrame {
         lblVenda.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblVenda.setText("Vendas");
         lblVenda.setToolTipText("Menu do cliente, aqui você adiciona e busca clientes");
-        lblVenda.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblVenda.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         lblVenda.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblVendaMouseClicked(evt);
@@ -3039,7 +3095,7 @@ public class PrincipalView extends javax.swing.JFrame {
         lblProduto.setForeground(new java.awt.Color(228, 228, 228));
         lblProduto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblProduto.setText("Produtos");
-        lblProduto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblProduto.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         lblProduto.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblProdutoMouseClicked(evt);
@@ -3063,7 +3119,7 @@ public class PrincipalView extends javax.swing.JFrame {
         lblSair.setForeground(new java.awt.Color(185, 33, 33));
         lblSair.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblSair.setText("Sair");
-        lblSair.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblSair.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         lblSair.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblSairMouseClicked(evt);
@@ -3087,7 +3143,7 @@ public class PrincipalView extends javax.swing.JFrame {
         lblFuncionario.setForeground(new java.awt.Color(228, 228, 228));
         lblFuncionario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblFuncionario.setText("Funcionáros");
-        lblFuncionario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblFuncionario.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         lblFuncionario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblFuncionarioMouseClicked(evt);
@@ -3111,7 +3167,7 @@ public class PrincipalView extends javax.swing.JFrame {
         lblRelatorios.setForeground(new java.awt.Color(228, 228, 228));
         lblRelatorios.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblRelatorios.setText("Relatórios");
-        lblRelatorios.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblRelatorios.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         lblRelatorios.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblRelatoriosMouseClicked(evt);
@@ -3147,7 +3203,7 @@ public class PrincipalView extends javax.swing.JFrame {
         lblCliente1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblCliente1.setText("Clientes");
         lblCliente1.setToolTipText("Menu do cliente, aqui você adiciona e busca clientes");
-        lblCliente1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblCliente1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         lblCliente1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblCliente1MouseClicked(evt);
@@ -3175,6 +3231,23 @@ public class PrincipalView extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+    
+    //Pega a lista de vendedores 
+    public void atualizaBoxVendedor(){
+        cbxVendedor.removeAllItems();
+        cbxVendedor.addItem("Selecione");
+        
+        try {
+            listaFuncionario = funcionariodao.listaTodos();
+        } catch (SQLException ex) {
+            Logger.getLogger(PrincipalView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         String dados[][] = new String[listaFuncionario.size()][5];
+        for (Funcionario fun : listaFuncionario) {
+            cbxVendedor.addItem(fun.getNome());
+        }
+    }
+    
     
     public void atualizaTabelaCliente(){
         listaCliente = null;
@@ -3389,7 +3462,7 @@ public class PrincipalView extends javax.swing.JFrame {
     public void atualizaTabelaProdutoBusca(){
         produto = new Produto();
          
-        String dados[][] = new String[listaFuncionario.size()][6];
+        String dados[][] = new String[listaProduto.size()][6];
             int i = 0;
             for (Produto produto : listaProduto) {
                 dados[i][0] = String.valueOf(produto.getId_produto());
@@ -3684,7 +3757,173 @@ public class PrincipalView extends javax.swing.JFrame {
     
     
     
-    //                  BOTÕES SAIR
+    //                  BOTÕES
+    
+    /*Atualiza tabela Na Caixa de Dialogo
+    *
+    *
+    */
+    public void atualizaTabelaClienteDialog(){
+        listaCliente = null;
+        cliente = new Cliente();
+        try {
+        listaCliente = clientedao.listaTodos();
+        } catch (SQLException ex) {
+        JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage(), "erro", JOptionPane.WARNING_MESSAGE);
+        }        
+        String dados[][] = new String[listaCliente.size()][2];
+            int i = 0;
+            for (Cliente cliente : listaCliente) {
+                dados[i][0] = String.valueOf(cliente.getId_cliente());
+                dados[i][1] = cliente.getNome();
+                i++;
+            }
+            String tituloColuna[] = {"ID", "Nome"};
+            DefaultTableModel tabelacliente = new DefaultTableModel();
+            tabelacliente.setDataVector(dados, tituloColuna);
+            tblClienteDialog.setModel(new DefaultTableModel(dados, tituloColuna) {
+                boolean[] canEdit = new boolean[]{
+                    false, false
+                };
+
+                public boolean isCellEditable(int rowIndex, int columnIndex) {
+                    return canEdit[columnIndex];
+                }
+            });
+
+            tblClienteDialog.getColumnModel().getColumn(0).setPreferredWidth(10);
+            tblClienteDialog.getColumnModel().getColumn(1).setPreferredWidth(200);
+            
+            DefaultTableCellRenderer centralizado = new DefaultTableCellRenderer();
+            centralizado.setHorizontalAlignment(SwingConstants.CENTER);
+            tblClienteDialog.getColumnModel().getColumn(0).setCellRenderer(centralizado);
+            tblClienteDialog.setRowHeight(25);
+            tblClienteDialog.updateUI();
+    }
+    
+    // Update Table Cliente from Search By name
+    public void atualizaTabelaClienteBuscaDialog(){
+        cliente = new Cliente();
+
+       
+        String dados[][] = new String[listaCliente.size()][6];
+            int i = 0;
+            for (Cliente cliente : listaCliente) {
+                dados[i][0] = String.valueOf(cliente.getId_cliente());
+                dados[i][1] = cliente.getNome();
+                
+                i++;
+            }
+            String tituloColuna[] = {"ID", "Nome"};
+            DefaultTableModel tabelacliente = new DefaultTableModel();
+            tabelacliente.setDataVector(dados, tituloColuna);
+            tblClienteDialog.setModel(new DefaultTableModel(dados, tituloColuna) {
+                boolean[] canEdit = new boolean[]{
+                    false, false
+                };
+
+                public boolean isCellEditable(int rowIndex, int columnIndex) {
+                    return canEdit[columnIndex];
+                }
+            });
+
+            tblClienteDialog.getColumnModel().getColumn(0).setPreferredWidth(10);
+            tblClienteDialog.getColumnModel().getColumn(1).setPreferredWidth(200);
+            
+            
+            DefaultTableCellRenderer centralizado = new DefaultTableCellRenderer();
+            centralizado.setHorizontalAlignment(SwingConstants.CENTER);
+            tblClienteDialog.getColumnModel().getColumn(0).setCellRenderer(centralizado);
+            tblClienteDialog.setRowHeight(25);
+            tblClienteDialog.updateUI();
+    }
+    
+    /*
+    *
+    ** TABELA DIALOG PRODUTO
+    *
+    */
+    public void atualizaTabelaProdutoDialog(){
+        produto = new Produto();
+        try {
+        listaProduto = produtodao.listaTodos();
+        } catch (SQLException ex) {
+        JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage(), "erro", JOptionPane.WARNING_MESSAGE);
+        }       
+        String dados[][] = new String[listaProduto.size()][6];
+            int i = 0;
+            for (Produto produto : listaProduto) {
+                dados[i][0] = String.valueOf(produto.getId_produto());
+                dados[i][1] = produto.getNome();
+                
+                i++;
+            }
+            String tituloColuna[] = {"ID", "Nome"};
+            DefaultTableModel tabelaProduto = new DefaultTableModel();
+            tabelaProduto.setDataVector(dados, tituloColuna);
+            tblProdutoDialog.setModel(new DefaultTableModel(dados, tituloColuna) {
+                boolean[] canEdit = new boolean[]{
+                    false, false
+                };
+
+                public boolean isCellEditable(int rowIndex, int columnIndex) {
+                    return canEdit[columnIndex];
+                }
+            });
+
+            tblProdutoDialog.getColumnModel().getColumn(0).setPreferredWidth(10);
+            tblProdutoDialog.getColumnModel().getColumn(1).setPreferredWidth(200);
+
+            DefaultTableCellRenderer centralizado = new DefaultTableCellRenderer();
+            centralizado.setHorizontalAlignment(SwingConstants.CENTER);
+            tblProdutoDialog.getColumnModel().getColumn(0).setCellRenderer(centralizado);
+            tblProdutoDialog.setRowHeight(25);
+            tblProdutoDialog.updateUI();
+    }
+      private float totalVenda(){
+        float total = 0;
+        for(ItensVenda iv : venda.getItensVenda()){
+            total += iv.getPrecototalitem();
+        }
+        return total;
+    }
+    
+    // Atualiza Tabela Busca Methods
+    public void atualizaTabelaProdutoBuscaDialog(){
+        produto = new Produto();
+         
+        String dados[][] = new String[listaProduto.size()][6];
+            int i = 0;
+            for (Produto produto : listaProduto) {
+                dados[i][0] = String.valueOf(produto.getId_produto());
+                dados[i][1] = produto.getNome();
+                i++;
+            }
+            String tituloColuna[] = {"ID", "Nome"};
+            DefaultTableModel tabelaProduto = new DefaultTableModel();
+            tabelaProduto.setDataVector(dados, tituloColuna);
+            tblProdutoDialog.setModel(new DefaultTableModel(dados, tituloColuna) {
+                boolean[] canEdit = new boolean[]{
+                    false, false
+                };
+
+                public boolean isCellEditable(int rowIndex, int columnIndex) {
+                    return canEdit[columnIndex];
+                }
+            });
+
+            tblProdutoDialog.getColumnModel().getColumn(0).setPreferredWidth(10);
+            tblProdutoDialog.getColumnModel().getColumn(1).setPreferredWidth(200);
+            
+            
+            DefaultTableCellRenderer centralizado = new DefaultTableCellRenderer();
+            centralizado.setHorizontalAlignment(SwingConstants.CENTER);
+            tblProdutoDialog.getColumnModel().getColumn(0).setCellRenderer(centralizado);
+            tblProdutoDialog.setRowHeight(25);
+            tblProdutoDialog.updateUI();
+    }
+    
+
     
     private void lblSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSairMouseClicked
         this.dispose();
@@ -4495,6 +4734,18 @@ public class PrincipalView extends javax.swing.JFrame {
 
     private void btnSalvar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvar3ActionPerformed
         // TODO add your handling code here:
+        venda.setCliente(cliente);
+        venda.setVendedor(funcionario);
+        venda.setTotalVenda(Float.valueOf(lblTotalVenda.getText()));
+        try{
+            vendadao.salvar(venda);
+        }
+            catch(SQLException ex){
+                    //Logger.getLogger(VendaView.class.getName()).log(Level.SEVERE, null, ex);
+                    
+            }
+        
+        
     }//GEN-LAST:event_btnSalvar3ActionPerformed
 
     private void btnNovo3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovo3ActionPerformed
@@ -4528,15 +4779,125 @@ public class PrincipalView extends javax.swing.JFrame {
 
     private void btnSelecionaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelecionaClienteActionPerformed
        Cliente.setVisible(true);
+       Cliente.setLocationRelativeTo(null);
+       atualizaTabelaClienteDialog();
     }//GEN-LAST:event_btnSelecionaClienteActionPerformed
 
     private void btnSelecionaProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelecionaProdutoActionPerformed
         Produto.setVisible(true);
+        Produto.setLocationRelativeTo(null);
+        atualizaTabelaProdutoDialog();
+        
     }//GEN-LAST:event_btnSelecionaProdutoActionPerformed
 
     private void txtClienteCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtClienteCaretUpdate
         // TODO add your handling code here:
     }//GEN-LAST:event_txtClienteCaretUpdate
+
+    private void txtBuscaClienteDialogCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtBuscaClienteDialogCaretUpdate
+        // TODO add your handling code here:
+        // Para atualizar a tabela Cliente
+        atualizaTabelaClienteDialog();
+        listaCliente = null;
+        if(txtBuscaClienteDialog.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Digite um nome na busca!","", JOptionPane.WARNING_MESSAGE);
+            atualizaTabelaClienteDialog();
+        }else{
+                    
+            try {
+                listaCliente = clientedao.buscaNomeLista(txtBuscaClienteDialog.getText());
+
+                if(listaCliente == null){
+                    JOptionPane.showMessageDialog(null, "Nenhum Cliente encontrado!","", JOptionPane.WARNING_MESSAGE);
+                    atualizaTabelaClienteDialog();
+                }else{
+                    atualizaTabelaClienteBuscaDialog();
+                }
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage(), "erro", JOptionPane.WARNING_MESSAGE);
+            }
+        }
+        
+    }//GEN-LAST:event_txtBuscaClienteDialogCaretUpdate
+
+    private void tblClienteDialogMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblClienteDialogMouseClicked
+        txtIdCliente.setText(tblClienteDialog.getValueAt(tblClienteDialog.getSelectedRow(), 0).toString());
+        txtCliente.setText(tblClienteDialog.getValueAt(tblClienteDialog.getSelectedRow(), 1).toString());
+        cliente = new Cliente();
+        cliente.setId_cliente(Integer.parseInt(txtIdCliente.getText()));
+        cliente.setNome(txtCliente.getText());
+        Cliente.dispose();
+    }//GEN-LAST:event_tblClienteDialogMouseClicked
+
+    private void txtQtdeCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtQtdeCaretUpdate
+        txtPrecoTotal.setText(String.valueOf(Float.valueOf(txtQtde.getText())* Float.valueOf(txtPrecoUnit.getText())));
+    }//GEN-LAST:event_txtQtdeCaretUpdate
+    
+    
+    
+    private void btnAddItemVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddItemVendasActionPerformed
+     
+        // TODO add your handling code here:
+        itemVenda = new ItensVenda();
+        itemVenda.setProduto(produto);
+        itemVenda.setPreco(Float.valueOf(txtPrecoUnit.getText()));
+        itemVenda.setQuantidade(Float.valueOf(txtQtde.getText()));
+        itemVenda.setPrecototalitem(Float.valueOf(txtPrecoTotal.getText()));
+        venda.getItensVenda().add(itemVenda);
+        atualizaTabelaItemVenda();
+        lblTotalVenda.setText(String.valueOf(totalVenda()));
+        
+        txtPrecoUnit.setText("");
+        txtPrecoTotal.setText("");
+        txtIdProduto.setText("");
+        txtProduto.setText("");
+        txtQtde.setText("");
+        
+        
+    }//GEN-LAST:event_btnAddItemVendasActionPerformed
+
+    private void txtBuscaProdutoDialogCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtBuscaProdutoDialogCaretUpdate
+        // TODO add your handling code here:
+        if (txtBuscaProdutoDialog.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Digite uma chave para a busca!","", JOptionPane.WARNING_MESSAGE);
+            atualizaTabelaProdutoDialog();
+        }else{
+            
+            try {
+                listaProduto = produtodao.buscaNomeLista(txtBuscaProdutoDialog.getText());
+             
+            if(listaProduto == null){
+                
+                JOptionPane.showMessageDialog(null, "Nenhum Produto encontrado!","", JOptionPane.WARNING_MESSAGE);
+                atualizaTabelaProdutoDialog();
+            }else{
+                atualizaTabelaProdutoBuscaDialog();
+            }
+            
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage(), "erro", JOptionPane.WARNING_MESSAGE);
+            }       
+            
+        }
+             
+            
+        
+    }//GEN-LAST:event_txtBuscaProdutoDialogCaretUpdate
+
+    private void tblProdutoDialogMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblProdutoDialogMouseClicked
+        // TODO add your handling code here:
+        txtIdProduto.setText(tblProdutoDialog.getValueAt(tblProdutoDialog.getSelectedRow(), 0).toString());
+        txtProduto.setText(tblProdutoDialog.getValueAt(tblProdutoDialog.getSelectedRow(), 1).toString());
+        produto = new Produto();
+        produto.setId_produto(Integer.parseInt(txtIdProduto.getText()));
+        produto.setNome(txtProduto.getText());
+        Produto.dispose();
+    }//GEN-LAST:event_tblProdutoDialogMouseClicked
+
+    private void btnExcluiItemVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluiItemVendaActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_btnExcluiItemVendaActionPerformed
     
     public void gerarDocumentoCliente() throws IOException, DocumentException{
         String data, hora;
@@ -5068,10 +5429,12 @@ public class PrincipalView extends javax.swing.JFrame {
     private javax.swing.JDialog Produto;
     private javax.swing.JRadioButton RadioCpf;
     private javax.swing.JRadioButton RadioRg;
+    private javax.swing.JTable TabelaItemVenda;
     private javax.swing.JTabbedPane TablePaneCliente;
     private javax.swing.JTabbedPane TablePaneCliente1;
     private javax.swing.JTabbedPane TablePaneFuncionario;
     private javax.swing.JTabbedPane TablePaneProduto;
+    private javax.swing.JButton btnAddItemVendas;
     private javax.swing.JToggleButton btnAlterar;
     private javax.swing.JToggleButton btnAlterar1;
     private javax.swing.JToggleButton btnAlterar2;
@@ -5084,6 +5447,7 @@ public class PrincipalView extends javax.swing.JFrame {
     private javax.swing.JToggleButton btnCancelar1;
     private javax.swing.JToggleButton btnCancelar2;
     private javax.swing.JToggleButton btnCancelar3;
+    private javax.swing.JButton btnExcluiItemVenda;
     private javax.swing.JToggleButton btnExcluir;
     private javax.swing.JToggleButton btnExcluir1;
     private javax.swing.JToggleButton btnExcluir2;
@@ -5144,6 +5508,7 @@ public class PrincipalView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
+    private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel58;
     private javax.swing.JLabel jLabel59;
@@ -5216,13 +5581,13 @@ public class PrincipalView extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JTabbedPane jTabbedPane4;
-    private javax.swing.JTable jTable2;
     private javax.swing.JLabel lblCliente1;
     private javax.swing.JLabel lblFuncionario;
     private javax.swing.JLabel lblProduto;
     private javax.swing.JLabel lblQuantidade;
     private javax.swing.JLabel lblRelatorios;
     private javax.swing.JLabel lblSair;
+    private javax.swing.JLabel lblTotalVenda;
     private javax.swing.JLabel lblUsuario;
     private javax.swing.JLabel lblVenda;
     private javax.swing.JLabel lblVoltar;
@@ -5300,4 +5665,30 @@ public class PrincipalView extends javax.swing.JFrame {
     private javax.swing.JTextField txtUsu;
     private javax.swing.JFrame vendas;
     // End of variables declaration//GEN-END:variables
+
+    private void atualizaTabelaItemVenda() {
+        String dados[][] = new String[venda.getItensVenda().size()][4];
+        int i = 0;
+        for(ItensVenda iv : venda.getItensVenda()){
+            dados[i][0] = iv.getProduto().getNome();
+            dados[i][1] = String.valueOf(iv.getQuantidade());
+            dados[i][2] = String.valueOf(iv.getPreco());
+            dados[i][3] = String.valueOf(iv.getPrecototalitem());
+            i++;
+        }
+        String tituloColuna[] = {"Produto", "Qtde", "Preço Unit.", "Preço Total"};
+        DefaultTableModel tabelaItens = new DefaultTableModel();
+        tabelaItens.setDataVector(dados, tituloColuna);
+        TabelaItemVenda.getColumnModel().getColumn(0).setPreferredWidth(300);
+        TabelaItemVenda.getColumnModel().getColumn(1).setPreferredWidth(300);
+        TabelaItemVenda.getColumnModel().getColumn(2).setPreferredWidth(300);
+        TabelaItemVenda.getColumnModel().getColumn(3).setPreferredWidth(300);
+        
+        DefaultTableCellRenderer centralizado = new DefaultTableCellRenderer();
+        centralizado.setHorizontalAlignment(SwingConstants.CENTER);
+        TabelaItemVenda.getColumnModel().getColumn(0).setCellRenderer(centralizado);
+        TabelaItemVenda.setRowHeight(25);
+        TabelaItemVenda.updateUI();
+        
+    }
 }
