@@ -102,6 +102,7 @@ public class PrincipalView extends javax.swing.JFrame {
         btnExcluir.setEnabled(false);
         btnExcluir1.setEnabled(false);
         btnExcluir2.setEnabled(false);
+        txtIDCliente1.setVisible(false);
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -129,14 +130,14 @@ public class PrincipalView extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         txtNome = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         txtCNPJ = new javax.swing.JFormattedTextField();
         txtCPF = new javax.swing.JFormattedTextField();
-        txtRG = new javax.swing.JFormattedTextField();
         txtNasc = new javax.swing.JFormattedTextField();
         RadioCpf = new javax.swing.JRadioButton();
         RadioRg = new javax.swing.JRadioButton();
+        jLabel7 = new javax.swing.JLabel();
+        txtRG = new javax.swing.JFormattedTextField();
         jPanel6 = new javax.swing.JPanel();
         txtRua = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
@@ -528,10 +529,6 @@ public class PrincipalView extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(26, 26, 26));
         jLabel6.setText("CPF");
 
-        jLabel7.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(26, 26, 26));
-        jLabel7.setText("RG");
-
         jLabel9.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(26, 26, 26));
         jLabel9.setText("Data de Nacimento");
@@ -557,17 +554,6 @@ public class PrincipalView extends javax.swing.JFrame {
         txtCPF.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtCPF.setText("000.000.000-00");
         txtCPF.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
-
-        txtRG.setBackground(new java.awt.Color(231, 233, 237));
-        txtRG.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(104, 129, 164)));
-        try {
-            txtRG.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###.###")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-        txtRG.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtRG.setText("00.000.000");
-        txtRG.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
 
         txtNasc.setBackground(new java.awt.Color(231, 233, 237));
         txtNasc.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(104, 129, 164)));
@@ -606,6 +592,21 @@ public class PrincipalView extends javax.swing.JFrame {
             }
         });
 
+        jLabel7.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(26, 26, 26));
+        jLabel7.setText("RG");
+
+        txtRG.setBackground(new java.awt.Color(231, 233, 237));
+        txtRG.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(104, 129, 164)));
+        try {
+            txtRG.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###.###")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        txtRG.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtRG.setText("00.000.000");
+        txtRG.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
@@ -616,23 +617,27 @@ public class PrincipalView extends javax.swing.JFrame {
                     .addComponent(txtNome)
                     .addComponent(jLabel4)
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addComponent(jLabel6)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(RadioCpf))
-                            .addComponent(jLabel8)
-                            .addComponent(txtCNPJ, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtCPF, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)
+                            .addComponent(jLabel7)
+                            .addComponent(txtRG))
                         .addGap(30, 30, 30)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addComponent(jLabel7)
+                                .addComponent(jLabel8)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(RadioRg))
-                            .addComponent(jLabel9)
-                            .addComponent(txtNasc)
-                            .addComponent(txtRG, javax.swing.GroupLayout.Alignment.TRAILING))))
+                                .addComponent(RadioRg)
+                                .addGap(0, 0, 0))
+                            .addComponent(txtNasc, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel9)
+                                    .addComponent(txtCNPJ, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, 0)))))
                 .addGap(13, 13, 13))
         );
         jPanel5Layout.setVerticalGroup(
@@ -642,26 +647,28 @@ public class PrincipalView extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(RadioCpf)
+                            .addComponent(RadioRg))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtCPF)
+                            .addComponent(txtCNPJ, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(RadioCpf))
-                    .addComponent(RadioRg))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtCPF)
-                    .addComponent(txtRG))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtCNPJ, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtNasc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtNasc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtRG, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
 
         jPanel6.setBackground(new java.awt.Color(211, 211, 211));
@@ -1044,7 +1051,7 @@ public class PrincipalView extends javax.swing.JFrame {
                         .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(11, 11, 11))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         TablePaneCliente.addTab("Novo Cliente", jPanel3);
@@ -2561,7 +2568,7 @@ public class PrincipalView extends javax.swing.JFrame {
         });
         jScrollPane5.setViewportView(tblCliente1);
 
-        jPanel26.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 820, 283));
+        jPanel26.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 820, 430));
 
         btnExcluir3.setBackground(new java.awt.Color(200, 120, 120));
         btnExcluir3.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
@@ -2573,7 +2580,7 @@ public class PrincipalView extends javax.swing.JFrame {
                 btnExcluir3ActionPerformed(evt);
             }
         });
-        jPanel26.add(btnExcluir3, new org.netbeans.lib.awtextra.AbsoluteConstraints(709, 616, 82, 32));
+        jPanel26.add(btnExcluir3, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 560, 82, 32));
 
         btnAlterar3.setBackground(new java.awt.Color(111, 189, 111));
         btnAlterar3.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
@@ -2585,7 +2592,7 @@ public class PrincipalView extends javax.swing.JFrame {
                 btnAlterar3ActionPerformed(evt);
             }
         });
-        jPanel26.add(btnAlterar3, new org.netbeans.lib.awtextra.AbsoluteConstraints(617, 616, 82, 32));
+        jPanel26.add(btnAlterar3, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 560, 82, 32));
 
         TablePaneCliente1.addTab("Vendas", jPanel26);
 
@@ -3826,15 +3833,16 @@ public class PrincipalView extends javax.swing.JFrame {
         } catch (SQLException ex) {
         JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage(), "erro", JOptionPane.WARNING_MESSAGE);
         }       
-        String dados[][] = new String[listaProduto.size()][6];
+        String dados[][] = new String[listaProduto.size()][3];
             int i = 0;
             for (Produto produto : listaProduto) {
                 dados[i][0] = String.valueOf(produto.getId_produto());
                 dados[i][1] = produto.getNome();
+                dados[i][2] = String.valueOf(produto.getUnidade());
                 
                 i++;
             }
-            String tituloColuna[] = {"ID", "Nome"};
+            String tituloColuna[] = {"ID", "Nome","Unitário"};
             DefaultTableModel tabelaProduto = new DefaultTableModel();
             tabelaProduto.setDataVector(dados, tituloColuna);
             tblProdutoDialog.setModel(new DefaultTableModel(dados, tituloColuna) {
@@ -3929,6 +3937,7 @@ public class PrincipalView extends javax.swing.JFrame {
         vendas.setVisible(true);
         atualizaBoxVendedor();
         this.dispose();
+        
     }//GEN-LAST:event_lblVendaMouseClicked
 
     private void lblVendaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblVendaMouseEntered
@@ -4652,23 +4661,23 @@ public class PrincipalView extends javax.swing.JFrame {
     }//GEN-LAST:event_TablePaneProdutoMouseClicked
 
     private void RadioCpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RadioCpfActionPerformed
-        txtRG.setVisible(false);
+        txtCNPJ.setVisible(false);
         txtCPF.setVisible(true);
     }//GEN-LAST:event_RadioCpfActionPerformed
 
     private void RadioRgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RadioRgActionPerformed
         txtCPF.setVisible(false);
-        txtRG.setVisible(true);
+        txtCNPJ.setVisible(true);
     }//GEN-LAST:event_RadioRgActionPerformed
 
     private void RadioCpfMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RadioCpfMouseClicked
-        txtRG.setVisible(false);
+        txtCNPJ.setVisible(false);
         txtCPF.setVisible(true);
     }//GEN-LAST:event_RadioCpfMouseClicked
 
     private void RadioRgMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RadioRgMouseClicked
         txtCPF.setVisible(false);
-        txtRG.setVisible(true);
+        txtCNPJ.setVisible(true);
     }//GEN-LAST:event_RadioRgMouseClicked
 
     private void tblRelatorioProdutoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblRelatorioProdutoMouseClicked
@@ -4711,6 +4720,8 @@ public class PrincipalView extends javax.swing.JFrame {
 
     private void btnSalvar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvar3ActionPerformed
         // TODO add your handling code here:
+        funcionario.setNome(cbxVendedor.getSelectedItem().toString());
+        funcionario.setId_funcionario(cbxVendedor.getSelectedIndex());
         venda.setCliente(cliente);
         venda.setVendedor(funcionario);
         venda.setTotalVenda(Float.valueOf(lblTotalVenda.getText()));
@@ -4777,7 +4788,6 @@ public class PrincipalView extends javax.swing.JFrame {
         atualizaTabelaClienteDialog();
         listaCliente = null;
         if(txtBuscaClienteDialog.getText().equals("")){
-            JOptionPane.showMessageDialog(null, "Digite um nome na busca!","", JOptionPane.WARNING_MESSAGE);
             atualizaTabelaClienteDialog();
         }else{
                     
@@ -4805,10 +4815,6 @@ public class PrincipalView extends javax.swing.JFrame {
         cliente.setNome(txtCliente.getText());
         Cliente.dispose();
     }//GEN-LAST:event_tblClienteDialogMouseClicked
-
-    private void txtQtdeCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtQtdeCaretUpdate
-        txtPrecoTotal.setText(String.valueOf(Float.valueOf(txtQtde.getText())* Float.valueOf(txtPrecoUnit.getText())));
-    }//GEN-LAST:event_txtQtdeCaretUpdate
     
     
     
@@ -4824,11 +4830,11 @@ public class PrincipalView extends javax.swing.JFrame {
         atualizaTabelaItemVenda();
         lblTotalVenda.setText(String.valueOf(totalVenda()));
         
-        txtPrecoUnit.setText("");
+        /*txtPrecoUnit.setText("");
         txtPrecoTotal.setText("");
         txtIdProduto.setText("");
         txtProduto.setText("");
-        txtQtde.setText("");
+        txtQtde.setText("");*/
         
         
     }//GEN-LAST:event_btnAddItemVendasActionPerformed
@@ -4836,7 +4842,6 @@ public class PrincipalView extends javax.swing.JFrame {
     private void txtBuscaProdutoDialogCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtBuscaProdutoDialogCaretUpdate
         // TODO add your handling code here:
         if (txtBuscaProdutoDialog.getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "Digite uma chave para a busca!","", JOptionPane.WARNING_MESSAGE);
             atualizaTabelaProdutoDialog();
         }else{
             
@@ -4865,10 +4870,13 @@ public class PrincipalView extends javax.swing.JFrame {
         // TODO add your handling code here:
         txtIdProduto.setText(tblProdutoDialog.getValueAt(tblProdutoDialog.getSelectedRow(), 0).toString());
         txtProduto.setText(tblProdutoDialog.getValueAt(tblProdutoDialog.getSelectedRow(), 1).toString());
+        txtPrecoUnit.setText(tblProdutoDialog.getValueAt(tblProdutoDialog.getSelectedRow(), 2).toString());
         produto = new Produto();
         produto.setId_produto(Integer.parseInt(txtIdProduto.getText()));
         produto.setNome(txtProduto.getText());
+        produto.setUnidade(Integer.parseInt(txtPrecoUnit.getText()));
         Produto.dispose();
+        txtQtde.setText("1");
     }//GEN-LAST:event_tblProdutoDialogMouseClicked
 
     private void btnExcluiItemVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluiItemVendaActionPerformed
@@ -4876,6 +4884,10 @@ public class PrincipalView extends javax.swing.JFrame {
         atualizaTabelaItemVenda();
         lblTotalVenda.setText(String.valueOf(totalVenda()));
     }//GEN-LAST:event_btnExcluiItemVendaActionPerformed
+
+    private void txtQtdeCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtQtdeCaretUpdate
+    txtPrecoTotal.setText(String.valueOf(Float.valueOf(txtQtde.getText()) * Float.valueOf(txtPrecoUnit.getText())));
+    }//GEN-LAST:event_txtQtdeCaretUpdate
     
     public void gerarDocumentoCliente() throws IOException, DocumentException{
         String data, hora;
@@ -5657,6 +5669,16 @@ public class PrincipalView extends javax.swing.JFrame {
         String tituloColuna[] = {"Produto", "Qtde", "Preço Unit.", "Preço Total"};
         DefaultTableModel tabelaItens = new DefaultTableModel();
         tabelaItens.setDataVector(dados, tituloColuna);
+        TabelaItemVenda.setModel(new DefaultTableModel(dados, tituloColuna) {
+                boolean[] canEdit = new boolean[]{
+                    false, false, false, false, false, false,
+                };
+
+                public boolean isCellEditable(int rowIndex, int columnIndex) {
+                    return canEdit[columnIndex];
+                }
+            });
+        
         TabelaItemVenda.getColumnModel().getColumn(0).setPreferredWidth(300);
         TabelaItemVenda.getColumnModel().getColumn(1).setPreferredWidth(300);
         TabelaItemVenda.getColumnModel().getColumn(2).setPreferredWidth(300);

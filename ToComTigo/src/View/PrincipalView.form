@@ -434,7 +434,7 @@
                                           <Component id="jPanel7" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -479,26 +479,32 @@
                                           <Component id="txtNome" max="32767" attributes="0"/>
                                           <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Group type="102" alignment="0" attributes="0">
-                                              <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                                   <Group type="102" alignment="0" attributes="0">
                                                       <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                                       <Component id="RadioCpf" min="-2" max="-2" attributes="0"/>
                                                   </Group>
-                                                  <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="txtCNPJ" alignment="0" min="-2" pref="149" max="-2" attributes="0"/>
-                                                  <Component id="txtCPF" alignment="0" min="-2" pref="149" max="-2" attributes="0"/>
+                                                  <Component id="txtCPF" alignment="0" pref="149" max="32767" attributes="0"/>
+                                                  <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="txtRG" max="32767" attributes="0"/>
                                               </Group>
                                               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Group type="102" alignment="0" attributes="0">
-                                                      <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+                                                  <Group type="102" attributes="0">
+                                                      <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
                                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                                       <Component id="RadioRg" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                                                   </Group>
-                                                  <Component id="jLabel9" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="txtNasc" max="32767" attributes="0"/>
-                                                  <Component id="txtRG" alignment="1" max="32767" attributes="0"/>
+                                                  <Component id="txtNasc" pref="159" max="32767" attributes="0"/>
+                                                  <Group type="102" attributes="0">
+                                                      <Group type="103" groupAlignment="0" attributes="0">
+                                                          <Component id="jLabel9" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="txtCNPJ" min="-2" pref="149" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                                  </Group>
                                               </Group>
                                           </Group>
                                       </Group>
@@ -513,32 +519,35 @@
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="txtNome" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="1" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="jLabel6" min="-2" pref="22" max="-2" attributes="0"/>
+                                                  <Component id="RadioCpf" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="RadioRg" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="3" attributes="0">
-                                                  <Component id="jLabel6" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+                                                  <Component id="txtCPF" alignment="3" max="32767" attributes="0"/>
+                                                  <Component id="txtCNPJ" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="3" attributes="0">
+                                                  <Component id="jLabel9" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
                                                   <Component id="jLabel7" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
                                               </Group>
-                                              <Component id="RadioCpf" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="3" attributes="0">
+                                                  <Component id="txtNasc" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="txtRG" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace max="32767" attributes="0"/>
                                           </Group>
-                                          <Component id="RadioRg" min="-2" max="-2" attributes="0"/>
+                                          <Group type="102" attributes="0">
+                                              <Component id="jLabel8" min="-2" pref="22" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                          </Group>
                                       </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="txtCPF" alignment="3" max="32767" attributes="0"/>
-                                          <Component id="txtRG" alignment="3" max="32767" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="jLabel8" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
-                                          <Component id="jLabel9" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="txtCNPJ" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="txtNasc" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -604,17 +613,6 @@
                                 <Property name="text" type="java.lang.String" value="CPF"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JLabel" name="jLabel7">
-                              <Properties>
-                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                  <Font name="Shruti" size="14" style="0"/>
-                                </Property>
-                                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                                  <Color blue="1a" green="1a" red="1a" type="rgb"/>
-                                </Property>
-                                <Property name="text" type="java.lang.String" value="RG"/>
-                              </Properties>
-                            </Component>
                             <Component class="javax.swing.JLabel" name="jLabel9">
                               <Properties>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -670,28 +668,6 @@
                                 </Property>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JFormattedTextField" name="txtRG">
-                              <Properties>
-                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                                  <Color blue="ed" green="e9" red="e7" type="rgb"/>
-                                </Property>
-                                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                                  <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                                    <LineBorder>
-                                      <Color PropertyName="color" blue="a4" green="81" red="68" type="rgb"/>
-                                    </LineBorder>
-                                  </Border>
-                                </Property>
-                                <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
-                                  <Format format="##.###.###" subtype="-1" type="5"/>
-                                </Property>
-                                <Property name="horizontalAlignment" type="int" value="0"/>
-                                <Property name="text" type="java.lang.String" value="00.000.000"/>
-                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                  <Font name="Shruti" size="14" style="0"/>
-                                </Property>
-                              </Properties>
-                            </Component>
                             <Component class="javax.swing.JFormattedTextField" name="txtNasc">
                               <Properties>
                                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -741,6 +717,39 @@
                                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="RadioRgMouseClicked"/>
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RadioRgActionPerformed"/>
                               </Events>
+                            </Component>
+                            <Component class="javax.swing.JLabel" name="jLabel7">
+                              <Properties>
+                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                  <Font name="Shruti" size="14" style="0"/>
+                                </Property>
+                                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                  <Color blue="1a" green="1a" red="1a" type="rgb"/>
+                                </Property>
+                                <Property name="text" type="java.lang.String" value="RG"/>
+                              </Properties>
+                            </Component>
+                            <Component class="javax.swing.JFormattedTextField" name="txtRG">
+                              <Properties>
+                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                  <Color blue="ed" green="e9" red="e7" type="rgb"/>
+                                </Property>
+                                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                                  <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                                    <LineBorder>
+                                      <Color PropertyName="color" blue="a4" green="81" red="68" type="rgb"/>
+                                    </LineBorder>
+                                  </Border>
+                                </Property>
+                                <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
+                                  <Format format="##.###.###" subtype="-1" type="5"/>
+                                </Property>
+                                <Property name="horizontalAlignment" type="int" value="0"/>
+                                <Property name="text" type="java.lang.String" value="00.000.000"/>
+                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                  <Font name="Shruti" size="14" style="0"/>
+                                </Property>
+                              </Properties>
                             </Component>
                           </SubComponents>
                         </Container>
@@ -4208,7 +4217,7 @@
                           </AuxValues>
                           <Constraints>
                             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                              <AbsoluteConstraints x="10" y="100" width="820" height="283"/>
+                              <AbsoluteConstraints x="10" y="100" width="820" height="430"/>
                             </Constraint>
                           </Constraints>
 
@@ -4259,7 +4268,7 @@
                           </Events>
                           <Constraints>
                             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                              <AbsoluteConstraints x="709" y="616" width="82" height="32"/>
+                              <AbsoluteConstraints x="710" y="560" width="82" height="32"/>
                             </Constraint>
                           </Constraints>
                         </Component>
@@ -4288,7 +4297,7 @@
                           </Events>
                           <Constraints>
                             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                              <AbsoluteConstraints x="617" y="616" width="82" height="32"/>
+                              <AbsoluteConstraints x="620" y="560" width="82" height="32"/>
                             </Constraint>
                           </Constraints>
                         </Component>

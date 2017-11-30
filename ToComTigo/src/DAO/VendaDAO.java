@@ -19,11 +19,11 @@ import java.util.List;
 public class VendaDAO {
     
    public void salvar (Venda venda) throws SQLException{
-       int idVenda = 0;
+        int idVenda = 0;
         PreparedStatement pst;
         String sql;
         sql = "insert into Venda values(?,?,?,?)";
-        pst = Conexao.getInstance().prepareStatement(sql);
+        pst = Conexao.getInstance().prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
         pst.setInt(1,0);
         pst.setInt(2, venda.getCliente().getId_cliente());
         pst.setInt(3, venda.getVendedor().getId_funcionario());
