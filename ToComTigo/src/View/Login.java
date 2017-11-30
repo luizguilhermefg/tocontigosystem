@@ -98,11 +98,11 @@ public class Login extends javax.swing.JFrame {
         txtSenha.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(94, 109, 206)), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
         jPanel1.add(txtSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 150, 270, 30));
 
-        jButton1.setBackground(new java.awt.Color(130, 239, 200));
+        jButton1.setBackground(new java.awt.Color(73, 92, 151));
         jButton1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(52, 174, 131));
+        jButton1.setForeground(new java.awt.Color(222, 226, 237));
         jButton1.setText("Entrar");
-        jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(100, 223, 179), 2));
+        jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(52, 66, 111), 2));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
