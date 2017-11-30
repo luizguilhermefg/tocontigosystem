@@ -32,6 +32,11 @@ public class Login extends javax.swing.JFrame {
         txtUser.requestFocus();
         btnSair.setUI(new BasicButtonUI());
         btnSair.setBorder(new EmptyBorder(1,1,1,1));
+        
+        
+        PrincipalView principal = new PrincipalView(funcionario);
+        principal.setVisible(true);
+        this.dispose();
     }
 
     /**
@@ -144,45 +149,46 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSairActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        funcionario = new Funcionario();
+        /*funcionario = new Funcionario();
         funcionarioDao = new FuncionarioDAO();
         try {
         if(txtUser.getText().isEmpty())
         {
-            JOptionPane.showMessageDialog(null, "Informe o nome de usuario!");
-            txtUser.requestFocus();
+        JOptionPane.showMessageDialog(null, "Informe o nome de usuario!");
+        txtUser.requestFocus();
         }
         else if(txtSenha.getText().isEmpty())
         {
-            JOptionPane.showMessageDialog(null, "Informe a senha!");
-            txtSenha.requestFocus();
+        JOptionPane.showMessageDialog(null, "Informe a senha!");
+        txtSenha.requestFocus();
         }
         else
         {
-            
-                funcionario = funcionarioDao.buscaLogin(txtUser.getText(), txtSenha.getText());
-                if(funcionario == null)
-                {
-                    JOptionPane.showMessageDialog(null, "Usuario ou senha não encontrado!","Erro", JOptionPane.ERROR_MESSAGE);
-                    txtSenha.setText("");
-                    txtUser.setText("");
-                    txtUser.requestFocus();
-                }
-                else
-                {
-                    PrincipalView principal = new PrincipalView(funcionario);
-                    principal.setVisible(true);
-                    this.dispose();
-                    // comentario pra ir essa merda!
-                    
-                }
-            
-            
+        
+        funcionario = funcionarioDao.buscaLogin(txtUser.getText(), txtSenha.getText());
+        if(funcionario == null)
+        {
+        JOptionPane.showMessageDialog(null, "Usuario ou senha não encontrado!","Erro", JOptionPane.ERROR_MESSAGE);
+        txtSenha.setText("");
+        txtUser.setText("");
+        txtUser.requestFocus();
+        }
+        else
+        {
+        PrincipalView principal = new PrincipalView(funcionario);
+        principal.setVisible(true);
+        this.dispose();
+        // comentario pra ir essa merda!
+        
+        }
+        
+        
         }
         } catch (SQLException ex) {
-                Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
-                
-            }
+        Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        
+        }*/
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
