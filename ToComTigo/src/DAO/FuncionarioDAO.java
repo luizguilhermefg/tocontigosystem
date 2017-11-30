@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-
+//ZZZ
 public class FuncionarioDAO {
     
     public void salvar (Funcionario funcionario) throws SQLException{
@@ -138,5 +138,25 @@ public class FuncionarioDAO {
         pst.setInt(1, funcionario.getId_funcionario());
         pst.execute();
         pst.close();
+    }
+    
+    public Funcionario buscaLogin(String login, String senha) throws SQLException
+    {
+        PreparedStatement pst;
+        String sql;
+        sql = "select * from funcionario where login COLLATE utf8_bin = ? and senha COLLATE utf8_bin = ?";
+        Funcionario funcionario = null;
+        pst = Conexao.getInstance().prepareStatement(sql);
+        pst.setString(1, login);
+        pst.setString(2, senha);
+        pst.executeQuery();
+        
+        ResultSet rs = pst.getResultSet();
+        while (rs.next())
+        {
+            funcionario = new Funcionario(rs.getInt("id_funcionario"), rs.getString("nome"),rs.getString("cpf"),rs.getString("rg")
+            , rs.getString("data_nascimento"),rs.getString("telefone"),rs.getString("login"), rs.getString("senha"), rs.getString("funcao"));
+        }
+        return funcionario;
     }
 }

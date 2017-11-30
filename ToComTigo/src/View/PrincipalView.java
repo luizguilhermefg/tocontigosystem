@@ -55,7 +55,7 @@ public class PrincipalView extends javax.swing.JFrame {
     
     
     Document doc;
-    public PrincipalView() {
+    public PrincipalView(Funcionario funcionario) {
         initComponents();
         
         clientes.setSize(941, 595);

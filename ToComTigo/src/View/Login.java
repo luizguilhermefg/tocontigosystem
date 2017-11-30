@@ -5,6 +5,12 @@
  */
 package View;
 
+import DAO.FuncionarioDAO;
+import Model.Funcionario;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.border.EmptyBorder;
 import javax.swing.plaf.basic.BasicButtonUI;
 
@@ -17,9 +23,13 @@ public class Login extends javax.swing.JFrame {
     /**
      * Creates new form Login
      */
+    Funcionario funcionario;
+    FuncionarioDAO funcionarioDao;
     public Login() {
         initComponents();
-        
+        funcionario = new Funcionario();
+        funcionarioDao = new FuncionarioDAO();
+        txtUser.requestFocus();
         btnSair.setUI(new BasicButtonUI());
         btnSair.setBorder(new EmptyBorder(1,1,1,1));
     }
@@ -39,7 +49,7 @@ public class Login extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         txtUser = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        txtSenha = new javax.swing.JPasswordField();
         jButton1 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         btnSair = new javax.swing.JButton();
@@ -83,11 +93,10 @@ public class Login extends javax.swing.JFrame {
         txtUser.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(94, 109, 206)), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
         jPanel1.add(txtUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 100, 270, 30));
 
-        jPasswordField1.setBackground(new java.awt.Color(252, 252, 252));
-        jPasswordField1.setForeground(new java.awt.Color(38, 40, 57));
-        jPasswordField1.setText("senha");
-        jPasswordField1.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(94, 109, 206)), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
-        jPanel1.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 150, 270, 30));
+        txtSenha.setBackground(new java.awt.Color(252, 252, 252));
+        txtSenha.setForeground(new java.awt.Color(38, 40, 57));
+        txtSenha.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(94, 109, 206)), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
+        jPanel1.add(txtSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 150, 270, 30));
 
         jButton1.setBackground(new java.awt.Color(130, 239, 200));
         jButton1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -135,11 +144,45 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSairActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        
-        PrincipalView principal = new PrincipalView();
-         principal.setVisible(true);
-         this.dispose();
+        funcionario = new Funcionario();
+        funcionarioDao = new FuncionarioDAO();
+        try {
+        if(txtUser.getText().isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "Informe o nome de usuario!");
+            txtUser.requestFocus();
+        }
+        else if(txtSenha.getText().isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "Informe a senha!");
+            txtSenha.requestFocus();
+        }
+        else
+        {
+            
+                funcionario = funcionarioDao.buscaLogin(txtUser.getText(), txtSenha.getText());
+                if(funcionario == null)
+                {
+                    JOptionPane.showMessageDialog(null, "Usuario ou senha não encontrado!","Erro", JOptionPane.ERROR_MESSAGE);
+                    txtSenha.setText("");
+                    txtUser.setText("");
+                    txtUser.requestFocus();
+                }
+                else
+                {
+                    PrincipalView principal = new PrincipalView(funcionario);
+                    principal.setVisible(true);
+                    this.dispose();
+                    // comentario pra ir essa merda!
+                    
+                }
+            
+            
+        }
+        } catch (SQLException ex) {
+                Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+                
+            }
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
@@ -153,7 +196,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPasswordField jPasswordField1;
+    private javax.swing.JPasswordField txtSenha;
     private javax.swing.JTextField txtUser;
     // End of variables declaration//GEN-END:variables
 }

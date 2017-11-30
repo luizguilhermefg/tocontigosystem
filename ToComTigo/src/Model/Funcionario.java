@@ -9,6 +9,7 @@ package Model;
  *
  * @author Leandro
  */
+// ola tudo bem?
 public class Funcionario {
     private int id_funcionario;
     private String nome;
@@ -35,6 +36,13 @@ public class Funcionario {
         this.funcao = funcao;
     }
 
+    public Funcionario(String login, String senha) {
+        this.login = login;
+        this.senha = senha;
+    }
+
+    
+    
     public int getId_funcionario() {
         return id_funcionario;
     }
