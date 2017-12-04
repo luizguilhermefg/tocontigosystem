@@ -3871,6 +3871,9 @@ public class PrincipalView extends javax.swing.JFrame {
         }
         return total;
     }
+      public void CalculaVenda(){
+          txtPrecoTotal.setText(String.valueOf(Float.valueOf(txtQtde.getText()) * Float.valueOf(txtPrecoUnit.getText())));
+      }
     
     // Atualiza Tabela Busca Methods
     public void atualizaTabelaProdutoBuscaDialog(){
@@ -4727,6 +4730,9 @@ public class PrincipalView extends javax.swing.JFrame {
         venda.setTotalVenda(Float.valueOf(lblTotalVenda.getText()));
         try{
             vendadao.salvar(venda);
+            JOptionPane.showMessageDialog(null, "Venda Salva com Sucesso!", "Sucesso!!!", JOptionPane.INFORMATION_MESSAGE);
+            PreparaVendaFull();
+            
         }
             catch(SQLException ex){
                     Logger.getLogger(PrincipalView.class.getName()).log(Level.SEVERE, null, ex);
@@ -4819,8 +4825,12 @@ public class PrincipalView extends javax.swing.JFrame {
     
     
     private void btnAddItemVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddItemVendasActionPerformed
-     
-        // TODO add your handling code here:
+        if( txtIdProduto.getText().isEmpty() || txtProduto.getText().isEmpty() || txtQtde.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Necessário ter os campos preenchidos para realizar venda!", "Erro", JOptionPane.WARNING_MESSAGE);
+            
+        } 
+        else {
+            // TODO add your handling code here:
         itemVenda = new ItensVenda();
         itemVenda.setProduto(produto);
         itemVenda.setPreco(Float.valueOf(txtPrecoUnit.getText()));
@@ -4829,6 +4839,9 @@ public class PrincipalView extends javax.swing.JFrame {
         venda.getItensVenda().add(itemVenda);
         atualizaTabelaItemVenda();
         lblTotalVenda.setText(String.valueOf(totalVenda()));
+        PreparaVenda();
+        }
+        
         
         /*txtPrecoUnit.setText("");
         txtPrecoTotal.setText("");
@@ -4886,7 +4899,13 @@ public class PrincipalView extends javax.swing.JFrame {
     }//GEN-LAST:event_btnExcluiItemVendaActionPerformed
 
     private void txtQtdeCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtQtdeCaretUpdate
-    txtPrecoTotal.setText(String.valueOf(Float.valueOf(txtQtde.getText()) * Float.valueOf(txtPrecoUnit.getText())));
+        if(txtQtde.getText().isEmpty() ){
+            txtQtde.setText("1");
+                
+        }else{
+            CalculaVenda();
+        }
+        
     }//GEN-LAST:event_txtQtdeCaretUpdate
     
     public void gerarDocumentoCliente() throws IOException, DocumentException{
@@ -5409,10 +5428,26 @@ public class PrincipalView extends javax.swing.JFrame {
         tblProduto.clearSelection();
     }
     
+    
     public void PreparaExcluirProduto(){
         btnExcluir2.setEnabled(false);
         btnAlterar2.setEnabled(false);
     }
+    public void PreparaVenda(){
+        txtQtde.setText("1");
+        txtIdProduto.setText("");
+        txtProduto.setText("");
+    }
+    
+    public void PreparaVendaFull(){
+       txtQtde.setText("");
+        txtIdProduto.setText("");
+        txtProduto.setText(""); 
+        txtIdCliente.setText("");
+        txtCliente.setText("");
+    }
+    
+    
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDialog Cliente;
@@ -5691,4 +5726,5 @@ public class PrincipalView extends javax.swing.JFrame {
         TabelaItemVenda.updateUI();
         
     }
+    
 }
