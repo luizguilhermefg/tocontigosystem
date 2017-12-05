@@ -7,6 +7,7 @@ package View;
 
 import DAO.FuncionarioDAO;
 import Model.Funcionario;
+import java.awt.event.KeyEvent;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -92,11 +93,21 @@ public class Login extends javax.swing.JFrame {
         txtUser.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         txtUser.setForeground(new java.awt.Color(38, 40, 57));
         txtUser.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(94, 109, 206)), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
+        txtUser.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtUserKeyPressed(evt);
+            }
+        });
         jPanel1.add(txtUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 100, 270, 30));
 
         txtSenha.setBackground(new java.awt.Color(252, 252, 252));
         txtSenha.setForeground(new java.awt.Color(38, 40, 57));
         txtSenha.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(94, 109, 206)), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
+        txtSenha.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtSenhaKeyPressed(evt);
+            }
+        });
         jPanel1.add(txtSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 150, 270, 30));
 
         jButton1.setBackground(new java.awt.Color(73, 92, 151));
@@ -148,43 +159,83 @@ public class Login extends javax.swing.JFrame {
         funcionario = new Funcionario();
         funcionarioDao = new FuncionarioDAO();
         try {
-        if(txtUser.getText().isEmpty())
-        {
-        JOptionPane.showMessageDialog(null, "Informe o nome de usuario!");
-        txtUser.requestFocus();
-        }
-        else if(txtSenha.getText().isEmpty())
-        {
-        JOptionPane.showMessageDialog(null, "Informe a senha!");
-        txtSenha.requestFocus();
-        }
-        else
-        {
-        
-        funcionario = funcionarioDao.buscaLogin(txtUser.getText(), txtSenha.getText());
-        if(funcionario == null)
-        {
-        JOptionPane.showMessageDialog(null, "Usuario ou senha não encontrado!","Erro", JOptionPane.ERROR_MESSAGE);
-        txtSenha.setText("");
-        txtUser.setText("");
-        txtUser.requestFocus();
-        }
-        else
-        {
-        PrincipalView principal = new PrincipalView(funcionario);
-        principal.setVisible(true);
-        this.dispose();
-        // comentario pra ir essa merda!
-        
-        }
-        
-        
+            if(txtUser.getText().isEmpty())
+            {
+                JOptionPane.showMessageDialog(null, "Informe o nome de usuario!");
+                txtUser.requestFocus();
+            }
+            else if(txtSenha.getText().isEmpty())
+            {
+                JOptionPane.showMessageDialog(null, "Informe a senha!");
+                txtSenha.requestFocus();
+            }
+            else
+            {
+                funcionario = funcionarioDao.buscaLogin(txtUser.getText(), txtSenha.getText());
+                if(funcionario == null)
+            {
+                JOptionPane.showMessageDialog(null, "Usuario ou senha não encontrado!","Erro", JOptionPane.ERROR_MESSAGE);
+                txtSenha.setText("");
+                txtUser.setText("");
+                txtUser.requestFocus();
+            }
+            else
+            {
+            PrincipalView principal = new PrincipalView(funcionario);
+            principal.setVisible(true);
+            this.dispose();
+            // comentario pra ir essa merda!
+
+            }
+
+
         }
         } catch (SQLException ex) {
         Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void txtUserKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUserKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            txtSenha.requestFocusInWindow();
+        } 
+    }//GEN-LAST:event_txtUserKeyPressed
+
+    private void txtSenhaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSenhaKeyPressed
+     if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            funcionario = null;
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            try{
+                if (txtUser.getText().isEmpty()) {
+                   JOptionPane.showMessageDialog(null, "O usuário deve ser preenchido", "Alerta", JOptionPane.INFORMATION_MESSAGE);
+                    txtUser.requestFocus();
+                } else if (txtSenha.getText().isEmpty()) {
+                   JOptionPane.showMessageDialog(null, "A senha deve ser preenchida", "Alerta", JOptionPane.INFORMATION_MESSAGE);
+                    txtSenha.requestFocus();
+                } else {
+                       funcionario = funcionarioDao.buscaLogin(txtUser.getText(), txtSenha.getText());
+                if(funcionario == null)
+                    {
+                        JOptionPane.showMessageDialog(null, "Usuario ou senha não encontrado!","Erro", JOptionPane.ERROR_MESSAGE);
+                        txtSenha.setText("");
+                        txtUser.setText("");
+                        txtUser.requestFocus();
+                    }
+                    else
+                    {
+                        PrincipalView principal = new PrincipalView(funcionario);
+                        principal.setVisible(true);
+                        this.dispose();
+                    }
+                }
+            }
+            catch (SQLException ex) {
+                Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+    }//GEN-LAST:event_txtSenhaKeyPressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

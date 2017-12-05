@@ -3215,6 +3215,8 @@ public class PrincipalView extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
     
+    
+    
     //Pega a lista de vendedores 
     public void atualizaBoxVendedor(){
         cbxVendedor.removeAllItems();
@@ -4900,8 +4902,7 @@ public class PrincipalView extends javax.swing.JFrame {
 
     private void txtQtdeCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtQtdeCaretUpdate
         if(txtQtde.getText().isEmpty() ){
-            txtQtde.setText("1");
-                
+            //txtQtde.setText("1");
         }else{
             CalculaVenda();
         }

@@ -23,6 +23,14 @@ public class Venda {
     public Venda(){
         this.itensVenda = new ArrayList<>();
     }
+
+    public Venda(int codigoVenda, Cliente cliente, Funcionario vendedor, float totalVenda) {
+        this.codigoVenda = codigoVenda;
+        this.cliente = cliente;
+        this.vendedor = vendedor;
+        this.totalVenda = totalVenda;
+    }
+    
     
     public Venda(int idVenda, Cliente cliente, Funcionario vendedor, List<ItensVenda> itensVenda, float totalVenda ){
         this.codigoVenda = idVenda;
