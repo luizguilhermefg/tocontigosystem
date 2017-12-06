@@ -104,6 +104,8 @@ public class PrincipalView extends javax.swing.JFrame {
         btnExcluir1.setEnabled(false);
         btnExcluir2.setEnabled(false);
         txtIDCliente1.setVisible(false);
+        txtIdCliente.setEnabled(false);
+        txtIdProduto.setEnabled(false);
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -630,14 +632,10 @@ public class PrincipalView extends javax.swing.JFrame {
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addComponent(jLabel8)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(RadioRg)
-                                .addGap(0, 0, 0))
+                                .addComponent(RadioRg))
                             .addComponent(txtNasc, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel9)
-                                    .addComponent(txtCNPJ, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, 0)))))
+                            .addComponent(jLabel9)
+                            .addComponent(txtCNPJ, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(13, 13, 13))
         );
         jPanel5Layout.setVerticalGroup(
@@ -665,10 +663,9 @@ public class PrincipalView extends javax.swing.JFrame {
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtNasc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtRG, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
         jPanel6.setBackground(new java.awt.Color(211, 211, 211));
@@ -2838,13 +2835,10 @@ public class PrincipalView extends javax.swing.JFrame {
 
         TabelaItemVenda.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Produto", "Qtde", "Preço Unit", "Preço total"
             }
         ));
         jScrollPane9.setViewportView(TabelaItemVenda);
@@ -4815,9 +4809,21 @@ public class PrincipalView extends javax.swing.JFrame {
     }//GEN-LAST:event_btnExcluir3ActionPerformed
 
     private void btnCancelar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelar3ActionPerformed
-        // TODO add your handling code here:
+        limpacamposvenda();
+        atualizaTabelaItemVendalimpa();
     }//GEN-LAST:event_btnCancelar3ActionPerformed
 
+    public void limpacamposvenda(){
+        TabelaItemVenda.removeAll();
+        cbxVendedor.setSelectedIndex(0);
+        txtCliente.setText("");
+        txtIdCliente.setText("");
+        txtProduto.setText("");
+        txtIdProduto.setText("");
+        txtQtde.setText("");
+        txtPrecoUnit.setText("");
+        txtPrecoTotal.setText("");
+    }
     private void btnSalvar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvar3ActionPerformed
         // TODO add your handling code here:
         funcionario.setNome(cbxVendedor.getSelectedItem().toString());
@@ -4837,6 +4843,8 @@ public class PrincipalView extends javax.swing.JFrame {
             }
         
         atualizaTabelaVenda();
+        atualizaTabelaItemVendalimpa();
+        limpacamposvenda();
     }//GEN-LAST:event_btnSalvar3ActionPerformed
 
     private void btnNovo3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovo3ActionPerformed
@@ -5787,6 +5795,7 @@ public class PrincipalView extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void atualizaTabelaItemVenda() {
+        
         String dados[][] = new String[venda.getItensVenda().size()][4];
         int i = 0;
         for(ItensVenda iv : venda.getItensVenda()){
@@ -5800,6 +5809,43 @@ public class PrincipalView extends javax.swing.JFrame {
         DefaultTableModel tabelaItens = new DefaultTableModel();
         tabelaItens.setDataVector(dados, tituloColuna);
         TabelaItemVenda.setModel(new DefaultTableModel(dados, tituloColuna) {
+                boolean[] canEdit = new boolean[]{
+                    false, false, false, false, false, false,
+                };
+
+                public boolean isCellEditable(int rowIndex, int columnIndex) {
+                    return canEdit[columnIndex];
+                }
+            });
+        
+        TabelaItemVenda.getColumnModel().getColumn(0).setPreferredWidth(300);
+        TabelaItemVenda.getColumnModel().getColumn(1).setPreferredWidth(300);
+        TabelaItemVenda.getColumnModel().getColumn(2).setPreferredWidth(300);
+        TabelaItemVenda.getColumnModel().getColumn(3).setPreferredWidth(300);
+        
+        DefaultTableCellRenderer centralizado = new DefaultTableCellRenderer();
+        centralizado.setHorizontalAlignment(SwingConstants.CENTER);
+        TabelaItemVenda.getColumnModel().getColumn(0).setCellRenderer(centralizado);
+        TabelaItemVenda.setRowHeight(25);
+        TabelaItemVenda.updateUI();
+        
+    }
+    
+    private void atualizaTabelaItemVendalimpa() {
+        venda = new Venda();
+        String dados[][] = new String[venda.getItensVenda().size()][4];
+        int i = 0;
+        for(ItensVenda iv : venda.getItensVenda()){
+            dados[i][0] = iv.getProduto().getNome();
+            dados[i][1] = String.valueOf(iv.getQuantidade());
+            dados[i][2] = String.valueOf(iv.getPreco());
+            dados[i][3] = String.valueOf(iv.getPrecototalitem());
+            i++;
+        }
+        String tituloColuna[] = {"Produto", "Qtde", "Preço Unit.", "Preço Total"};
+        DefaultTableModel tabelaItens = new DefaultTableModel();
+        tabelaItens.setDataVector(dados, tituloColuna);
+        TabelaItemVenda.setModel(new DefaultTableModel(null, tituloColuna) {
                 boolean[] canEdit = new boolean[]{
                     false, false, false, false, false, false,
                 };
