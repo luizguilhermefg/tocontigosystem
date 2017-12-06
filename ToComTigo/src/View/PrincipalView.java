@@ -287,7 +287,6 @@ public class PrincipalView extends javax.swing.JFrame {
         jScrollPane5 = new javax.swing.JScrollPane();
         tbVenda = new javax.swing.JTable();
         btnExcluir3 = new javax.swing.JToggleButton();
-        btnAlterar3 = new javax.swing.JToggleButton();
         jScrollPane10 = new javax.swing.JScrollPane();
         jPanel33 = new javax.swing.JPanel();
         jLabel41 = new javax.swing.JLabel();
@@ -2583,18 +2582,6 @@ public class PrincipalView extends javax.swing.JFrame {
         });
         jPanel26.add(btnExcluir3, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 560, 82, 32));
 
-        btnAlterar3.setBackground(new java.awt.Color(111, 189, 111));
-        btnAlterar3.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
-        btnAlterar3.setForeground(new java.awt.Color(33, 68, 33));
-        btnAlterar3.setText("Alterar");
-        btnAlterar3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(66, 160, 66), 2));
-        btnAlterar3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAlterar3ActionPerformed(evt);
-            }
-        });
-        jPanel26.add(btnAlterar3, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 560, 82, 32));
-
         TablePaneCliente1.addTab("Vendas", jPanel26);
 
         jScrollPane10.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
@@ -3956,6 +3943,42 @@ public class PrincipalView extends javax.swing.JFrame {
             tbVenda.updateUI();
     }
 
+    public void atualizaTabelaVendaBusca(){
+        produto = new Produto();
+  
+        
+        String dados[][] = new String[listaVenda.size()][4];
+            int i = 0;
+            for (Venda vendas : listaVenda) {
+                dados[i][0] = String.valueOf(vendas.getCodigoVenda());
+                dados[i][1] = vendas.getCliente().getNome();
+                dados[i][2] = vendas.getVendedor().getNome();
+                dados[i][3] = String.valueOf(vendas.getTotalVenda());
+                i++;
+            }
+            String tituloColuna[] = {"ID", "Cliente","Vendedor","Valor da Compra"};
+            DefaultTableModel tabelavenda = new DefaultTableModel();
+            tabelavenda.setDataVector(dados, tituloColuna);
+            tbVenda.setModel(new DefaultTableModel(dados, tituloColuna) {
+                boolean[] canEdit = new boolean[]{
+                    false, false,false ,false ,false
+                };
+
+                public boolean isCellEditable(int rowIndex, int columnIndex) {
+                    return canEdit[columnIndex];
+                }
+            });
+
+            tbVenda.getColumnModel().getColumn(0).setPreferredWidth(10);
+            tbVenda.getColumnModel().getColumn(1).setPreferredWidth(200);
+            
+            
+            DefaultTableCellRenderer centralizado = new DefaultTableCellRenderer();
+            centralizado.setHorizontalAlignment(SwingConstants.CENTER);
+            tbVenda.getColumnModel().getColumn(0).setCellRenderer(centralizado);
+            tbVenda.setRowHeight(25);
+            tbVenda.updateUI();
+    }
     
     private void lblSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSairMouseClicked
         this.dispose();
@@ -4748,7 +4771,27 @@ public class PrincipalView extends javax.swing.JFrame {
     }//GEN-LAST:event_lblVoltar4MouseExited
 
     private void btnBuscarCliente1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarCliente1ActionPerformed
-        // TODO add your handling code here:
+        if (txtBuscaCliente1.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Digite uma chave para a busca!","", JOptionPane.WARNING_MESSAGE);
+            atualizaTabelaProduto();
+        }else{
+            
+            try {
+                listaVenda = vendadao.buscaNome(txtBuscaCliente1.getText());
+             
+            if(listaVenda == null){
+                
+                JOptionPane.showMessageDialog(null, "Nenhum Cliente encontrado!","", JOptionPane.WARNING_MESSAGE);
+                atualizaTabelaProduto();
+            }else{
+                atualizaTabelaVendaBusca();
+            }
+            
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage(), "erro", JOptionPane.WARNING_MESSAGE);
+            }       
+            
+        }
     }//GEN-LAST:event_btnBuscarCliente1ActionPerformed
 
     private void tbVendaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbVendaMouseClicked
@@ -4756,12 +4799,20 @@ public class PrincipalView extends javax.swing.JFrame {
     }//GEN-LAST:event_tbVendaMouseClicked
 
     private void btnExcluir3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluir3ActionPerformed
-        // TODO add your handling code here:
+            venda.setCodigoVenda(Integer.parseInt(tbVenda.getValueAt(tbVenda.getSelectedRow(),0).toString()));
+            int confirma = JOptionPane.showConfirmDialog(null, "Deseja excluir: "+ tbVenda.getValueAt(tbVenda.getSelectedRow(),1).toString(),"", JOptionPane.YES_NO_CANCEL_OPTION);
+            if(confirma == JOptionPane.YES_OPTION){
+                try{
+                    vendadao.excluir(venda);
+                    LimparCamposCliente();
+                    txtNome.requestFocusInWindow();
+                }catch(SQLException ex){
+                    JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage(), "erro", JOptionPane.WARNING_MESSAGE);
+                }
+                atualizaTabelaVenda();
+                PreparaExcluirCliente();
+            }
     }//GEN-LAST:event_btnExcluir3ActionPerformed
-
-    private void btnAlterar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterar3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnAlterar3ActionPerformed
 
     private void btnCancelar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelar3ActionPerformed
         // TODO add your handling code here:
@@ -5508,7 +5559,6 @@ public class PrincipalView extends javax.swing.JFrame {
     private javax.swing.JToggleButton btnAlterar;
     private javax.swing.JToggleButton btnAlterar1;
     private javax.swing.JToggleButton btnAlterar2;
-    private javax.swing.JToggleButton btnAlterar3;
     private javax.swing.JButton btnBuscarCliente;
     private javax.swing.JButton btnBuscarCliente1;
     private javax.swing.JButton btnBuscarFuncionario;

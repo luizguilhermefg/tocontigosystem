@@ -20,7 +20,7 @@ public class VendaDAO {
     PreparedStatement pst;
     String sql;
     
-   public void salvar (Venda venda) throws SQLException{
+    public void salvar (Venda venda) throws SQLException{
         int idVenda = 0;
         
         sql = "insert into Venda values(?,?,?,?)";
@@ -39,8 +39,8 @@ public class VendaDAO {
         salvarItensVenda(venda.getItensVenda(), idVenda);
     }
    
-   public void salvarItensVenda (List<ItensVenda> itensVenda, int idVenda) throws SQLException{
-       for(ItensVenda itens : itensVenda){
+    public void salvarItensVenda (List<ItensVenda> itensVenda, int idVenda) throws SQLException{
+        for(ItensVenda itens : itensVenda){
             
             sql = "insert into ItemVenda values(?,?,?,?,?,?)";
             pst = Conexao.getInstance().prepareStatement(sql);
@@ -52,7 +52,17 @@ public class VendaDAO {
             pst.setFloat(6, itens.getPrecototalitem());
             pst.execute();
             pst.close();
-       }
+        }
+    }
+    
+    public void excluir(Venda venda) throws SQLException{
+        PreparedStatement pst;
+        String sql;
+        sql = "delete from venda where id_venda = ? ";
+        pst = Conexao.getInstance().prepareStatement(sql);
+        pst.setInt(1, venda.getCodigoVenda());
+        pst.execute();
+        pst.close();
     }
    
     public List<Venda> listaTodos() throws SQLException{
@@ -75,4 +85,23 @@ public class VendaDAO {
         return listaVenda;
     }
     
+    public List<Venda> buscaNome(String Nome) throws SQLException{
+        PreparedStatement pst;
+        String sql;
+        List<Venda> listaVenda = new ArrayList<>();
+        String name = "%"+Nome+"%";
+        sql = "SELECT * FROM venda v INNER JOIN cliente c ON v.id_cliente = c.id_cliente where c.nome like ?";
+        pst = Conexao.getInstance().prepareStatement(sql);
+        pst.setString(1, name);
+        ResultSet rs = pst.executeQuery();
+        while(rs.next()){
+            listaVenda.add(new Venda(
+                rs.getInt("id_venda"),
+                ClienteDAO.busca(rs.getInt("id_cliente")),
+                FuncionarioDAO.busca(rs.getInt("id_vendedor")),
+                rs.getFloat("totalvenda")));
+        }
+        pst.close();
+        return listaVenda;
+    }
 }
