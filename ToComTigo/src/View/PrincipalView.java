@@ -51,6 +51,7 @@ public class PrincipalView extends javax.swing.JFrame {
     ItensVenda itemVenda = new ItensVenda();
     List<ItensVenda> listaItensVenda;
     Venda venda = new Venda();
+    List<Venda> listaVenda;
     VendaDAO vendadao = new VendaDAO();
     
     
@@ -284,7 +285,7 @@ public class PrincipalView extends javax.swing.JFrame {
         txtBuscaCliente1 = new javax.swing.JTextField();
         btnBuscarCliente1 = new javax.swing.JButton();
         jScrollPane5 = new javax.swing.JScrollPane();
-        tblCliente1 = new javax.swing.JTable();
+        tbVenda = new javax.swing.JTable();
         btnExcluir3 = new javax.swing.JToggleButton();
         btnAlterar3 = new javax.swing.JToggleButton();
         jScrollPane10 = new javax.swing.JScrollPane();
@@ -2549,8 +2550,8 @@ public class PrincipalView extends javax.swing.JFrame {
 
         jPanel26.add(jPanel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, -1, -1));
 
-        tblCliente1.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
-        tblCliente1.setModel(new javax.swing.table.DefaultTableModel(
+        tbVenda.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
+        tbVenda.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -2561,12 +2562,12 @@ public class PrincipalView extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        tblCliente1.addMouseListener(new java.awt.event.MouseAdapter() {
+        tbVenda.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tblCliente1MouseClicked(evt);
+                tbVendaMouseClicked(evt);
             }
         });
-        jScrollPane5.setViewportView(tblCliente1);
+        jScrollPane5.setViewportView(tbVenda);
 
         jPanel26.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 820, 430));
 
@@ -3912,6 +3913,48 @@ public class PrincipalView extends javax.swing.JFrame {
             tblProdutoDialog.updateUI();
     }
     
+    
+    public void atualizaTabelaVenda(){
+        produto = new Produto();
+        
+        try {
+        listaVenda = vendadao.listaTodos();
+        } catch (SQLException ex) {
+        JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage(), "erro", JOptionPane.WARNING_MESSAGE);
+        }       
+        
+        String dados[][] = new String[listaVenda.size()][4];
+            int i = 0;
+            for (Venda vendas : listaVenda) {
+                dados[i][0] = String.valueOf(vendas.getCodigoVenda());
+                dados[i][1] = vendas.getCliente().getNome();
+                dados[i][2] = vendas.getVendedor().getNome();
+                dados[i][3] = String.valueOf(vendas.getTotalVenda());
+                i++;
+            }
+            String tituloColuna[] = {"ID", "Cliente","Vendedor","Valor da Compra"};
+            DefaultTableModel tabelavenda = new DefaultTableModel();
+            tabelavenda.setDataVector(dados, tituloColuna);
+            tbVenda.setModel(new DefaultTableModel(dados, tituloColuna) {
+                boolean[] canEdit = new boolean[]{
+                    false, false,false ,false ,false
+                };
+
+                public boolean isCellEditable(int rowIndex, int columnIndex) {
+                    return canEdit[columnIndex];
+                }
+            });
+
+            tbVenda.getColumnModel().getColumn(0).setPreferredWidth(10);
+            tbVenda.getColumnModel().getColumn(1).setPreferredWidth(200);
+            
+            
+            DefaultTableCellRenderer centralizado = new DefaultTableCellRenderer();
+            centralizado.setHorizontalAlignment(SwingConstants.CENTER);
+            tbVenda.getColumnModel().getColumn(0).setCellRenderer(centralizado);
+            tbVenda.setRowHeight(25);
+            tbVenda.updateUI();
+    }
 
     
     private void lblSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSairMouseClicked
@@ -3941,6 +3984,7 @@ public class PrincipalView extends javax.swing.JFrame {
         
         vendas.setVisible(true);
         atualizaBoxVendedor();
+        atualizaTabelaVenda();
         this.dispose();
         
     }//GEN-LAST:event_lblVendaMouseClicked
@@ -4707,9 +4751,9 @@ public class PrincipalView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnBuscarCliente1ActionPerformed
 
-    private void tblCliente1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblCliente1MouseClicked
+    private void tbVendaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbVendaMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_tblCliente1MouseClicked
+    }//GEN-LAST:event_tbVendaMouseClicked
 
     private void btnExcluir3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluir3ActionPerformed
         // TODO add your handling code here:
@@ -4741,7 +4785,7 @@ public class PrincipalView extends javax.swing.JFrame {
                     
             }
         
-        
+        atualizaTabelaVenda();
     }//GEN-LAST:event_btnSalvar3ActionPerformed
 
     private void btnNovo3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovo3ActionPerformed
@@ -5630,8 +5674,8 @@ public class PrincipalView extends javax.swing.JFrame {
     private javax.swing.JFrame produtos;
     private javax.swing.JFrame relatorios;
     private javax.swing.JSlider sldQuantidade;
+    private javax.swing.JTable tbVenda;
     private javax.swing.JTable tblCliente;
-    private javax.swing.JTable tblCliente1;
     private javax.swing.JTable tblClienteDialog;
     private javax.swing.JTable tblFuncionario;
     private javax.swing.JTable tblProduto;

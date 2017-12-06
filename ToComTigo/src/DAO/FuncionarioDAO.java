@@ -94,7 +94,7 @@ public class FuncionarioDAO {
     
     // Search Funcionario by id DAO Method Created By : "G"
     
-    public Funcionario busca(int id) throws SQLException{
+    static public Funcionario busca(int id) throws SQLException{
         PreparedStatement pst;
         String sql;
         sql = "SELECT * FROM Funcionario WHERE id_funcionario = ?";

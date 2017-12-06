@@ -55,24 +55,24 @@ public class VendaDAO {
        }
     }
    
-    /*public List<Venda> listaTodos() throws SQLException{
+    public List<Venda> listaTodos() throws SQLException{
         List<Venda> listaVenda = new ArrayList<>();
-        sql = "select * from venda order by id desc";
+        sql = "select * from venda ";
         pst = Conexao.getInstance().prepareStatement(sql);
         ResultSet rs = pst.executeQuery();
         
         while(rs.next()){
            listaVenda.add(new Venda(
                    rs.getInt("id_venda"),
-                   rs.getInt("id_cliente"),
-                   rs.getInt("id_vendedor"),
-                   rs.getString("totalvenda")));
+                   ClienteDAO.busca(rs.getInt("id_cliente")),
+                   FuncionarioDAO.busca(rs.getInt("id_vendedor")),
+                   rs.getFloat("totalvenda")));
                    
         }
       
         
         pst.close();
         return listaVenda;
-    }*/
+    }
     
 }

@@ -71,7 +71,7 @@ public class ClienteDAO {
     
     // Search By Id Cliente DAO Method
     // Created By : "G"
-    public Cliente busca(int id) throws SQLException{
+    static public Cliente busca(int id) throws SQLException{
         PreparedStatement pst;
         String sql;
         sql = "SELECT * FROM Cliente WHERE id_cliente = ?";
